@@ -1,0 +1,175 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Project Vault - An archive of built work</title>
+  <meta name="description" content="A curated archive of websites, templates and experiments by Goodstuff Designs. Nineteen projects, each documented, indexed and previewable." />
+  <meta property="og:title" content="The Project Vault - by Goodstuff Designs" />
+  <meta property="og:description" content="An archive of built work - nineteen projects, indexed and previewable." />
+  <meta name="theme-color" content="#000000" />
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <script>document.documentElement.classList.add("js");</script>
+
+  <header class="masthead">
+    <div class="wrap masthead-inner">
+      <a href="#/" class="wordmark"><img class="logo" src="assets/img/logo.svg" alt="" aria-hidden="true" />The Project <em>Vault</em></a>
+      <nav class="mastnav" aria-label="Primary">
+        <a href="#/" data-view="home">Index</a>
+        <a href="#/explorer" data-view="explorer">Explorer</a>
+        <a href="#/gallery" data-view="gallery">Gallery</a>
+        <a href="#/github" data-view="github">GitHub</a>
+        <a href="https://github.com/Code-NameCode" target="_blank" rel="noopener">Profile ↗</a>
+      </nav>
+      <button class="menu-btn" id="navToggle" aria-label="Menu" aria-expanded="false">Menu</button>
+    </div>
+  </header>
+  <nav class="mobile-nav" id="navLinks" aria-label="Mobile">
+    <a href="#/" data-view="home">Index</a>
+    <a href="#/explorer" data-view="explorer">Explorer</a>
+    <a href="#/gallery" data-view="gallery">Gallery</a>
+    <a href="#/github" data-view="github">GitHub</a>
+    <a href="https://github.com/Code-NameCode" target="_blank" rel="noopener">Profile ↗</a>
+  </nav>
+
+  <main id="main">
+    <!-- ================= HOME ================= -->
+    <section class="view" id="view-home">
+
+      <!-- Editorial opening: statement left, live index right -->
+      <section class="opening wrap">
+        <div class="opening-left">
+          <p class="kicker">An archive of built work · by Goodstuff Designs</p>
+          <h1>Nineteen websites,<br />built one at a time,<br /><em>kept in one place.</em></h1>
+          <p class="lede">
+            Every site in this vault was designed, written and shipped from scratch -
+            studios, dashboards, calculators and deliberate experiments. Each entry is
+            documented, classified and previewable. Nothing here is a mock-up.
+          </p>
+          <p class="opening-links">
+            <a href="#/explorer">Browse the full index ↓</a>
+            <a href="#/gallery">View the gallery →</a>
+          </p>
+        </div>
+        <aside class="opening-right" aria-label="Archive facts">
+          <dl class="facts" id="heroStats"></dl>
+        </aside>
+      </section>
+
+      <!-- Featured composition: one large plate, editorial caption -->
+      <section class="wrap feature-plate" id="featurePlate" aria-label="Featured project"></section>
+
+      <!-- Recent accessions as a numbered ledger -->
+      <section class="wrap ledger-block">
+        <div class="rule-head">
+          <h2>Recent accessions</h2>
+          <a href="#/explorer" class="rule-link">Complete index →</a>
+        </div>
+        <ol class="ledger" id="recentLedger"></ol>
+      </section>
+
+      <!-- All projects, plate wall -->
+      <section class="wrap wall-block">
+        <div class="rule-head">
+          <h2>The collection</h2>
+          <p class="rule-note">Plate numbers follow date of accession</p>
+        </div>
+        <div class="wall" id="featuredGrid"></div>
+      </section>
+
+      <!-- Category index -->
+      <section class="wrap cat-block">
+        <div class="rule-head"><h2>Classified under</h2></div>
+        <div class="cat-cols" id="catGrid"></div>
+      </section>
+
+      <!-- GitHub -->
+      <section class="wrap gh-block">
+        <div class="rule-head">
+          <h2>Public repositories</h2>
+          <p class="rule-note">Live from the GitHub API · cached 30 min</p>
+        </div>
+        <div id="githubHome"></div>
+        <p class="rule-note" style="margin-top:18px;"><a class="rule-link" href="https://github.com/Code-NameCode" target="_blank" rel="noopener">github.com/Code-NameCode ↗</a></p>
+      </section>
+    </section>
+
+    <!-- ================= EXPLORER ================= -->
+    <section class="view" id="view-explorer" style="display:none;">
+      <div class="wrap">
+        <header class="page-head">
+          <p class="kicker">Complete index</p>
+          <h1>Explorer</h1>
+          <p class="lede">Search and filter every project in the vault.</p>
+        </header>
+        <div class="toolbar">
+          <div class="search">
+            <input type="search" id="searchInput" placeholder="Search title, notes, technology…" aria-label="Search projects" />
+          </div>
+          <select id="sortSelect" aria-label="Sort projects">
+            <option value="date-desc">Newest first</option>
+            <option value="date-asc">Oldest first</option>
+            <option value="name-asc">A–Z</option>
+            <option value="name-desc">Z–A</option>
+            <option value="category">By category</option>
+          </select>
+        </div>
+        <div class="filter-rows">
+          <div class="filter-row" id="catFilters"></div>
+          <div class="filter-row" id="techFilters"></div>
+        </div>
+        <p class="count-line" id="countLine"></p>
+        <div class="wall" id="explorerGrid"></div>
+        <p class="empty" id="noResults" style="display:none;">Nothing matches. Clear a filter or shorten the search.</p>
+      </div>
+    </section>
+
+    <!-- ================= GALLERY ================= -->
+    <section class="view" id="view-gallery" style="display:none;">
+      <div class="wrap">
+        <header class="page-head">
+          <p class="kicker">Plates</p>
+          <h1>Gallery</h1>
+          <p class="lede">The collection hung by type - every plate is a real project in this repository.</p>
+        </header>
+        <div class="filter-row" id="galleryFilters"></div>
+        <div class="wall gallery" id="galleryGrid"></div>
+      </div>
+    </section>
+
+    <!-- ================= GITHUB ================= -->
+    <section class="view" id="view-github" style="display:none;">
+      <div class="wrap">
+        <header class="page-head">
+          <p class="kicker">GitHub REST API</p>
+          <h1>Repositories</h1>
+          <p class="lede">Public repository data, cached locally with graceful rate-limit handling.</p>
+        </header>
+        <div id="githubFull"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Detail record -->
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-card" id="modalCard"></div>
+  </div>
+
+  <footer class="colophon">
+    <div class="wrap colophon-inner">
+      <p>The Project Vault - an archive of built work.</p>
+      <p><a href="https://github.com/Code-NameCode" target="_blank" rel="noopener" style="color:var(--accent-light);">github.com/Code-NameCode ↗</a> · Index in <code>data/projects.json</code> · ProjectSetOne/ &amp; ProjectSetTwo/ preserved unmodified</p>
+    </div>
+  </footer>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>

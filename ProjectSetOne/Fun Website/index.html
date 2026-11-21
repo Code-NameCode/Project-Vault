@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Goodstuff Designs — Digital, Supercharged | Web Design, Hosting, IT &amp; AI</title>
+<meta name="description" content="Goodstuff Designs is a Heidelberg, South Africa studio building websites, hosting, IT, AI and digital marketing that hits different. We don't decorate templates — we engineer signals.">
+<meta property="og:title" content="Goodstuff Designs — Digital, Supercharged">
+<meta property="og:description" content="Websites, hosting, IT, AI and digital marketing from Heidelberg, South Africa. Work that hits different.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/hero-atmosphere.jpg">
+<meta name="theme-color" content="#080808">
+<link rel="icon" type="image/png" href="assets/mark.png">
+<link rel="preload" as="image" href="assets/hero-atmosphere.jpg">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ▸ NOISE + ATMOSPHERE OVERLAYS -->
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ▸ CUSTOM CURSOR -->
+<div class="cursor" aria-hidden="true">
+  <div class="cursor__dot"></div>
+  <div class="cursor__ring"><span class="cursor__label"></span></div>
+</div>
+
+<!-- ▸ PRELOADER -->
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader__inner">
+    <div class="loader__word" aria-hidden="true">
+      <span>G</span><span>O</span><span>O</span><span>D</span><span>S</span><span>T</span><span>U</span><span>F</span><span>F</span>
+    </div>
+    <div class="loader__meta">
+      <span class="loader__tag">Heidelberg&nbsp;/&nbsp;ZA</span>
+      <span class="loader__count" id="loaderCount">00</span>
+    </div>
+    <div class="loader__bar"><i id="loaderBar"></i></div>
+  </div>
+</div>
+
+<!-- ▸ FLOATING NAV -->
+<header class="nav" id="nav">
+  <a href="#top" class="nav__logo" data-magnetic aria-label="Goodstuff Designs — home">
+    <img src="assets/mark.png" alt="" width="34" height="34">
+    <span>Goodstuff<em>®</em></span>
+  </a>
+  <div class="nav__right">
+    <a href="#contact" class="nav__cta" data-magnetic>Start a project</a>
+    <button class="nav__burger" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="menu" data-magnetic>
+      <i></i><i></i>
+    </button>
+  </div>
+</header>
+
+<!-- ▸ FULL SCREEN MENU -->
+<div class="menu" id="menu" aria-hidden="true">
+  <div class="menu__bg" aria-hidden="true"></div>
+  <nav class="menu__links" aria-label="Main navigation">
+    <a href="#work"     data-menu-link style="--i:0"><small>01</small>Work</a>
+    <a href="#services" data-menu-link style="--i:1"><small>02</small>Services</a>
+    <a href="#proof"    data-menu-link style="--i:2"><small>03</small>The Difference</a>
+    <a href="#studio"   data-menu-link style="--i:3"><small>04</small>Studio</a>
+    <a href="#contact"  data-menu-link style="--i:4"><small>05</small>Contact</a>
+  </nav>
+  <div class="menu__foot">
+    <a href="mailto:info@goodstuffdesigns.co.za">info@goodstuffdesigns.co.za</a>
+    <a href="https://wa.me/27799374801" target="_blank" rel="noopener">WhatsApp +27 79 937 4801</a>
+    <span>Heidelberg, South Africa</span>
+  </div>
+</div>
+
+<!-- ▸ SMOOTH SCROLL WRAPPER -->
+<main id="smooth" class="smooth">
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero" id="top" aria-label="Intro">
+    <canvas id="field" class="hero__field" aria-hidden="true"></canvas>
+    <div class="hero__atmo" data-parallax="-0.18" aria-hidden="true"></div>
+
+    <div class="hero__content">
+      <p class="hero__eyebrow reveal-line"><span class="reveal-line__inner">Goodstuff Designs — Heidelberg, South Africa</span></p>
+      <h1 class="hero__title" data-split>
+        <span class="line">DIGITAL</span>
+        <span class="line line--indent">THAT HITS</span>
+        <span class="line line--outline">DIFFERENT<i class="tick">.</i></span>
+      </h1>
+      <div class="hero__row">
+        <p class="hero__statement reveal-line"><span class="reveal-line__inner">We build websites, hosting, IT, AI and marketing
+        that doesn’t just exist — it transmits. Engineered in Heidelberg,
+        heard everywhere.</span></p>
+        <div class="hero__ctas">
+          <a href="#contact" class="btn btn--solid" data-magnetic><span>Start a project</span><b>→</b></a>
+          <a href="#work" class="btn btn--ghost" data-magnetic><span>Explore the work</span><b>↓</b></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero__scroll" aria-hidden="true">
+      <span>Scroll</span><i></i>
+    </div>
+    <div class="hero__side" aria-hidden="true">EST. HEIDELBERG&nbsp;/&nbsp;GAUTENG&nbsp;/&nbsp;ZA — SIGNAL 01</div>
+  </section>
+
+  <!-- ═══ MARQUEE ═══ -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span>Web&nbsp;Design&nbsp;<b>✦</b>&nbsp;Hosting&nbsp;<b>✦</b>&nbsp;IT&nbsp;<b>✦</b>&nbsp;AI&nbsp;<b>✦</b>&nbsp;Digital&nbsp;Marketing&nbsp;<b>✦</b>&nbsp;</span>
+      <span>Web&nbsp;Design&nbsp;<b>✦</b>&nbsp;Hosting&nbsp;<b>✦</b>&nbsp;IT&nbsp;<b>✦</b>&nbsp;AI&nbsp;<b>✦</b>&nbsp;Digital&nbsp;Marketing&nbsp;<b>✦</b>&nbsp;</span>
+      <span>Web&nbsp;Design&nbsp;<b>✦</b>&nbsp;Hosting&nbsp;<b>✦</b>&nbsp;IT&nbsp;<b>✦</b>&nbsp;AI&nbsp;<b>✦</b>&nbsp;Digital&nbsp;Marketing&nbsp;<b>✦</b>&nbsp;</span>
+    </div>
+  </div>
+
+  <!-- ═══ WORK ═══ -->
+  <section class="work" id="work" aria-label="Selected work">
+    <header class="sec-head">
+      <h2 class="sec-title" data-split><span class="line">SELECTED</span><span class="line line--indent line--outline">SIGNALS<i class="tick">.</i></span></h2>
+      <p class="sec-note reveal-line"><span class="reveal-line__inner">Four transmissions from the archive. Hover to energise,
+      open to go deeper.</span></p>
+    </header>
+
+    <div class="work__grid">
+      <article class="card card--a" data-case="web">
+        <div class="card__media" data-parallax-img><img src="assets/work-web.jpg" alt="Wireframe terrain visual for the Meridian Brew web build" loading="lazy"></div>
+        <div class="card__info">
+          <span class="card__idx">01 / WEB DESIGN</span>
+          <h3>Meridian Brew</h3>
+          <p>E-commerce with a heartbeat — a roastery site that pours as good as it looks.</p>
+          <span class="card__open">Open case <b>+</b></span>
+        </div>
+      </article>
+
+      <article class="card card--b" data-case="ai">
+        <div class="card__media" data-parallax-img><img src="assets/work-ai.jpg" alt="Particle nebula visual for the Atlas AI assistant" loading="lazy"></div>
+        <div class="card__info">
+          <span class="card__idx">02 / AI</span>
+          <h3>Atlas AI</h3>
+          <p>A sales assistant that reads 40 000 products so your team never has to.</p>
+          <span class="card__open">Open case <b>+</b></span>
+        </div>
+      </article>
+
+      <article class="card card--c" data-case="brand">
+        <div class="card__media" data-parallax-img><img src="assets/work-brand.jpg" alt="Glass ring composition for the Kinetic rebrand" loading="lazy"></div>
+        <div class="card__info">
+          <span class="card__idx">03 / BRAND &amp; MARKETING</span>
+          <h3>Kinetic Rebrand</h3>
+          <p>Identity, campaign and content engine for a logistics disruptor.</p>
+          <span class="card__open">Open case <b>+</b></span>
+        </div>
+      </article>
+
+      <article class="card card--d" data-case="host">
+        <div class="card__media" data-parallax-img><img src="assets/work-host.jpg" alt="Light streak visual for the Vaultwall infrastructure build" loading="lazy"></div>
+        <div class="card__info">
+          <span class="card__idx">04 / HOSTING &amp; IT</span>
+          <h3>Vaultwall</h3>
+          <p>Managed hosting and IT for 60 businesses — boring reliability, on purpose.</p>
+          <span class="card__open">Open case <b>+</b></span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ═══ HORIZONTAL GALLERY ═══ -->
+  <section class="hgal" id="gallery" aria-label="Studio gallery">
+    <div class="hgal__pin">
+      <div class="hgal__track" id="hgalTrack">
+        <div class="hgal__panel hgal__panel--intro">
+          <h2>THE<br>STUDIO<br><em>IN MOTION</em></h2>
+          <p>Keep scrolling — the wall slides sideways.<span class="hgal__hint">→</span></p>
+        </div>
+        <figure class="hgal__panel" data-cap="Night shift — the grid never sleeps"><img src="assets/gallery-1.jpg" alt="Abstract circuit grid glowing emerald" loading="lazy"></figure>
+        <figure class="hgal__panel" data-cap="Signal tests, 02:14 AM"><img src="assets/gallery-2.jpg" alt="Field of lime particles over a dark grid" loading="lazy"></figure>
+        <figure class="hgal__panel" data-cap="Orbits — how we like our ideas"><img src="assets/gallery-3.jpg" alt="Emerald orbital rings over an aurora" loading="lazy"></figure>
+        <div class="hgal__panel hgal__panel--outro">
+          <p>Made between coffee refills<br>and deploy windows.</p>
+          <a href="#contact" class="btn btn--solid" data-magnetic><span>Join the wall</span><b>→</b></a>
+        </div>
+      </div>
+      <div class="hgal__cap" id="hgalCap" aria-hidden="true"></div>
+      <div class="hgal__progress" aria-hidden="true"><i id="hgalBar"></i></div>
+    </div>
+  </section>
+
+  <!-- ═══ SERVICES (expandable) ═══ -->
+  <section class="services" id="services" aria-label="Services">
+    <header class="sec-head">
+      <h2 class="sec-title" data-split><span class="line">WHAT WE</span><span class="line line--indent line--outline">TRANSMIT<i class="tick">.</i></span></h2>
+      <p class="sec-note reveal-line"><span class="reveal-line__inner">Four frequencies, one studio. Open a channel.</span></p>
+    </header>
+
+    <div class="acc">
+      <details class="acc__item" open>
+        <summary>
+          <span class="acc__num">01</span>
+          <span class="acc__name">Web Design &amp; Development</span>
+          <span class="acc__ico" aria-hidden="true"></span>
+        </summary>
+        <div class="acc__body">
+          <p>Sites built like products, not brochures. Strategy, design, copy, build, launch — then we stay to make it earn. Fast, findable, and impossible to confuse with a template.</p>
+          <ul><li>UX &amp; UI design</li><li>WordPress &amp; custom builds</li><li>E-commerce</li><li>SEO foundations</li></ul>
+        </div>
+      </details>
+      <details class="acc__item">
+        <summary>
+          <span class="acc__num">02</span>
+          <span class="acc__name">Hosting &amp; IT</span>
+          <span class="acc__ico" aria-hidden="true"></span>
+        </summary>
+        <div class="acc__body">
+          <p>The boring reliability layer. Managed hosting, domains, email, backups, support that answers in minutes — so the exciting stuff never has an excuse.</p>
+          <ul><li>Managed hosting &amp; domains</li><li>Business email &amp; backups</li><li>On-site &amp; remote IT support</li><li>Security &amp; monitoring</li></ul>
+        </div>
+      </details>
+      <details class="acc__item">
+        <summary>
+          <span class="acc__num">03</span>
+          <span class="acc__name">AI Solutions</span>
+          <span class="acc__ico" aria-hidden="true"></span>
+        </summary>
+        <div class="acc__body">
+          <p>Practical AI, wired into your actual workflow — assistants that know your catalogue, automations that kill busywork, and content systems with a human heartbeat.</p>
+          <ul><li>Custom AI assistants</li><li>Workflow automation</li><li>Content generation systems</li><li>Data capture &amp; insights</li></ul>
+        </div>
+      </details>
+      <details class="acc__item">
+        <summary>
+          <span class="acc__num">04</span>
+          <span class="acc__name">Digital Marketing</span>
+          <span class="acc__ico" aria-hidden="true"></span>
+        </summary>
+        <div class="acc__body">
+          <p>Posts, ads, campaigns and content that carry a brand’s voice — measured, tuned and repeated until the phone rings.</p>
+          <ul><li>Social media management</li><li>Paid campaigns</li><li>Content production</li><li>Analytics &amp; reporting</li></ul>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ═══ INTERACTIVE PROOF (drag comparison) ═══ -->
+  <section class="proof" id="proof" aria-label="The difference, live">
+    <header class="sec-head">
+      <h2 class="sec-title" data-split><span class="line">SEE THE</span><span class="line line--indent line--outline">DIFFERENCE<i class="tick">.</i></span></h2>
+      <p class="sec-note reveal-line"><span class="reveal-line__inner">Drag the handle. Left: template thinking. Right: Goodstuff engineering.
+      Same business — different signal.</span></p>
+    </header>
+
+    <div class="cmp" id="cmp">
+      <div class="cmp__pane cmp__pane--before" aria-hidden="true">
+        <div class="mock mock--before">
+          <div class="mock__bar"><i></i><i></i><i></i></div>
+          <div class="mock__hero"><span>WELCOME TO OUR WEBSITE</span><span class="mock__btn">Click here</span></div>
+          <div class="mock__cards"><i></i><i></i><i></i></div>
+          <span class="mock__tag">BEFORE — 61/100 · 4.8s load</span>
+        </div>
+      </div>
+      <div class="cmp__pane cmp__pane--after" id="cmpAfter" aria-hidden="true">
+        <div class="mock mock--after">
+          <div class="mock__bar"><i></i><i></i><i></i></div>
+          <div class="mock__hero"><span>BUILT TO<br><em>TRANSMIT</em></span><span class="mock__btn mock__btn--live">Get a quote</span></div>
+          <div class="mock__cards mock__cards--live"><i></i><i></i><i></i></div>
+          <span class="mock__tag">AFTER — 98/100 · 0.9s load</span>
+        </div>
+      </div>
+      <div class="cmp__handle" id="cmpHandle" role="slider" tabindex="0" aria-label="Comparison slider — arrow keys to move" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+        <span>◄&nbsp;&nbsp;DRAG&nbsp;&nbsp;►</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ STUDIO MANIFESTO ═══ -->
+  <section class="studio" id="studio" aria-label="Studio manifesto">
+    <div class="studio__float studio__float--a" data-parallax="0.22" aria-hidden="true"></div>
+    <div class="studio__float studio__float--b" data-parallax="-0.14" aria-hidden="true"></div>
+    <p class="studio__manifesto" id="manifesto">
+      Most agencies decorate. <em>We engineer.</em> Every pixel earns its place, every
+      millisecond is fought for, every word carries weight — because in a town
+      like Heidelberg, standing out isn’t vanity. <em>It’s survival.</em>
+    </p>
+    <div class="studio__stats">
+      <div class="stat"><span class="stat__num" data-count="99.9" data-suffix="%">0</span><span class="stat__label">uptime, hosted &amp; watched</span></div>
+      <div class="stat"><span class="stat__num" data-count="120" data-suffix="+">0</span><span class="stat__label">projects shipped</span></div>
+      <div class="stat"><span class="stat__num" data-count="2" data-prefix="&lt;" data-suffix="h">0</span><span class="stat__label">average support reply</span></div>
+      <div class="stat"><span class="stat__num" data-count="10" data-suffix="yr">0</span><span class="stat__label">of screens, cables &amp; code</span></div>
+    </div>
+  </section>
+
+  <!-- ═══ CONTACT / FOOTER ═══ -->
+  <footer class="contact" id="contact" aria-label="Contact">
+    <div class="contact__atmo" aria-hidden="true"></div>
+    <p class="contact__eyebrow reveal-line"><span class="reveal-line__inner">Ready when you are —</span></p>
+    <a class="contact__mega" href="mailto:info@goodstuffdesigns.co.za" data-magnetic>
+      LET’S MAKE<br><span class="line--outline">NOISE<i class="tick">.</i></span>
+    </a>
+    <div class="contact__grid">
+      <div>
+        <span class="contact__label">Email</span>
+        <a href="mailto:info@goodstuffdesigns.co.za" class="contact__link">info@goodstuffdesigns.co.za</a>
+      </div>
+      <div>
+        <span class="contact__label">WhatsApp</span>
+        <a href="https://wa.me/27799374801" target="_blank" rel="noopener" class="contact__link">+27 79 937 4801</a>
+      </div>
+      <div>
+        <span class="contact__label">Studio</span>
+        <span class="contact__link">Heidelberg, Gauteng,<br>South Africa</span>
+      </div>
+      <div>
+        <span class="contact__label">Menu</span>
+        <nav class="contact__links" aria-label="Footer navigation">
+          <a href="#work">Work</a><a href="#services">Services</a><a href="#proof">The Difference</a><a href="#studio">Studio</a>
+        </nav>
+      </div>
+    </div>
+    <div class="contact__base">
+      <img src="assets/logo.png" alt="Goodstuff Designs" width="184" height="29">
+      <span>© <span id="year">2026</span> Goodstuff Designs — engineered to transmit.</span>
+      <a href="#top" class="toTop" data-magnetic>Back to top ↑</a>
+    </div>
+  </footer>
+
+</main>
+
+<!-- ═══ CASE OVERLAY ═══ -->
+<div class="case" id="case" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="caseTitle">
+  <div class="case__scrim" data-case-close></div>
+  <article class="case__panel">
+    <button class="case__close" data-case-close aria-label="Close case study">✕</button>
+    <div class="case__media"><img id="caseImg" src="" alt=""></div>
+    <div class="case__body">
+      <span class="case__kicker" id="caseKicker"></span>
+      <h3 id="caseTitle"></h3>
+      <p id="caseLead"></p>
+      <dl class="case__facts">
+        <div><dt>Scope</dt><dd id="caseScope"></dd></div>
+        <div><dt>Stack</dt><dd id="caseStack"></dd></div>
+        <div><dt>Outcome</dt><dd id="caseOut"></dd></div>
+      </dl>
+      <a href="#contact" class="btn btn--solid" data-magnetic data-case-close><span>Build something like this</span><b>→</b></a>
+    </div>
+  </article>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FORMA — Architecture Studio | Spaces shaped by light and silence</title>
+
+  <!-- SEO -->
+  <meta name="description" content="FORMA is a premium architecture studio crafting residences, cultural spaces and quiet monuments from light, material and silence." />
+  <meta name="keywords" content="architecture studio, premium architecture, residential design, cultural buildings, FORMA" />
+  <meta name="author" content="FORMA Studio" />
+  <link rel="canonical" href="https://forma-studio.example.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="FORMA — Architecture Studio" />
+  <meta property="og:description" content="We build with light, material and silence." />
+  <meta property="og:image" content="https://picsum.photos/seed/forma-og/1200/630" />
+  <meta property="og:url" content="https://forma-studio.example.com/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Archivo:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ===================== PRELOADER ===================== -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader__inner">
+      <svg class="preloader__mark" viewBox="0 0 64 64" width="56" height="56" aria-hidden="true">
+        <rect class="mark-frame" x="6" y="6" width="52" height="52" fill="none" stroke="currentColor" stroke-width="2"/>
+        <line class="mark-diag" x1="6" y1="58" x2="58" y2="6" stroke="currentColor" stroke-width="2"/>
+      </svg>
+      <p class="preloader__count" id="preloaderCount">00</p>
+    </div>
+  </div>
+
+  <!-- ===================== CUSTOM CURSOR ===================== -->
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="#hero" class="nav__wordmark" data-magnetic aria-label="FORMA — back to top">
+        <svg viewBox="0 0 22 22" width="20" height="20" aria-hidden="true">
+          <rect x="2" y="2" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <line x1="2" y1="20" x2="20" y2="2" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+        <span>FORMA</span>
+      </a>
+
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#projects" data-magnetic>Projects</a>
+        <a href="#philosophy" data-magnetic>Studio</a>
+        <a href="#services" data-magnetic>Services</a>
+        <a href="#team" data-magnetic>Team</a>
+        <a href="#contact" class="nav__cta" data-magnetic>Contact</a>
+      </nav>
+
+      <button class="nav__toggle" id="menuToggle" aria-expanded="false" aria-controls="overlayMenu" aria-label="Open menu">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Full-screen overlay menu (mobile / all sizes via toggle) -->
+  <div class="overlay-menu" id="overlayMenu" aria-hidden="true" role="dialog" aria-label="Menu">
+    <nav class="overlay-menu__links" aria-label="Menu">
+      <a href="#projects"><span class="overlay-num">01</span>Projects</a>
+      <a href="#philosophy"><span class="overlay-num">02</span>Studio</a>
+      <a href="#services"><span class="overlay-num">03</span>Services</a>
+      <a href="#team"><span class="overlay-num">04</span>Team</a>
+      <a href="#contact"><span class="overlay-num">05</span>Contact</a>
+    </nav>
+    <p class="overlay-menu__foot">hello@forma.studio — Lisbon · Copenhagen</p>
+  </div>
+
+  <main id="main">
+
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" id="hero" aria-label="Introduction">
+      <div class="hero__media" data-parallax>
+        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1920&q=80"
+             data-fallback="https://picsum.photos/seed/forma-hero/1920/1280"
+             alt="Mountain ridge at dusk — atmosphere study for the studio's landscape-led work"
+             loading="eager" decoding="async"
+             onerror="this.onerror=null;this.src=this.dataset.fallback;" />
+      </div>
+      <div class="hero__scrim" aria-hidden="true"></div>
+
+      <div class="hero__content">
+        <p class="hero__eyebrow reveal-line"><span>Architecture &amp; Interiors — est. 2009</span></p>
+        <h1 class="hero__title">
+          <span class="mask-line"><span>We build with</span></span>
+          <span class="mask-line"><span>light <em>and</em> silence</span></span>
+        </h1>
+        <p class="hero__sub mask-line"><span>Residences, cultural spaces and quiet monuments — drawn slowly, built to outlast us.</span></p>
+        <div class="hero__actions">
+          <a href="#contact" class="btn btn--primary" data-magnetic>Start a project</a>
+          <a href="#projects" class="btn btn--ghost" data-magnetic>View work</a>
+        </div>
+      </div>
+
+      <div class="hero__scrollcue" aria-hidden="true">
+        <span class="hero__scrollcue-label">Scroll</span>
+        <span class="hero__scrollcue-line"></span>
+      </div>
+    </section>
+
+    <!-- ===================== FEATURED PROJECTS ===================== -->
+    <section class="projects" id="projects" aria-label="Featured projects">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <h2 class="section-head__title">Selected work</h2>
+          <p class="section-head__note">Six projects, six conversations with a site.</p>
+        </header>
+
+        <div class="projects__list" id="projectsList"><!-- built by script.js for DRY --></div>
+      </div>
+    </section>
+
+    <!-- ===================== ABOUT / PHILOSOPHY ===================== -->
+    <section class="philosophy" id="philosophy" aria-label="Studio philosophy">
+      <div class="container philosophy__grid">
+        <div class="philosophy__text" data-reveal>
+          <h2 class="section-head__title">The studio</h2>
+          <p class="philosophy__lede">
+            FORMA is fourteen architects who believe a building should feel
+            inevitable — as if the site had been waiting for it.
+          </p>
+          <p>
+            We work slowly and in section. Every project begins with the path of
+            the sun, the grain of the ground and the material within a day's
+            walk. What follows is not decoration but consequence: walls placed
+            to hold an afternoon shadow, apertures cut for a single view.
+          </p>
+          <p>
+            The result is architecture that is quiet at first glance and inexhaustible
+            at second — buildings people keep discovering, and keep.
+          </p>
+        </div>
+
+        <ul class="stats" id="stats" aria-label="Studio in numbers">
+          <li class="stat" data-reveal>
+            <span class="stat__num" data-count="87">0</span>
+            <span class="stat__label">built projects</span>
+          </li>
+          <li class="stat" data-reveal>
+            <span class="stat__num" data-count="23">0</span>
+            <span class="stat__label">international awards</span>
+          </li>
+          <li class="stat" data-reveal>
+            <span class="stat__num" data-count="11">0</span>
+            <span class="stat__label">countries</span>
+          </li>
+          <li class="stat" data-reveal>
+            <span class="stat__num" data-count="16">0</span>
+            <span class="stat__label">years of practice</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== SERVICES ===================== -->
+    <section class="services" id="services" aria-label="Services">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <h2 class="section-head__title">What we do</h2>
+          <p class="section-head__note">From first sketch to final key.</p>
+        </header>
+
+        <div class="accordion" id="servicesAccordion"><!-- built by script.js --></div>
+      </div>
+    </section>
+
+    <!-- ===================== TEAM ===================== -->
+    <section class="team" id="team" aria-label="Team">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <h2 class="section-head__title">People</h2>
+          <p class="section-head__note">The four partners, and the studio behind them.</p>
+        </header>
+
+        <div class="team__grid" id="teamGrid"><!-- built by script.js --></div>
+      </div>
+    </section>
+
+    <!-- ===================== AWARDS / PRESS MARQUEE ===================== -->
+    <section class="press" aria-label="Awards and press">
+      <h2 class="visually-hidden">Awards and press</h2>
+      <div class="marquee" data-marquee>
+        <div class="marquee__track" id="marqueeTrack"><!-- built by script.js --></div>
+      </div>
+    </section>
+
+    <!-- ===================== CONTACT ===================== -->
+    <section class="contact" id="contact" aria-label="Contact">
+      <div class="container contact__grid">
+        <div class="contact__info" data-reveal>
+          <h2 class="section-head__title">Enquire</h2>
+          <p class="contact__lede">Tell us about the site, the brief, the budget's honesty. We reply within two working days.</p>
+          <address class="contact__details">
+            <p>Rua do Alecrim 12<br />1200-017 Lisboa, Portugal</p>
+            <p><a href="mailto:hello@forma.studio" data-magnetic>hello@forma.studio</a><br /><a href="tel:+351210000000" data-magnetic>+351 21 000 0000</a></p>
+          </address>
+        </div>
+
+        <form class="contact__form" id="contactForm" novalidate data-reveal>
+          <div class="field">
+            <label for="fName">Name</label>
+            <input type="text" id="fName" name="name" required autocomplete="name" />
+            <p class="field__error" id="errName" role="alert" hidden>Please tell us your name.</p>
+          </div>
+          <div class="field">
+            <label for="fEmail">Email</label>
+            <input type="email" id="fEmail" name="email" required autocomplete="email" />
+            <p class="field__error" id="errEmail" role="alert" hidden>That email doesn't look right.</p>
+          </div>
+          <div class="field">
+            <label for="fMsg">Project</label>
+            <textarea id="fMsg" name="message" rows="5" required></textarea>
+            <p class="field__error" id="errMsg" role="alert" hidden>A sentence about the project helps.</p>
+          </div>
+          <button type="submit" class="btn btn--primary" data-magnetic>Send enquiry</button>
+          <p class="form-success" id="formSuccess" role="status" hidden>Thank you — your enquiry is noted. We reply within two working days.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer" aria-label="Footer">
+    <div class="container">
+      <p class="footer__wordmark" aria-hidden="true">FORMA</p>
+      <div class="footer__row">
+        <nav class="footer__social" aria-label="Social links">
+          <a href="#" data-magnetic>Instagram</a>
+          <a href="#" data-magnetic>Are.na</a>
+          <a href="#" data-magnetic>LinkedIn</a>
+        </nav>
+        <p class="footer__legal">© 2025 FORMA Studio — Lisbon · Copenhagen · Photography via Unsplash (placeholder imagery)</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================== LIGHTBOX ===================== -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle" hidden>
+    <button class="lightbox__close" id="lightboxClose" aria-label="Close project detail">×</button>
+    <figure class="lightbox__figure">
+      <img id="lightboxImg" src="" alt="" />
+      <figcaption>
+        <h3 id="lightboxTitle"></h3>
+        <p id="lightboxMeta"></p>
+        <p id="lightboxDesc"></p>
+      </figcaption>
+    </figure>
+  </div>
+
+  <!-- ===================== LIBS (CDN) ===================== -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

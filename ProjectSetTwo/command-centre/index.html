@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AXIOM — The Operations Command Centre</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="grid-overlay" aria-hidden="true"></div>
+<div class="scanline" aria-hidden="true"></div>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <a class="brand" href="#top">
+    <span class="brand-mark"></span>
+    <span class="brand-name">AXIOM<span class="brand-dim">/OS</span></span>
+  </a>
+  <nav class="nav-links">
+    <a href="#demo">Platform</a>
+    <a href="#capabilities">Capabilities</a>
+    <a href="#performance">Performance</a>
+    <a href="#features">Features</a>
+    <a href="#integrations">Integrations</a>
+    <a href="#pricing">Pricing</a>
+  </nav>
+  <a href="#contact" class="btn btn-primary btn-sm">Request access</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <div class="badge"><span class="pulse-dot"></span> SYSTEM STATUS: OPERATIONAL · v4.2</div>
+      <h1>Complex operations,<br /><span class="accent-blue">reduced to</span><br /><span class="accent-lime">a single console.</span></h1>
+      <p class="lede">AXIOM unifies your data pipelines, workflows and telemetry into one deterministic command centre. Configure once. Observe everything. Act in milliseconds.</p>
+      <div class="hero-actions">
+        <a href="#demo" class="btn btn-primary">Launch the demo <span class="arrow">→</span></a>
+        <a href="#capabilities" class="btn btn-ghost">Inspect capabilities</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><span class="stat-num" data-count="99.99" data-decimals="2" data-suffix="%">0</span><span class="stat-label">Uptime SLA</span></div>
+        <div class="hero-stat"><span class="stat-num" data-count="42" data-suffix="ms">0</span><span class="stat-label">Median latency</span></div>
+        <div class="hero-stat"><span class="stat-num" data-count="128" data-suffix="k+">0</span><span class="stat-label">Events / sec</span></div>
+        <div class="hero-stat"><span class="stat-num" data-count="340" data-suffix="+">0</span><span class="stat-label">Integrations</span></div>
+      </div>
+    </div>
+    <div class="hero-console">
+      <div class="console-chrome">
+        <div class="chrome-dots"><i></i><i></i><i></i></div>
+        <div class="chrome-title">axiom@core — live telemetry <span class="sim-tag">SIMULATED DATA</span></div>
+      </div>
+      <div class="console-body">
+        <div class="console-row"><span class="t">09:41:02.114</span><span class="lvl ok">OK</span><span>pipeline.ingest :: 12,482 events reconciled</span></div>
+        <div class="console-row"><span class="t">09:41:02.231</span><span class="lvl info">SYS</span><span>autoscaler +3 nodes → eu-west-2</span></div>
+        <div class="console-row"><span class="t">09:41:02.405</span><span class="lvl warn">WRN</span><span>queue.depth 87% — backpressure engaged</span></div>
+        <div class="console-row"><span class="t">09:41:02.598</span><span class="lvl ok">OK</span><span>policy.eval :: 214 rules, 0 violations</span></div>
+        <div class="console-row"><span class="t">09:41:02.712</span><span class="lvl info">SYS</span><span>snapshot committed → cold-store (durable)</span></div>
+        <div class="console-row"><span class="t">09:41:02.890</span><span class="lvl ok">OK</span><span>handoff :: downstream SLAs nominal</span></div>
+      </div>
+      <div class="console-footer">
+        <span class="mono">CORE LOAD</span>
+        <div class="load-bars" id="loadBars"></div>
+        <span class="mono load-pct" id="loadPct">--</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DEMO: INTERACTIVE PRODUCT MOCKUP ============ -->
+<section class="section" id="demo">
+  <div class="section-head">
+    <span class="kicker">01 / Interactive demonstration</span>
+    <h2>The product, running <em>right here</em>.</h2>
+    <p class="section-sub">This is a working interface mock — every tab, toggle and control below is live. All figures are clearly-labelled demonstration data, not production telemetry.</p>
+  </div>
+
+  <div class="demo-shell">
+    <div class="demo-topbar">
+      <div class="demo-env">
+        <span class="env-pill" id="envPill">ENV: SANDBOX</span>
+        <span class="sim-tag">ALL VALUES SIMULATED</span>
+      </div>
+      <label class="live-toggle">
+        <span class="mono">STREAM</span>
+        <input type="checkbox" id="streamToggle" checked />
+        <span class="toggle-track"><span class="toggle-thumb"></span></span>
+      </label>
+    </div>
+
+    <div class="tabs" role="tablist" id="demoTabs">
+      <button class="tab is-active" data-tab="deploy" role="tab" aria-selected="true">Deploy</button>
+      <button class="tab" data-tab="pipeline" role="tab" aria-selected="false">Pipeline</button>
+      <button class="tab" data-tab="observability" role="tab" aria-selected="false">Observability</button>
+    </div>
+
+    <!-- Tab: Deploy -->
+    <div class="tab-panel is-active" data-panel="deploy">
+      <div class="deploy-grid">
+        <div class="card deploy-config">
+          <h3 class="card-title">New deployment</h3>
+          <label class="field"><span>Region</span>
+            <select id="deployRegion">
+              <option value="eu-west-2">eu-west-2 · London</option>
+              <option value="us-east-1">us-east-1 · Virginia</option>
+              <option value="ap-southeast-2">ap-southeast-2 · Sydney</option>
+            </select>
+          </label>
+          <label class="field"><span>Instance class</span>
+            <select id="deployClass">
+              <option value="standard">Standard · 4 vCPU / 16 GB</option>
+              <option value="performance">Performance · 8 vCPU / 32 GB</option>
+              <option value="compute">Compute · 16 vCPU / 64 GB</option>
+            </select>
+          </label>
+          <label class="field"><span>Replicas: <output id="replicaOut">3</output></span>
+            <input type="range" id="deployReplicas" min="1" max="12" value="3" />
+          </label>
+          <label class="check"><input type="checkbox" id="deployHA" checked /> <span>High-availability mode</span></label>
+          <label class="check"><input type="checkbox" id="deployEdge" /> <span>Edge caching layer</span></label>
+          <button class="btn btn-primary btn-block" id="deployBtn">Deploy configuration</button>
+          <div class="deploy-result" id="deployResult">
+            <div class="progress"><div class="progress-fill" id="deployProgress"></div></div>
+            <p class="mono deploy-log" id="deployLog">Awaiting deployment…</p>
+          </div>
+        </div>
+        <div class="card deploy-preview">
+          <h3 class="card-title">Estimated footprint <span class="sim-tag">SIMULATED</span></h3>
+          <div class="preview-rows">
+            <div class="preview-row"><span>Monthly compute</span><span class="mono" id="estCost">£1,240</span></div>
+            <div class="preview-row"><span>Throughput ceiling</span><span class="mono" id="estThroughput">18k evt/s</span></div>
+            <div class="preview-row"><span>Warm-start time</span><span class="mono" id="estBoot">42s</span></div>
+            <div class="preview-row"><span>Redundancy</span><span class="mono" id="estHA">2 × availability zones</span></div>
+          </div>
+          <canvas id="deployChart" height="180"></canvas>
+          <p class="canvas-note mono">projected load envelope · demo model</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab: Pipeline -->
+    <div class="tab-panel" data-panel="pipeline">
+      <div class="pipeline-flow" id="pipelineFlow">
+        <div class="pnode" data-node="ingest"><span class="pnode-icon">⇥</span><span>Ingest</span><b class="pnode-val mono" data-val="12.4k/s">–</b></div>
+        <div class="pline"></div>
+        <div class="pnode" data-node="validate"><span class="pnode-icon">✓</span><span>Validate</span><b class="pnode-val mono" data-val="99.97%">–</b></div>
+        <div class="pline"></div>
+        <div class="pnode" data-node="transform"><span class="pnode-icon">ƒ</span><span>Transform</span><b class="pnode-val mono" data-val="38ms">–</b></div>
+        <div class="pline"></div>
+        <div class="pnode" data-node="enrich"><span class="pnode-icon">⊕</span><span>Enrich</span><b class="pnode-val mono" data-val="6 sources">–</b></div>
+        <div class="pline"></div>
+        <div class="pnode" data-node="route"><span class="pnode-icon">⇶</span><span>Route</span><b class="pnode-val mono" data-val="4 sinks">–</b></div>
+      </div>
+      <div class="pipeline-inspect card">
+        <h3 class="card-title">Stage inspector <span class="sim-tag">SIMULATED</span></h3>
+        <p class="inspect-hint mono">Select a stage above to inspect its live configuration.</p>
+        <div class="inspect-body" id="inspectBody" hidden>
+          <h4 id="inspectName"></h4>
+          <div class="inspect-metrics" id="inspectMetrics"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab: Observability -->
+    <div class="tab-panel" data-panel="observability">
+      <div class="obs-grid">
+        <div class="card obs-gauge">
+          <h3 class="card-title">Service health</h3>
+          <div class="gauge-wrap">
+            <canvas id="healthGauge" width="220" height="130"></canvas>
+            <div class="gauge-readout"><b id="healthVal">98.6</b><span>health score</span></div>
+          </div>
+          <div class="health-controls">
+            <label class="field"><span>Inject scenario</span>
+              <select id="scenarioSelect">
+                <option value="nominal">Nominal operations</option>
+                <option value="traffic">Traffic spike ×3</option>
+                <option value="degrade">Dependency degradation</option>
+                <option value="recovery">Auto-recovery sweep</option>
+              </select>
+            </label>
+          </div>
+        </div>
+        <div class="card obs-events">
+          <h3 class="card-title">Event stream <span class="sim-tag">SIMULATED</span></h3>
+          <div class="filter-row" id="eventFilters">
+            <button class="chip is-active" data-filter="all">All</button>
+            <button class="chip" data-filter="ok">Healthy</button>
+            <button class="chip" data-filter="warn">Warnings</button>
+            <button class="chip" data-filter="info">System</button>
+            <input class="search mono" id="eventSearch" type="search" placeholder="Filter events…" />
+          </div>
+          <div class="event-list" id="eventList"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CAPABILITIES DASHBOARD ============ -->
+<section class="section" id="capabilities">
+  <div class="section-head">
+    <span class="kicker">02 / Capabilities dashboard</span>
+    <h2>Every subsystem, one grid.</h2>
+  </div>
+  <div class="filter-row" id="capFilters">
+    <button class="chip is-active" data-cat="all">All systems</button>
+    <button class="chip" data-cat="data">Data</button>
+    <button class="chip" data-cat="automation">Automation</button>
+    <button class="chip" data-cat="security">Security</button>
+    <button class="chip" data-cat="ai">Intelligence</button>
+  </div>
+  <div class="cap-grid" id="capGrid"></div>
+</section>
+
+<!-- ============ PERFORMANCE ============ -->
+<section class="section" id="performance">
+  <div class="section-head">
+    <span class="kicker">03 / Performance</span>
+    <h2>Telemetry you can interrogate.</h2>
+    <p class="section-sub">Live-rendered visualisations from a simulated fleet. Switch ranges, hover for readings — the charts respond in real time.</p>
+  </div>
+  <div class="perf-shell card">
+    <div class="perf-controls">
+      <div class="range-tabs" id="rangeTabs">
+        <button class="tab is-active" data-range="1h">1H</button>
+        <button class="tab" data-range="24h">24H</button>
+        <button class="tab" data-range="7d">7D</button>
+      </div>
+      <div class="perf-legend">
+        <span class="lg"><i class="lg-blue"></i> Throughput</span>
+        <span class="lg"><i class="lg-lime"></i> Latency</span>
+      </div>
+      <span class="sim-tag">SIMULATED TELEMETRY</span>
+    </div>
+    <div class="perf-metrics">
+      <div class="perf-metric"><span class="mono" id="mThroughput">–</span><label>peak throughput</label></div>
+      <div class="perf-metric"><span class="mono" id="mLatency">–</span><label>p95 latency</label></div>
+      <div class="perf-metric"><span class="mono" id="mError">–</span><label>error budget used</label></div>
+      <div class="perf-metric"><span class="mono" id="mEfficiency">–</span><label>cost efficiency</label></div>
+    </div>
+    <div class="chart-wrap"><canvas id="perfChart"></canvas></div>
+  </div>
+</section>
+
+<!-- ============ FEATURES ============ -->
+<section class="section" id="features">
+  <div class="section-head">
+    <span class="kicker">04 / Feature exploration</span>
+    <h2>Open a panel. See the depth.</h2>
+  </div>
+  <div class="accordion" id="accordion"></div>
+</section>
+
+<!-- ============ INTEGRATIONS ============ -->
+<section class="section" id="integrations">
+  <div class="section-head">
+    <span class="kicker">05 / Integration ecosystem</span>
+    <h2>Plugs into the stack you already run.</h2>
+  </div>
+  <div class="integ-layout">
+    <div class="integ-grid" id="integGrid"></div>
+    <aside class="integ-detail card" id="integDetail">
+      <p class="inspect-hint mono">Select a system to view its connector profile.</p>
+    </aside>
+  </div>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section class="section" id="pricing">
+  <div class="section-head">
+    <span class="kicker">06 / Packages</span>
+    <h2>Scale-priced, contract-clear.</h2>
+    <div class="billing-toggle">
+      <span>Monthly</span>
+      <input type="checkbox" id="billingToggle" />
+      <span class="toggle-track"><span class="toggle-thumb"></span></span>
+      <span>Annual <b class="save-tag">save 20%</b></span>
+    </div>
+  </div>
+  <div class="price-grid">
+    <div class="price-card">
+      <h3>Operator</h3>
+      <p class="price-desc">Single-team deployments with core observability.</p>
+      <div class="price-line"><span class="price-amount" data-monthly="£490" data-annual="£392">£490</span><span class="price-per">/ month</span></div>
+      <ul class="price-list">
+        <li>3 pipelines · 2 environments</li>
+        <li>50k events / sec</li>
+        <li>7-day telemetry retention</li>
+        <li>Community + email support</li>
+      </ul>
+      <a href="#contact" class="btn btn-ghost btn-block">Start with Operator</a>
+    </div>
+    <div class="price-card is-featured">
+      <div class="featured-tag">Most deployed</div>
+      <h3>Fleet</h3>
+      <p class="price-desc">Multi-environment control with automation and policy.</p>
+      <div class="price-line"><span class="price-amount" data-monthly="£1,850" data-annual="£1,480">£1,850</span><span class="price-per">/ month</span></div>
+      <ul class="price-list">
+        <li>Unlimited pipelines · 10 environments</li>
+        <li>500k events / sec</li>
+        <li>90-day retention + cold archive</li>
+        <li>Policy engine + audit trails</li>
+        <li>24/7 priority support · 99.99% SLA</li>
+      </ul>
+      <a href="#contact" class="btn btn-primary btn-block">Deploy Fleet</a>
+    </div>
+    <div class="price-card">
+      <h3>Enterprise</h3>
+      <p class="price-desc">Dedicated infrastructure, compliance and residency.</p>
+      <div class="price-line"><span class="price-amount price-custom">Custom</span></div>
+      <ul class="price-list">
+        <li>Unlimited everything</li>
+        <li>Dedicated / on-prem clusters</li>
+        <li>ISO 27001 · SOC 2 · data residency</li>
+        <li>Named solutions engineer</li>
+        <li>Custom SLAs to 99.999%</li>
+      </ul>
+      <a href="#contact" class="btn btn-ghost btn-block">Talk to us</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="section" id="contact">
+  <div class="section-head">
+    <span class="kicker">07 / Onboarding</span>
+    <h2>Provision your console.</h2>
+    <p class="section-sub">Tell us about your stack and a solutions engineer will scope your first deployment — typically live within 48 hours.</p>
+  </div>
+  <div class="contact-layout">
+    <form class="contact-card card" id="contactForm" novalidate>
+      <div class="field-grid">
+        <label class="field"><span>Full name</span><input type="text" id="cName" required placeholder="Ada Lovelace" /></label>
+        <label class="field"><span>Work email</span><input type="email" id="cEmail" required placeholder="ada@company.com" /></label>
+        <label class="field"><span>Company</span><input type="text" id="cCompany" required placeholder="Company Ltd" /></label>
+        <label class="field"><span>Package interest</span>
+          <select id="cPackage"><option>Operator</option><option>Fleet</option><option>Enterprise</option><option>Not sure yet</option></select>
+        </label>
+      </div>
+      <label class="field"><span>Current stack / what are you running?</span><textarea id="cStack" rows="4" placeholder="e.g. Kafka + Postgres on AWS, ~2M events/day, 9-person platform team…"></textarea></label>
+      <button class="btn btn-primary btn-block" type="submit">Request provisioning →</button>
+      <p class="form-status mono" id="formStatus"></p>
+    </form>
+    <div class="contact-side">
+      <div class="onboard-step"><span class="step-num">01</span><div><h4>Scope call</h4><p>30 minutes with a solutions engineer to map your data topology.</p></div></div>
+      <div class="onboard-step"><span class="step-num">02</span><div><h4>Sandbox provision</h4><p>A live AXIOM console with your own demo pipelines — day one.</p></div></div>
+      <div class="onboard-step"><span class="step-num">03</span><div><h4>Production cut-over</h4><p>Gradual rollout with rollback guards and zero-downtime handover.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="brand"><span class="brand-mark"></span><span class="brand-name">AXIOM<span class="brand-dim">/OS</span></span></div>
+    <p class="footer-note">AXIOM is a fictional enterprise platform concept. All telemetry, metrics and pricing on this page are clearly-labelled simulated demonstration data.</p>
+    <span class="mono footer-build">BUILD 4.2.7 · REGION EU-WEST-2 · © 2025</span>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

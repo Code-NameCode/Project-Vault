@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>NEXUS OS — THE FUTURE IS NOW</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+<div class="grid-bg"></div>
+<div id="cursor-glow" class="cursor-glow"></div>
+
+<!-- Status bar -->
+<div class="status-bar">
+  <div class="seg">
+    <span class="dot"></span>
+    <span class="accent">NEXUS OS v4.7.1</span>
+    <span>STATUS: ONLINE</span>
+    <span class="warn">SIMULATED DEMO ENVIRONMENT</span>
+  </div>
+  <div class="seg">
+    <span id="clock">00:00:00 UTC+0</span>
+    <span>SECURE CHANNEL: ACTIVE</span>
+  </div>
+</div>
+
+<!-- Command rail -->
+<nav class="cmd-rail">
+  <div class="rail-btn active" data-target="hero"><span>01</span><span class="tip">COMMAND CENTRE</span></div>
+  <div class="rail-btn" data-target="modules"><span>02</span><span class="tip">CAPABILITIES</span></div>
+  <div class="rail-btn" data-target="dataviz"><span>03</span><span class="tip">DATA STREAMS</span></div>
+  <div class="rail-btn" data-target="demos"><span>04</span><span class="tip">PRODUCT DEMOS</span></div>
+  <div class="rail-btn" data-target="showcase"><span>05</span><span class="tip">SHOWCASE</span></div>
+  <div class="rail-btn" data-target="contact"><span>06</span><span class="tip">TERMINAL</span></div>
+  <div class="rail-spacer"></div>
+  <div class="rail-btn"><span>?</span><span class="tip">HELP</span></div>
+</nav>
+
+<main>
+  <!-- BOOT -->
+  <div id="boot">
+    <div class="logo">N E X U S &nbsp; O S</div>
+    <div class="term" id="boot-term"></div>
+    <div class="bar" id="boot-bar"><span></span></div>
+    <div class="status-line" id="boot-status">INITIALIZING...</div>
+  </div>
+
+  <!-- 1. HERO COMMAND CENTRE -->
+  <section id="hero">
+    <div class="sec-head"><span class="num">/01</span> COMMAND CENTRE <span class="tag">LIVE</span><span class="line"></span></div>
+    <div class="hero">
+      <div class="hero-left">
+        <h1>THE FUTURE<br><span class="glow">IS</span> <span class="green glitch" data-text="NOW">NOW</span></h1>
+        <p class="sub">You are inside the operating system of a technology company that has not been built yet. Every surface is a live system. Every number is a heartbeat. (Simulated demonstration environment.)</p>
+        <div class="cmd-prompt">
+          <span style="color:var(--cyan)">nexus@future:~$</span>
+          <span>run showcase --immersive</span>
+          <span class="caret"></span>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="panel">
+          <div class="panel-head"><span>TELEMETRY STREAM</span><span class="status">● LIVE</span></div>
+          <div class="stream" id="stream"></div>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><span>SYSTEM METRICS</span><span class="status">● NOMINAL</span></div>
+          <div class="counters">
+            <div class="counter"><div class="label">OPS / SEC</div><div class="value" id="c-ops">0</div></div>
+            <div class="counter"><div class="label">ACTIVE USERS</div><div class="value" id="c-users">0</div></div>
+            <div class="counter"><div class="label">DATA STORED</div><div class="value" id="c-data">0</div></div>
+            <div class="counter"><div class="label">UPTIME</div><div class="value" id="c-uptime">0</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. CAPABILITY MODULES -->
+  <section id="modules">
+    <div class="sec-head"><span class="num">/02</span> CAPABILITY MODULES <span class="tag">INTERACTIVE</span><span class="line"></span></div>
+    <div class="modules">
+      <div class="module reveal" data-id="m1"><div class="scan"></div><div class="status-dot"></div><div class="mod-id">MOD-01</div><h3>Neural Orchestration</h3><p>Distributed AI agent coordination across heterogeneous compute clusters.</p></div>
+      <div class="module reveal" data-id="m2"><div class="scan"></div><div class="status-dot"></div><div class="mod-id">MOD-02</div><h3>Holographic Render</h3><p>Real-time volumetric display pipeline for spatial interfaces.</p></div>
+      <div class="module reveal" data-id="m3"><div class="scan"></div><div class="status-dot"></div><div class="mod-id">MOD-03</div><h3>Quantum Encryption</h3><p>Post-quantum cryptographic layer for all data in transit.</p></div>
+      <div class="module reveal" data-id="m4"><div class="scan"></div><div class="status-dot"></div><div class="mod-id">MOD-04</div><h3>Telemetry Fusion</h3><p>Unified stream processing for billions of events per second.</p></div>
+      <div class="module reveal" data-id="m5"><div class="scan"></div><div class="status-dot"></div><div class="mod-id">MOD-05</div><h3>Adaptive UI Engine</h3><p>Interface that reconfigures itself based on operator context.</p></div>
+      <div class="module reveal" data-id="m6"><div class="scan"></div><div class="status-dot"></div><div class="mod-id">MOD-06</div><h3>Predictive Maintenance</h3><p>Forecasting hardware degradation before it becomes failure.</p></div>
+      <div class="module-detail" id="module-detail"></div>
+    </div>
+  </section>
+
+  <!-- 3. DATA VIZ -->
+  <section id="dataviz">
+    <div class="sec-head"><span class="num">/03</span> DATA VISUALISATION <span class="tag">ANIMATED</span><span class="line"></span></div>
+    <div class="dataviz">
+      <div class="canvas-wrap"><canvas id="viz-canvas"></canvas></div>
+      <div class="viz-side">
+        <div class="viz-card">
+          <div class="title">NODE UTILISATION</div>
+          <div class="bar-row"><span class="name">EDGE-NA</span><div class="bar"><span></span></div><span class="pct">0%</span></div>
+          <div class="bar-row"><span class="name">EDGE-EU</span><div class="bar"><span></span></div><span class="pct">0%</span></div>
+          <div class="bar-row"><span class="name">EDGE-APAC</span><div class="bar"><span></span></div><span class="pct">0%</span></div>
+          <div class="bar-row"><span class="name">CORE-US</span><div class="bar"><span></span></div><span class="pct">0%</span></div>
+          <div class="bar-row"><span class="name">CORE-EU</span><div class="bar"><span></span></div><span class="pct">0%</span></div>
+        </div>
+        <div class="viz-card">
+          <div class="title">THREAT LEVEL</div>
+          <div style="font-size:48px;color:var(--green);text-shadow:var(--glow-green);font-weight:700">NOMINAL</div>
+          <div style="font-family:var(--font-mono);font-size:11px;color:var(--text-dim);margin-top:8px">LAST SCAN: <span id="scan-time">--:--:--</span></div>
+        </div>
+        <div class="viz-card">
+          <div class="title">LIVE COUNTERS (SIMULATED)</div>
+          <div style="font-family:var(--font-mono);font-size:11px;color:var(--text-dim);line-height:1.8">
+            Events ingested today: <span style="color:var(--cyan)" id="ev-count">0</span><br>
+            Active sessions: <span style="color:var(--cyan)" id="sess-count">0</span><br>
+            Avg response: <span style="color:var(--cyan)">4.2ms</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. PRODUCT DEMOS -->
+  <section id="demos">
+    <div class="sec-head"><span class="num">/04</span> FUTURISTIC PRODUCT DEMOS <span class="tag">SIMULATED</span><span class="line"></span></div>
+    <div class="demos">
+      <div class="demo-card reveal">
+        <span class="tag">SIMULATED DEMO</span>
+        <h3>Aether Lens</h3>
+        <p>Spatial computing glasses rendering persistent holographic workspaces anchored to physical environments.</p>
+        <div class="demo-visual"><div class="ring"></div></div>
+        <span class="sim-label">SIMULATED</span>
+      </div>
+      <div class="demo-card reveal">
+        <span class="tag">SIMULATED DEMO</span>
+        <h3>Pulse Core</h3>
+        <p>Wearable biometric processor predicting cognitive load and adapting your interface in real time.</p>
+        <div class="demo-visual"><div class="ring"></div></div>
+        <span class="sim-label">SIMULATED</span>
+      </div>
+      <div class="demo-card reveal">
+        <span class="tag">SIMULATED DEMO</span>
+        <h3>Orbit Drive</h3>
+        <p>Solid-state storage array with quantum-encrypted tiers and sub-millisecond recall across continents.</p>
+        <div class="demo-visual"><div class="ring"></div></div>
+        <span class="sim-label">SIMULATED</span>
+      </div>
+      <div class="demo-card reveal">
+        <span class="tag">SIMULATED DEMO</span>
+        <h3>Voice Grid</h3>
+        <p>Natural language command mesh turning spoken intent into orchestrated system actions.</p>
+        <div class="demo-visual"><div class="ring"></div></div>
+        <span class="sim-label">SIMULATED</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. SHOWCASE -->
+  <section id="showcase" class="showcase">
+    <div class="big-grid"></div>
+    <div>
+      <h2 class="glitch" data-text="BEYOND 2040">BEYOND <span class="cyan">2040</span></h2>
+      <div class="sub">DESIGNED FOR OPERATORS WHO THINK IN SYSTEMS</div>
+    </div>
+  </section>
+
+  <!-- 6. CONTACT TERMINAL -->
+  <section id="contact">
+    <div class="sec-head"><span class="num">/06</span> INTERACTIVE CONTACT TERMINAL <span class="tag">FUNCTIONAL</span><span class="line"></span></div>
+    <div class="contact-grid">
+      <div class="terminal">
+        <div class="tbar">
+          <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+          <span class="title">nexus@future:~</span>
+        </div>
+        <div class="tout" id="term-out"></div>
+        <div class="tinput-row">
+          <span class="prompt">nexus@future:~$</span>
+          <input id="term-input" type="text" autocomplete="off" spellcheck="false" placeholder="type a command..." />
+        </div>
+      </div>
+      <div class="contact-info">
+        <div class="ci"><div class="k">STATUS</div><div class="v">ACCEPTING ENQUIRIES</div></div>
+        <div class="ci"><div class="k">RESPONSE TIME</div><div class="v">&lt; 4 HOURS (SIMULATED)</div></div>
+        <div class="ci"><div class="k">CLEARANCE</div><div class="v">VISITOR / PARTNER / PRESS</div></div>
+        <div class="ci"><div class="k">NOTE</div><div class="v" style="font-size:12px;color:var(--text-dim)">Terminal is functional. Commands are simulated. No real data is transmitted. (Simulated demonstration.)</div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="credit">
+    <span>NEXUS OS — THE FUTURE IS NOW // SIMULATED DEMONSTRATION ENVIRONMENT</span>
+    <span>BUILD 2040.11.18</span>
+  </div>
+</main>
+
+<script src="js/main.js"></script>
+<script>
+  // wire counters to JS objects
+  window.addEventListener('load', () => {
+    const c = (window._counters = {});
+  });
+</script>
+</body>
+</html>

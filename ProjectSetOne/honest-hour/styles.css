@@ -1,0 +1,329 @@
+/* hallmark v2.0.0 · prompt: own niche, name it, build it, monetize by ads · shape: one-job tool page (masthead, calculator hero, math, league table, FAQ, mast footer) · theme: Signal Press (deal: manual — theme.mjs absent in this environment) · genre: editorial · job: compute the real hourly wage; the action is the live calculator in the hero, share link beside the result · hero: headline + one sentence over a full-width calculator strip and a giant result panel, all above the fold at 1280×800 · signature: the advertised hourly rate struck through in orange beside the counted-up real figure · sections: hero calculator · ad band · the math · the league table · ad band · FAQ · footer · material: real — the formula itself, user-typed salary/hours/commute · absent: logos, quotes, invented stats, photos (words-and-numbers page; theme Range carries it) · sweep: manual (sloplint.mjs absent; Floor walked by hand, results reported honestly) */
+/* critique: refused the reflexes — no gradient hero, no card-in-card, no emoji icons, no invented testimonials or fake usage counters; the made marks are the hairline press rules, tabular numerals throughout, and the single orange struck-through figure that is the whole page's point */
+:root {
+  --paper: #FCFBF7;
+  --paper-deep: #F4F2EA;
+  --ink: #15130E;
+  --ink-soft: #5C574A;
+  --signal: #E04E1A;
+  --signal-deep: #B93A0D;
+  --signal-wash: color-mix(in srgb, var(--signal) 8%, var(--paper));
+  --hairline: color-mix(in srgb, var(--ink) 14%, transparent);
+  --hairline-strong: color-mix(in srgb, var(--ink) 38%, transparent);
+  --font-display: "Newsreader", Georgia, serif;
+  --font-body: "Public Sans", system-ui, sans-serif;
+  --container: 1080px;
+  --gap: clamp(20px, 4vw, 44px);
+  --radius: 2px;
+  --dur: 200ms;
+}
+
+html, body { overflow-x: clip; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: clamp(20px, 4vw, 40px);
+}
+
+:is(a, button, input, [tabindex]):focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: 3px;
+  border-radius: var(--radius);
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 10px 18px;
+  z-index: 10;
+}
+.skip-link:focus-visible { left: 0; }
+
+/* ---------- masthead ---------- */
+.masthead {
+  border-bottom: 1px solid var(--hairline-strong);
+  background: var(--paper);
+}
+.masthead-inner {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--gap);
+  padding-block: 18px;
+}
+.wordmark {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  text-decoration: none;
+}
+.wordmark span { color: var(--signal); }
+.masthead nav { display: flex; gap: 22px; }
+.masthead nav a {
+  font-size: 15px;
+  color: var(--ink-soft);
+  text-decoration: none;
+}
+.masthead nav a:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
+
+/* ---------- hero ---------- */
+.hero { border-bottom: 1px solid var(--hairline); padding-block: clamp(44px, 7vw, 84px) clamp(40px, 6vw, 72px); }
+.hero-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(38px, 6.2vw, 64px);
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+  margin: 0 0 14px;
+  max-width: 15ch;
+}
+.hero-lede { margin: 0 0 34px; max-width: 44ch; color: var(--ink-soft); font-size: 19px; }
+
+/* the calculator strip */
+.calc { border-block: 1px solid var(--hairline-strong); }
+.calc-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.calc-field {
+  padding: 18px 20px 20px;
+  border-right: 1px solid var(--hairline);
+}
+.calc-field:nth-child(3n) { border-right: 0; }
+.calc-field label {
+  display: block;
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin-bottom: 8px;
+}
+.calc-field input[type="number"] {
+  width: 100%;
+  font-family: var(--font-body);
+  font-variant-numeric: tabular-nums;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--ink);
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--hairline-strong);
+  border-radius: 0;
+  padding: 4px 2px;
+}
+.calc-field input[type="number"]:hover { border-bottom-color: var(--signal); }
+.calc-hint { font-size: 12.5px; color: var(--ink-soft); margin-top: 6px; }
+@media (max-width: 760px) {
+  .calc-grid { grid-template-columns: 1fr; }
+  .calc-field { border-right: 0; border-bottom: 1px solid var(--hairline); }
+  .calc-field:nth-child(3n) { border-bottom: 1px solid var(--hairline); }
+  .calc-field:last-child { border-bottom: 0; }
+}
+
+/* the result panel — the signature */
+.result {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr);
+  background: var(--paper-deep);
+  border-bottom: 1px solid var(--hairline-strong);
+}
+.result-old {
+  padding: 26px 28px;
+  border-right: 1px solid var(--hairline);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.result-old .label { font-size: 13px; color: var(--ink-soft); margin-bottom: 8px; }
+.struck {
+  font-family: var(--font-display);
+  font-size: clamp(34px, 4.6vw, 52px);
+  font-weight: 600;
+  color: var(--ink-soft);
+  position: relative;
+  display: inline-block;
+  width: fit-content;
+}
+.struck::after {
+  content: "";
+  position: absolute;
+  left: -2%;
+  right: -2%;
+  top: 52%;
+  height: 3px;
+  background: var(--signal);
+  transform: rotate(-2deg);
+}
+.result-new {
+  padding: 26px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.result-new .label { font-size: 13px; color: var(--ink-soft); margin-bottom: 8px; }
+.big-figure {
+  font-family: var(--font-display);
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  font-size: clamp(56px, 9vw, 104px);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  margin-left: -4px;
+}
+.big-figure .unit { font-size: 0.34em; letter-spacing: 0; color: var(--ink-soft); font-weight: 400; }
+.result-sub { margin-top: 10px; font-size: 14px; color: var(--ink-soft); }
+.result-actions { margin-top: 16px; display: flex; gap: 12px; flex-wrap: wrap; }
+@media (max-width: 760px) {
+  .result { grid-template-columns: 1fr; }
+  .result-old { border-right: 0; border-bottom: 1px solid var(--hairline); }
+}
+
+/* buttons */
+.btn {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: var(--radius);
+  border: 1px solid var(--ink);
+  padding: 10px 18px;
+  cursor: pointer;
+  background: var(--paper);
+  color: var(--ink);
+  transition: background var(--dur) ease, color var(--dur) ease, transform var(--dur) ease;
+}
+.btn-primary { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.btn-primary:hover { background: var(--signal-deep); border-color: var(--signal-deep); }
+.btn:hover { border-color: var(--signal); color: var(--signal-deep); }
+.btn-primary:hover { color: var(--paper); }
+.btn:active { transform: translateY(1px); }
+
+/* ---------- ad band ---------- */
+.ad-band {
+  border-bottom: 1px solid var(--hairline);
+  padding-block: 18px;
+  text-align: center;
+}
+.ad-slot {
+  min-height: 90px;
+  background: var(--paper-deep);
+  border: 1px dashed var(--hairline-strong);
+  display: grid;
+  place-items: center;
+  color: var(--ink-soft);
+  font-size: 13px;
+}
+
+/* ---------- sections ---------- */
+.section { padding-block: clamp(48px, 7vw, 88px); border-bottom: 1px solid var(--hairline); }
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(26px, 3.6vw, 38px);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  margin: 0 0 10px;
+  max-width: 24ch;
+}
+.section-lede { margin: 0 0 34px; max-width: 52ch; color: var(--ink-soft); }
+
+.prose { max-width: 62ch; }
+.prose p { margin: 0 0 18px; }
+.prose strong { font-weight: 600; }
+.formula {
+  font-variant-numeric: tabular-nums;
+  border-block: 1px solid var(--hairline-strong);
+  padding: 20px 0;
+  font-size: 18px;
+  margin: 26px 0;
+}
+.formula .op { color: var(--signal); padding-inline: 8px; }
+
+/* league table */
+.table-wrap { overflow-x: clip; }
+table.league {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+  font-size: 15.5px;
+}
+.league th, .league td {
+  text-align: left;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--hairline);
+}
+.league th {
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--ink-soft);
+  border-bottom: 1px solid var(--hairline-strong);
+}
+.league td:last-child, .league th:last-child { text-align: right; }
+.league td em {
+  font-style: normal;
+  color: var(--signal-deep);
+  font-weight: 600;
+}
+.table-note { font-size: 13.5px; color: var(--ink-soft); margin-top: 14px; }
+
+/* FAQ */
+.faq { max-width: 62ch; }
+.faq details { border-bottom: 1px solid var(--hairline); }
+.faq summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 17px;
+  padding: 16px 0;
+  list-style-position: outside;
+}
+.faq summary:hover { color: var(--signal-deep); }
+.faq p { margin: 0 0 16px; color: var(--ink-soft); }
+
+/* ---------- footer ---------- */
+.footer { padding-block: 40px 48px; }
+.footer-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--gap);
+  align-items: start;
+}
+.footer .wordmark { font-size: 30px; }
+.footer-links { display: flex; flex-wrap: wrap; gap: 18px; justify-content: flex-end; }
+.footer-links a { color: var(--ink-soft); font-size: 15px; text-decoration: none; }
+.footer-links a:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
+.footer-fine { margin-top: 26px; padding-top: 16px; border-top: 1px solid var(--hairline); font-size: 13.5px; color: var(--ink-soft); }
+@media (max-width: 760px) {
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-links { justify-content: flex-start; }
+}
+
+/* one reveal, visible by default, reduced-motion safe */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.result { animation: rise 300ms ease both; }

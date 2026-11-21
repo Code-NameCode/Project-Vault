@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pressrum — a small studio for brands set in type</title>
+<meta name="description" content="Pressrum is a small brand and web studio working like a print shop: listen, sketch, set, proof, ship.">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700,401,601&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip" href="#work">Skip to the work</a>
+
+<header class="masthead">
+  <a class="wordmark" href="#top">Pressrum<span class="wordmark-mark">.</span></a>
+  <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
+    <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false">
+      <line class="menu-line l1" x1="3" y1="7" x2="21" y2="7"></line>
+      <line class="menu-line l2" x1="3" y1="12" x2="21" y2="12"></line>
+      <line class="menu-line l3" x1="3" y1="17" x2="21" y2="17"></line>
+    </svg>
+  </button>
+</header>
+
+<!-- the mobile sheet lives outside the header: backdrop-filter on .masthead
+     would otherwise become the containing block for this fixed element -->
+<nav class="masthead-nav" id="mobileMenu" aria-label="Main">
+  <a href="#work">Work</a>
+  <a href="#services">Services</a>
+  <a href="#process">Process</a>
+  <a href="#studio">Studio</a>
+  <a href="#brief" class="masthead-cta">Start a brief</a>
+</nav>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-copy">
+      <h1 class="hero-headline" data-split>
+        <span class="hero-line">Brands that read</span>
+        <span class="hero-line">like something</span>
+        <span class="hero-line">worth <em>keeping</em>.</span>
+      </h1>
+      <p class="hero-sub">Pressrum is a two-person brand and web studio in Malmö. We work the way a print shop works: brief first, sketch on paper, set the type, proof it twice, then let it loose on the web.</p>
+      <div class="hero-meta">
+        <span><i class="ph ph-map-pin" aria-hidden="true"></i> Malmö, SE</span>
+        <span><i class="ph ph-handshake" aria-hidden="true"></i> Taking work for June</span>
+      </div>
+    </div>
+    <figure class="hero-photo" data-unveil>
+      <div class="frame-photo hero-photo-img"><img src="assets/hero.jpg" alt="Muted mountain valley in soft daylight, one small orange sticker pinned to the proof wall"></div>
+      <figcaption class="caption">Press wall, Thursday. The orange dot means we chose this one.</figcaption>
+    </figure>
+  </section>
+
+  <!-- CONTACT SHEET -->
+  <section class="work" id="work">
+    <div class="work-head">
+      <h2 class="section-title" data-split><em>Selected</em> work, laid out like a proof sheet.</h2>
+      <p class="section-note">Eleven jobs from the last three years. Hover to pick one, like a pencil mark on a contact sheet.</p>
+    </div>
+
+    <div class="sheet" id="sheet">
+
+      <a class="frame f-a" href="#brief" aria-label="Kvarteret bakery identity">
+        <div class="frame-photo p-bakery"><img src="assets/frame-bakery.jpg" alt="Close crop of berries, documentary film frame for the Kvarteret packaging" loading="lazy"></div>
+        <div class="frame-caption"><span>Kvarteret</span><span>Identity, packaging</span><span>2025</span></div>
+      </a>
+
+      <a class="frame f-b" href="#brief" aria-label="Sandvik publishing website">
+        <div class="frame-photo p-publishing"><img src="assets/frame-publishing.jpg" alt="Layered rock strata like stacked paper, Sandvik Förlag cover study" loading="lazy"></div>
+        <div class="frame-caption"><span>Sandvik Förlag</span><span>Website, typesetting</span><span>2024</span></div>
+      </a>
+
+      <a class="frame f-c" href="#brief" aria-label="Häll ceramics campaign">
+        <div class="frame-photo p-ceramics"><img src="assets/frame-ceramics.jpg" alt="River bend in soft grey-green light, Häll Keramik campaign frame" loading="lazy"></div>
+        <div class="frame-caption"><span>Häll Keramik</span><span>Campaign, art direction</span><span>2025</span></div>
+      </a>
+
+      <a class="frame f-d" href="#brief" aria-label="Offset coffee brand">
+        <div class="frame-photo p-coffee"><img src="assets/frame-coffee.jpg" alt="Woman in a canoe on still water, Offset Kaffe origin-trip photograph" loading="lazy"></div>
+        <div class="frame-caption"><span>Offset Kaffe</span><span>Identity, web shop</span><span>2023</span></div>
+      </a>
+
+      <a class="frame f-e" href="#brief" aria-label="Rit furniture catalogue">
+        <div class="frame-photo p-furniture"><img src="assets/frame-furniture.jpg" alt="Waterfall in muted daylight, Rit Möbler catalogue opener" loading="lazy"></div>
+        <div class="frame-caption"><span>Rit Möbler</span><span>Catalogue, print</span><span>2024</span></div>
+      </a>
+
+      <a class="frame f-f" href="#brief" aria-label="Vernissage gallery identity">
+        <div class="frame-photo p-gallery"><img src="assets/frame-gallery.jpg" alt="Deer at the treeline, Vernissage exhibition poster frame" loading="lazy"></div>
+        <div class="frame-caption"><span>Vernissage</span><span>Identity, signage</span><span>2025</span></div>
+      </a>
+
+      <a class="frame f-g" href="#brief" aria-label="Almanak app interface">
+        <div class="frame-photo p-almanak"><img src="assets/frame-almanak.jpg" alt="Two figures in open landscape, Almanak onboarding photography" loading="lazy"></div>
+        <div class="frame-caption"><span>Almanak</span><span>Product, interface</span><span>2024</span></div>
+      </a>
+
+      <a class="frame f-h" href="#brief" aria-label="Bruk hotel website">
+        <div class="frame-photo p-hotel"><img src="assets/frame-hotel.jpg" alt="Stone building in flat daylight, Bruk Hotell website hero" loading="lazy"></div>
+        <div class="frame-caption"><span>Bruk Hotell</span><span>Website, photography</span><span>2023</span></div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- SERVICES: large typographic rows -->
+  <section class="services" id="services">
+    <div class="services-head">
+      <h2 class="section-title" data-split>What we do, and what we <em>don’t</em>.</h2>
+    </div>
+    <ul class="rows">
+      <li class="row">
+        <h3>Brand identity</h3>
+        <p>Wordmarks, type systems, colour, voice, and the small print most studios leave to the end. Two weeks to a finished book.</p>
+        <span class="row-note">from 60 000 kr</span>
+        <i class="ph ph-pen-nib" aria-hidden="true"></i>
+      </li>
+      <li class="row">
+        <h3>Editorial web</h3>
+        <p>Hand-built sites that read like publications, not dashboards. Static where possible, fast always, no template in sight.</p>
+        <span class="row-note">from 80 000 kr</span>
+        <i class="ph ph-browsers" aria-hidden="true"></i>
+      </li>
+      <li class="row">
+        <h3>Print & packaging</h3>
+        <p>Books, boxes, labels. We speak fluent CMYK with your printer and argue about paper stock so you don’t have to.</p>
+        <span class="row-note">from 45 000 kr</span>
+        <i class="ph ph-stack" aria-hidden="true"></i>
+      </li>
+      <li class="row">
+        <h3>Art direction</h3>
+        <p>Photography briefs, film campaigns, the consistent look of a thing over years. Retained, quarterly or by the job.</p>
+        <span class="row-note">retainer</span>
+        <i class="ph ph-frame-corners" aria-hidden="true"></i>
+      </li>
+      <li class="row row-muted">
+        <h3>What we don’t do</h3>
+        <p>Growth funnels, deck-in-a-day rebrands, or anything that needs the word “synergy”. A quiet no keeps the work honest.</p>
+        <span class="row-note">never</span>
+        <i class="ph ph-prohibit" aria-hidden="true"></i>
+      </li>
+    </ul>
+  </section>
+
+  <!-- PROCESS: staggered staircase over paper grain -->
+  <section class="process" id="process">
+    <div class="process-grain" aria-hidden="true"></div>
+    <div class="process-inner">
+      <h2 class="section-title" data-split>Every job climbs the same <em>stairs</em>.</h2>
+      <div class="stairs">
+        <div class="step"><h3>Listen</h3><p>A long first meeting, a written brief we both sign. Nothing starts until the problem is said out loud, plainly.</p></div>
+        <div class="step"><h3>Sketch</h3><p>Pencil on paper before pixels. Wordmarks, grid sketches and the shape of the argument, done in days not weeks.</p></div>
+        <div class="step"><h3>Set</h3><p>Type chosen, tracked and kerned like it will be printed even when it won’t. The system takes shape here.</p></div>
+        <div class="step"><h3>Proof</h3><p>Test prints, staging links, a printed proof of the identity on your desk. We fix what the proof catches.</p></div>
+        <div class="step"><h3>Ship</h3><p>Files handed over, site launched, and a one-page manual so the brand keeps looking right after we leave.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STUDIO: staggered portraits -->
+  <section class="studio" id="studio">
+    <div class="studio-copy">
+      <h2 class="section-title" data-split>Two people, one long <em>table</em>.</h2>
+      <p>Pressrum is Ingrid and Anton. Ingrid sets the type; Anton builds the web. We met at a newspaper, kept each other’s standards, and opened the studio in 2021. We take on six jobs a year so that each one gets the whole table.</p>
+      <p class="studio-fact"><i class="ph ph-seal-check" aria-hidden="true"></i> Members of Svenska Typograferna Sällskapet since 2022.</p>
+    </div>
+    <div class="portraits">
+      <figure class="portrait pt-a">
+        <div class="frame-photo p-ingrid"><img src="assets/portrait-ingrid.jpg" alt="Ingrid Ask against a plain wall, one small orange pin on her lapel"></div>
+        <figcaption class="caption">Ingrid Ask, typographer</figcaption>
+      </figure>
+      <figure class="portrait pt-b">
+        <div class="frame-photo p-anton"><img src="assets/portrait-anton.jpg" alt="Anton Rehn against a plain wall, one small orange band on his notebook"></div>
+        <figcaption class="caption">Anton Rehn, developer</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- BRIEF: underline inputs, segmented squares, printed output -->
+  <section class="brief" id="brief">
+    <div class="brief-copy">
+      <h2 class="section-title" data-split>Tell us the <em>brief</em>.</h2>
+      <p>Four questions. We answer within two working days with an honest yes, a no, or a question back.</p>
+    </div>
+
+    <form class="brief-form" id="briefForm" novalidate>
+      <div class="field">
+        <label for="fName">Your name</label>
+        <input id="fName" name="name" type="text" autocomplete="name" required placeholder="Ingrid Berg">
+      </div>
+      <div class="field">
+        <label for="fEmail">Email</label>
+        <input id="fEmail" name="email" type="email" autocomplete="email" required placeholder="you@studio.se">
+      </div>
+      <div class="field">
+        <label for="fOrg">Who is it for</label>
+        <input id="fOrg" name="org" type="text" required placeholder="Bakery, publisher, hotel…">
+      </div>
+      <div class="field">
+        <span class="label" id="scopeLabel">Scope</span>
+        <div class="segments" role="group" aria-labelledby="scopeLabel">
+          <button type="button" class="seg" data-seg="Identity" aria-pressed="false">Identity</button>
+          <button type="button" class="seg" data-seg="Web" aria-pressed="false">Web</button>
+          <button type="button" class="seg" data-seg="Print" aria-pressed="false">Print</button>
+          <button type="button" class="seg" data-seg="All of it" aria-pressed="false">All of it</button>
+        </div>
+      </div>
+      <div class="field">
+        <span class="label" id="timeLabel">Timing</span>
+        <div class="segments" role="group" aria-labelledby="timeLabel">
+          <button type="button" class="seg" data-seg="This quarter" aria-pressed="false">This quarter</button>
+          <button type="button" class="seg" data-seg="Next quarter" aria-pressed="false">Next quarter</button>
+          <button type="button" class="seg" data-seg="Sometime" aria-pressed="false">Sometime</button>
+        </div>
+      </div>
+      <div class="field">
+        <label for="fWords">The problem, in your own words</label>
+        <textarea id="fWords" name="words" rows="3" required placeholder="People can’t tell us apart from the shop next door."></textarea>
+      </div>
+      <p class="form-error" id="formError" hidden>Please fill the missing fields before we can print the ticket.</p>
+      <button class="brief-submit" type="submit">Print the job ticket <i class="ph ph-printer" aria-hidden="true"></i></button>
+    </form>
+
+    <article class="ticket" id="ticket" hidden aria-live="polite">
+      <header class="ticket-head">
+        <span class="ticket-stamp">Pressrum · Job ticket</span>
+        <span class="ticket-no" id="ticketNo">№ 0000</span>
+      </header>
+      <h3 class="ticket-title" id="ticketTitle">Untitled brief</h3>
+      <dl class="ticket-body" id="ticketBody"></dl>
+      <footer class="ticket-foot">
+        <span>Received by Pressrum, Malmö</span>
+        <span class="ticket-date" id="ticketDate"></span>
+      </footer>
+    </article>
+  </section>
+
+</main>
+
+<footer class="colophon">
+  <div class="colophon-left">
+    <span class="wordmark">Pressrum<span class="wordmark-mark">.</span></span>
+    <p>Set in Switzer. Printed nowhere, viewed everywhere. © 2025</p>
+  </div>
+  <div class="colophon-right">
+    <a href="mailto:hello@pressrum.se"><i class="ph ph-envelope-simple" aria-hidden="true"></i> hello@pressrum.se</a>
+    <a href="#"><i class="ph ph-instagram-logo" aria-hidden="true"></i> Instagram</a>
+    <a href="#"><i class="ph ph-behance-logo" aria-hidden="true"></i> Behance</a>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/SplitText.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

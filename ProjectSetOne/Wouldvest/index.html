@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wouldvest — What would your habit be worth?</title>
+  <meta name="description" content="Type what you spend and see what investing it instead would have built. Compound interest, out in the open — one honest formula, no sign-up." />
+  <meta name="theme-color" content="#FAF6EE" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Wouldvest — What would your habit be worth?" />
+  <meta property="og:description" content="Your coffee, takeout or streaming habit, compounded. Type what you spend and watch what investing it would have built." />
+  <meta name="twitter:card" content="summary" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Is 10% a year realistic?", "acceptedAnswer": { "@type": "Answer", "text": "It is the S&P 500's average annual return since 1957 with dividends reinvested — roughly 7% after inflation. The calculator takes any rate you give it." } },
+      { "@type": "Question", "name": "Where would the money actually be invested?", "acceptedAnswer": { "@type": "Answer", "text": "The math works for anything with a steady return, but most people would use a low-cost index fund. Fees and taxes would trim the final figure." } },
+      { "@type": "Question", "name": "Is this financial advice?", "acceptedAnswer": { "@type": "Answer", "text": "No. It is arithmetic. Talk to a fiduciary adviser before moving real money." } }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#calc">Skip to the calculator</a>
+
+  <header class="masthead">
+    <div class="container masthead-inner">
+      <a class="wordmark" href="#top">Wouldvest<span>.</span></a>
+      <nav aria-label="Sections">
+        <a href="#math">The math</a>
+        <a href="#habits">Habits</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero: the calculator is the page -->
+    <section class="hero">
+      <div class="container">
+        <h1 class="hero-title">What would your habit be worth?</h1>
+        <p class="hero-lede">Type what you spend and see what investing it would have built.</p>
+
+        <div class="calc" id="calc">
+          <div class="calc-row">
+            <div class="calc-field">
+              <label for="amount">You spend</label>
+              <div class="calc-inline">
+                <input type="number" id="amount" min="0.5" step="0.5" value="6" inputmode="decimal" />
+                <div class="seg-group" role="radiogroup" aria-label="How often">
+                  <label class="seg"><input type="radio" name="freq" value="day" checked /><span>a day</span></label>
+                  <label class="seg"><input type="radio" name="freq" value="week" /><span>a week</span></label>
+                  <label class="seg"><input type="radio" name="freq" value="month" /><span>a month</span></label>
+                </div>
+              </div>
+            </div>
+            <div class="calc-field years-field">
+              <label for="years">For</label>
+              <input type="range" id="years" min="1" max="50" step="1" value="30" />
+              <output class="years-out" for="years" id="yearsOut">30 yrs</output>
+            </div>
+            <div class="calc-field rate-field">
+              <label for="rate">Assumed return</label>
+              <input type="number" id="rate" min="0.5" max="15" step="0.5" value="10" inputmode="decimal" />
+              <span class="rate-suffix">% a year</span>
+            </div>
+          </div>
+          <div class="presets">
+            <span class="presets-label">Try a habit:</span>
+            <button class="chip" type="button" data-amount="6" data-freq="day" aria-pressed="true">Coffee, $6 a day</button>
+            <button class="chip" type="button" data-amount="25" data-freq="week" aria-pressed="false">Takeout, $25 a week</button>
+            <button class="chip" type="button" data-amount="12" data-freq="day" aria-pressed="false">Cigarettes, $12 a day</button>
+            <button class="chip" type="button" data-amount="40" data-freq="month" aria-pressed="false">Streaming, $40 a month</button>
+            <button class="chip" type="button" data-amount="30" data-freq="week" aria-pressed="false">Rideshare, $30 a week</button>
+          </div>
+        </div>
+
+        <div class="result">
+          <div>
+            <p class="result-label">Invested every month instead, it becomes</p>
+            <p class="big-number" id="bigNumber" aria-live="polite">$412,822</p>
+          </div>
+          <div class="result-aside">
+            <div class="split" role="img" aria-label="Share of the total that came from your own contributions versus compound growth">
+              <span class="split-spent" id="barSpent" style="flex-grow: 16"></span>
+              <span class="split-growth" id="barGrowth" style="flex-grow: 84"></span>
+            </div>
+            <div class="legend">
+              <p class="legend-line legend-spent" id="lineSpent">You spent <strong>$65,745</strong></p>
+              <p class="legend-line legend-growth" id="lineGrowth">Compound growth added <strong>$347,077</strong></p>
+            </div>
+            <button class="share-btn" type="button" id="shareBtn">Copy a share link</button>
+          </div>
+        </div>
+
+        <p class="hero-fineprint">Default return is 10% a year — the S&amp;P 500's long-run average with dividends reinvested, before inflation. Change it above and every number moves.</p>
+      </div>
+    </section>
+
+    <!-- Reserved ad band 1: in-content display unit -->
+    <aside class="ad-band" aria-label="Advertisement">
+      <div class="container">
+        <p class="ad-label">Advertisement</p>
+        <div class="ad-slot" id="ad-slot-1"></div>
+      </div>
+    </aside>
+
+    <!-- The math -->
+    <section class="section" id="math">
+      <div class="container">
+        <div class="section-head">
+          <h2>The math, out in the open</h2>
+          <p>Every number on this page comes from one formula and what you typed. Nothing else is added, nothing is rounded up to flatter you.</p>
+        </div>
+        <div class="math-grid">
+          <div class="math-col">
+            <h3>How it compounds</h3>
+            <p class="math-formula">Each month, your habit's cost is added to a pot growing at your rate, divided over twelve months. Thirty years of $6 coffees is 360 deposits, each earning on the ones before it.</p>
+          </div>
+          <div class="math-col">
+            <h3>Where 10% comes from</h3>
+            <p>The S&amp;P 500 has averaged about 10% a year since 1957 with dividends reinvested — roughly 7% after inflation. Set the rate lower and the tool still works; it just tells you a quieter truth.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Habits table -->
+    <section class="section" id="habits">
+      <div class="container">
+        <div class="section-head">
+          <h2>Common habits, thirty years compounded</h2>
+          <p>The same formula, run on the things people actually buy every week.</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Habit</th>
+                <th scope="col" class="num">You would have spent</th>
+                <th scope="col" class="num">It would have become</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="habit">Coffee, $6 a day</td><td class="num spent">$65,745</td><td class="num becomes">$412,822</td></tr>
+              <tr><td class="habit">Takeout, $25 a week</td><td class="num spent">$39,132</td><td class="num becomes">$245,715</td></tr>
+              <tr><td class="habit">Cigarettes, $12 a day</td><td class="num spent">$131,490</td><td class="num becomes">$825,643</td></tr>
+              <tr><td class="habit">Streaming, $40 a month</td><td class="num spent">$14,400</td><td class="num becomes">$90,420</td></tr>
+              <tr><td class="habit">Rideshare, $30 a week</td><td class="num spent">$46,958</td><td class="num becomes">$294,858</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="table-note">At 10% a year over 30 years, contributions invested monthly. Rounded to the dollar.</p>
+      </div>
+    </section>
+
+    <!-- Reserved ad band 2: before FAQ, sticky-adjacent zone -->
+    <aside class="ad-band" aria-label="Advertisement">
+      <div class="container">
+        <p class="ad-label">Advertisement</p>
+        <div class="ad-slot" id="ad-slot-2"></div>
+      </div>
+    </aside>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-head">
+          <h2>Straight answers</h2>
+        </div>
+        <div class="faq-list">
+          <details>
+            <summary>Is 10% a year realistic?</summary>
+            <p>It is the S&amp;P 500's average annual return since 1957 with dividends reinvested — about 7% after inflation. The calculator takes any rate you give it.</p>
+          </details>
+          <details>
+            <summary>Where would the money actually be invested?</summary>
+            <p>The math works for anything with a steady return, but most people would use a low-cost index fund inside a tax-sheltered account. Fees and taxes would trim the final figure.</p>
+          </details>
+          <details>
+            <summary>Is this financial advice?</summary>
+            <p>No. It is arithmetic. Talk to a fiduciary adviser before moving real money.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="wordmark" href="#top">Wouldvest<span>.</span></a>
+          <p class="footer-tag">A compound-interest reality check, run on whatever you buy without thinking.</p>
+        </div>
+        <nav aria-label="Explore">
+          <h3>Explore</h3>
+          <ul>
+            <li><a href="#calc">The calculator</a></li>
+            <li><a href="#math">The math</a></li>
+            <li><a href="#habits">Habits, compounded</a></li>
+            <li><a href="#faq">Straight answers</a></li>
+          </ul>
+        </nav>
+        <div>
+          <h3>Spread it</h3>
+          <ul>
+            <li><a href="#calc" id="footerShare">Copy a share link</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span id="year">2026</span> Wouldvest. Estimates for demonstration, not financial advice; past returns never promise future ones.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

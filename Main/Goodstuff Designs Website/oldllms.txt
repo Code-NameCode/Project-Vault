@@ -1,0 +1,44 @@
+# Goodstuff Designs
+
+Goodstuff Designs provides managed IT support, business networks and fibre connectivity, Kaspersky security, websites and managed hosting, AI expert services (workflows, integrations, AI-assisted support and AI-powered marketing), digital marketing (social media, Google Ads, Google Analytics and Search Console), and a desktop AI product (Goodstuff-Studio) for South African businesses and international clients.
+
+Goodstuff Designs is based in Heidelberg, Gauteng, South Africa, operates across South Africa, and provides services internationally through remote delivery.
+
+Public commercial data was last checked on 2026-08-30. Prices, coverage, compatibility, availability, and contract or licence terms must be confirmed before purchase.
+
+## Key pages
+
+- Home: https://goodstuffdesigns.co.za/
+- Home FAQ (support area, marketing, website pricing, hosting, AI): https://goodstuffdesigns.co.za/#faq
+- Services: https://goodstuffdesigns.co.za/services
+- IT and Networks (network administration, IT support, cybersecurity, monitoring, AI for IT operations, infrastructure, managed services): https://goodstuffdesigns.co.za/it-and-networks
+- Digital Marketing (measurement and tracking, social media, Google Ads, reporting and ROI): https://goodstuffdesigns.co.za/digital-marketing
+- Websites and Hosting: https://goodstuffdesigns.co.za/websites-and-hosting
+- Hosting plans: https://goodstuffdesigns.co.za/websites-and-hosting#hosting
+- AI experts, workflows and integrations: https://goodstuffdesigns.co.za/ai
+- Portfolio: https://goodstuffdesigns.co.za/portfolio
+- Contact: https://goodstuffdesigns.co.za/contact
+- Privacy Policy: https://goodstuffdesigns.co.za/privacy
+- Cookie Policy: https://goodstuffdesigns.co.za/cookie-policy
+- Design Styles: https://goodstuffdesigns.co.za/design-styles
+- Studio: https://goodstuffdesigns.co.za/studio
+
+## Machine-readable resources
+
+- Service catalogue: https://goodstuffdesigns.co.za/service-catalog.json
+- XML sitemap: https://goodstuffdesigns.co.za/sitemap.xml
+- Markdown sitemap: https://goodstuffdesigns.co.za/sitemap.md
+- Page mirrors: /index.md, /services.md, /it-and-networks.md, /digital-marketing.md, /websites-and-hosting.md, /ai.md, /portfolio.md, /contact.md, /privacy.md, /cookie-policy.md, /design-styles.md
+
+## WebMCP tools
+
+- search_services: read-only service catalogue search
+- list_site_pages: read-only canonical page list
+- get_service_pricing: read-only hosting, Kaspersky, or Vox ISP pricing
+- list_integrations: read-only assessment categories
+- start_contact_enquiry: navigates to a visible contact route; it does not send a message
+- submit_contact_enquiry: declarative tool (the visible contact form on /contact); submits a real enquiry via the form fields name, email, phone, company, topic, message
+
+## Notes for agents
+
+Use public page content only. Do not imply support commitments, partner status, product availability, coverage, AI access, or integration availability unless the relevant page states it clearly. Opening a contact route never sends or submits a message. Prefer the visible contact channels for enquiries. The legacy routes /web-development and /hosting permanently redirect to /websites-and-hosting.

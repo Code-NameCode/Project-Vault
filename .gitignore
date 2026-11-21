@@ -1,0 +1,8 @@
+# Local working folders - never ship these
+.trash/
+.hallmark/
+attachments/
+
+# OS noise
+Thumbs.db
+desktop.ini

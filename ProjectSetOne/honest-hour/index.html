@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Honest Hour — What is your salary, per hour, really?</title>
+  <meta name="description" content="Your salary divided by 40 hours is not your wage. Enter your commute, unpaid hours and taxes, and see what you actually earn per hour of your life." />
+  <meta name="theme-color" content="#FCFBF7" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="The Honest Hour — what do you really earn per hour?" />
+  <meta property="og:description" content="Your salary divided by 40 hours is not your wage. Find your real hourly rate in ten seconds." />
+  <meta name="twitter:card" content="summary" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Why is my real hourly wage lower than salary ÷ 40?", "acceptedAnswer": { "@type": "Answer", "text": "Because the formula ignores three things: the hours you work beyond 40, the hours you spend commuting, and the taxes taken before the money reaches you. Count all of it, and the rate drops." } },
+      { "@type": "Question", "name": "Should I count my lunch break as work time?", "acceptedAnswer": { "@type": "Answer", "text": "Only if you work through it. The calculator asks for the hours your job actually owns each week, not what the contract says." } },
+      { "@type": "Question", "name": "Is this financial advice?", "acceptedAnswer": { "@type": "Answer", "text": "No. It is arithmetic. Use it to compare offers, negotiate, or decide whether a raise is worth a longer commute." } }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#calc">Skip to the calculator</a>
+
+  <header class="masthead">
+    <div class="container masthead-inner">
+      <a class="wordmark" href="#top">The Honest Hour<span>.</span></a>
+      <nav aria-label="Sections">
+        <a href="#math">The math</a>
+        <a href="#league">The league</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero: the calculator is the page -->
+    <section class="hero">
+      <div class="container">
+        <h1 class="hero-title">Your salary is not your wage.</h1>
+        <p class="hero-lede">Count the commute, the unpaid hours and the taxes — then see what one hour of your life really pays.</p>
+
+        <div class="calc" id="calc">
+          <div class="calc-grid">
+            <div class="calc-field">
+              <label for="salary">Yearly salary</label>
+              <input type="number" id="salary" min="1" step="500" value="60000" inputmode="numeric" />
+              <p class="calc-hint">Before tax, as offered.</p>
+            </div>
+            <div class="calc-field">
+              <label for="hours">Hours your job owns each week</label>
+              <input type="number" id="hours" min="1" max="100" step="1" value="45" inputmode="numeric" />
+              <p class="calc-hint">Worked, including unpaid overtime.</p>
+            </div>
+            <div class="calc-field">
+              <label for="commute">Commute hours + costs per week</label>
+              <div style="display:flex; gap:14px;">
+                <input type="number" id="commuteH" min="0" max="60" step="0.5" value="5" inputmode="decimal" aria-label="Commute hours per week" style="width:60%" />
+                <input type="number" id="commuteC" min="0" step="5" value="60" inputmode="numeric" aria-label="Commute cost per week" style="width:40%" />
+              </div>
+              <p class="calc-hint">Hours in transit · fuel, fares, parking.</p>
+            </div>
+          </div>
+          <div class="result" aria-live="polite">
+            <div class="result-old">
+              <p class="label">They say you earn</p>
+              <span class="struck" id="nominal">$28.85<span style="font-size:.6em">/hr</span></span>
+              <p class="result-sub">salary ÷ 40 hours — the version on the offer letter</p>
+            </div>
+            <div class="result-new">
+              <p class="label">You actually earn</p>
+              <span class="big-figure"><span id="real">$22</span><span class="unit">/hr</span></span>
+              <p class="result-sub" id="realNote">after tax, over every hour the job takes from your week</p>
+              <div class="result-actions">
+                <button class="btn btn-primary" id="copyBtn" type="button">Copy my number</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="ad-band" aria-label="Advertisement">
+      <div class="container ad-slot" id="ad-slot-1">Advertisement — 728 × 90</div>
+    </div>
+
+    <section class="section" id="math">
+      <div class="container">
+        <h2 class="section-title">The whole trick is what you divide by</h2>
+        <p class="section-lede">Most people divide salary by 2,080 hours. Your employer does not own 2,080 hours of you. It owns more — and pays you on less.</p>
+        <div class="prose">
+          <p><strong>Taxes come out first.</strong> Your salary is a pre-tax number; the money you live on is not. The calculator applies the effective rate you type, not a guess.</p>
+          <div class="formula">
+            (salary − tax − commute costs) <span class="op">÷</span> (worked hours <span class="op">+</span> commute hours) × 52
+          </div>
+          <p><strong>Every hour counts, paid or not.</strong> The train, the traffic, the emails after dinner — the job takes them all. Only the formula on the offer letter pretends otherwise. Two offers with the same salary can differ by ten dollars an hour once the commute is counted.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="league">
+      <div class="container">
+        <h2 class="section-title">Same salary, very different hour</h2>
+        <p class="section-lede">Three ways to earn $60,000 — and what each one pays for an hour of your life, once the real formula runs.</p>
+        <div class="table-wrap">
+          <table class="league">
+            <thead>
+              <tr>
+                <th scope="col">The offer</th>
+                <th scope="col">Hours the job takes</th>
+                <th scope="col">Commute cost</th>
+                <th scope="col">Real hourly rate</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Nearby, 40 hrs, no commute cost</td>
+                <td>40 + 2</td>
+                <td>$0/wk</td>
+                <td><em id="rowA">≈ $26.44/hr</em></td>
+              </tr>
+              <tr>
+                <td>In-office, 45 hrs, 5 hrs in traffic</td>
+                <td>45 + 5</td>
+                <td>$60/wk</td>
+                <td>≈ $22.36/hr</td>
+              </tr>
+              <tr>
+                <td>Long haul, 50 hrs, 10 hrs in transit</td>
+                <td>50 + 10</td>
+                <td>$120/wk</td>
+                <td>≈ $18.55/hr</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="table-note">Illustrative rows computed with this page's formula at a 22% effective tax rate. Type your own numbers above for yours.</p>
+      </div>
+    </section>
+
+    <div class="ad-band" aria-label="Advertisement">
+      <div class="container ad-slot" id="ad-slot-2">Advertisement — 728 × 90</div>
+    </div>
+
+    <section class="section" id="faq">
+      <div class="container">
+        <h2 class="section-title">Questions people ask before they argue about it</h2>
+        <p class="section-lede">Short answers, no hedging.</p>
+        <div class="faq">
+          <details>
+            <summary>Why is my real hourly wage lower than salary ÷ 40?</summary>
+            <p>Because the formula ignores three things: the hours you work beyond 40, the hours you spend commuting, and the taxes taken before the money reaches you. Count all of it, and the rate drops.</p>
+          </details>
+          <details>
+            <summary>Should I count my lunch break as work time?</summary>
+            <p>Only if you work through it. The calculator asks for the hours your job actually owns each week, not what the contract says.</p>
+          </details>
+          <details>
+            <summary>Is this financial advice?</summary>
+            <p>No. It is arithmetic. Use it to compare offers, negotiate, or decide whether a raise is worth a longer commute.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <a class="wordmark" href="#top">The Honest Hour<span>.</span></a>
+        <nav class="footer-links" aria-label="Footer">
+          <a href="#calc">The calculator</a>
+          <a href="#math">The math</a>
+          <a href="#league">The league</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+      </div>
+      <p class="footer-fine">Arithmetic, not advice. Your numbers stay in your browser; nothing is sent anywhere. © 2026 The Honest Hour.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

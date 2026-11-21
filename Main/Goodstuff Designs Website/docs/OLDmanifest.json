@@ -1,0 +1,20 @@
+{
+  "name": "Goodstuff Designs",
+  "short_name": "Goodstuff",
+  "description": "Technology studio in Heidelberg, Gauteng: managed IT support, business networks and fibre, cybersecurity, websites and managed hosting, AI workflows and digital marketing.",
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#10b981",
+  "lang": "en-ZA",
+  "icons": [
+    {
+      "src": "/assets/img/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

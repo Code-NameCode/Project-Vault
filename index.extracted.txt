@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="TechCore Solutions - professional IT support, cybersecurity, network installations and web development for South African businesses." />
+  <title>TechCore Solutions | IT Services South Africa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- Navigation -->
+  <header class="navbar" id="navbar">
+    <nav class="nav-container" aria-label="Main navigation">
+      <a href="#hero" class="logo" aria-label="TechCore Solutions home">
+        <span class="logo-mark">T</span>
+        <span class="logo-text">TechCore<span class="logo-accent">Solutions</span></span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li class="nav-cta-mobile"><a href="#contact" class="btn btn-primary btn-small">Get a Quote</a></li>
+      </ul>
+      <a href="#contact" class="btn btn-primary btn-small nav-cta">Get a Quote</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero" id="hero">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="container hero-content">
+        <p class="hero-eyebrow reveal">Trusted IT partner in South Africa</p>
+        <h1 class="reveal">Technology that powers <span class="text-gradient">your business forward</span></h1>
+        <p class="hero-subtitle reveal">
+          From managed IT support to enterprise-grade cybersecurity, TechCore Solutions
+          keeps South African businesses secure, connected and competitive.
+        </p>
+        <div class="hero-actions reveal">
+          <a href="#contact" class="btn btn-primary">Get a Free Consultation</a>
+          <a href="#services" class="btn btn-ghost">Explore Our Services</a>
+        </div>
+        <dl class="hero-stats reveal">
+          <div><dt>500+</dt><dd>Businesses supported</dd></div>
+          <div><dt>99.9%</dt><dd>Uptime guarantee</dd></div>
+          <div><dt>24/7</dt><dd>Support coverage</dd></div>
+          <div><dt>15+</dt><dd>Years of experience</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section class="section services" id="services">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="eyebrow">What we do</p>
+          <h2>Services built for modern business</h2>
+          <p class="section-subtitle">End-to-end IT solutions delivered by certified engineers - so you can focus on running your company.</p>
+        </div>
+        <div class="services-grid">
+          <article class="service-card reveal">
+            <div class="service-icon" aria-hidden="true">🛠️</div>
+            <h3>IT Support</h3>
+            <p>Managed helpdesk, on-site support and proactive monitoring. We resolve issues fast and prevent them from recurring.</p>
+            <ul class="service-list">
+              <li>Remote &amp; on-site support</li>
+              <li>Device &amp; patch management</li>
+              <li>Disaster recovery planning</li>
+            </ul>
+            <a href="#contact" class="service-link" data-service="IT Support">Enquire about IT Support <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="service-card reveal">
+            <div class="service-icon" aria-hidden="true">🛡️</div>
+            <h3>Cybersecurity</h3>
+            <p>Protect your data, staff and reputation with layered security designed around the POPI Act and global best practice.</p>
+            <ul class="service-list">
+              <li>Security audits &amp; penetration testing</li>
+              <li>Firewall &amp; endpoint protection</li>
+              <li>Staff security awareness training</li>
+            </ul>
+            <a href="#contact" class="service-link" data-service="Cybersecurity">Enquire about Cybersecurity <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="service-card reveal">
+            <div class="service-icon" aria-hidden="true">🌐</div>
+            <h3>Network Installations</h3>
+            <p>Structured cabling, Wi-Fi and server infrastructure engineered for speed, reliability and future growth.</p>
+            <ul class="service-list">
+              <li>Structured cabling &amp; fibre</li>
+              <li>Wireless network design</li>
+              <li>Server room &amp; cloud setup</li>
+            </ul>
+            <a href="#contact" class="service-link" data-service="Network Installations">Enquire about Networks <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="service-card reveal">
+            <div class="service-icon" aria-hidden="true">💻</div>
+            <h3>Web Development</h3>
+            <p>Fast, secure and beautiful websites and web apps that turn visitors into customers - built to modern standards.</p>
+            <ul class="service-list">
+              <li>Corporate websites &amp; e-commerce</li>
+              <li>Custom web applications</li>
+              <li>SEO &amp; performance optimisation</li>
+            </ul>
+            <a href="#contact" class="service-link" data-service="Web Development">Enquire about Web Development <span aria-hidden="true">→</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section testimonials" id="testimonials">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="eyebrow">Client stories</p>
+          <h2>Trusted by businesses across South Africa</h2>
+        </div>
+        <div class="testimonials-grid">
+          <figure class="testimonial reveal">
+            <div class="stars" aria-label="Rated 5 out of 5">★★★★★</div>
+            <blockquote>“TechCore migrated our entire office network over a single weekend with zero downtime. Their response times are unmatched in Gauteng.”</blockquote>
+            <figcaption><strong>Thandiwe Mokoena</strong><span>Operations Director, Ledgerline Financial</span></figcaption>
+          </figure>
+          <figure class="testimonial reveal">
+            <div class="stars" aria-label="Rated 5 out of 5">★★★★★</div>
+            <blockquote>“After a near-miss phishing attack, TechCore implemented full cybersecurity training and endpoint protection. We sleep far easier now.”</blockquote>
+            <figcaption><strong>Pieter van der Merwe</strong><span>Managing Partner, Van der Merwe &amp; Assoc.</span></figcaption>
+          </figure>
+          <figure class="testimonial reveal">
+            <div class="stars" aria-label="Rated 5 out of 5">★★★★★</div>
+            <blockquote>“Our new e-commerce site doubled conversion within three months. Professional, on budget and delivered ahead of schedule.”</blockquote>
+            <figcaption><strong>Naledi Khumalo</strong><span>Founder, Kwena Lifestyle Brands</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="section pricing" id="pricing">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="eyebrow">Pricing plans</p>
+          <h2>Transparent plans, no surprises</h2>
+          <p class="section-subtitle">Monthly plans billed in ZAR. All plans include a free onboarding audit. Custom enterprise quotes available.</p>
+        </div>
+        <div class="pricing-grid">
+          <article class="pricing-card reveal">
+            <h3>Essential</h3>
+            <p class="pricing-desc">For small teams getting started</p>
+            <p class="price"><span class="currency">R</span>1,450<span class="period">/month</span></p>
+            <ul>
+              <li>Remote helpdesk (business hours)</li>
+              <li>Up to 10 endpoints monitored</li>
+              <li>Monthly health report</li>
+              <li>Email security basics</li>
+            </ul>
+            <a href="#contact" class="btn btn-outline" data-plan="Essential">Choose Essential</a>
+          </article>
+          <article class="pricing-card pricing-card-featured reveal">
+            <span class="pricing-badge">Most popular</span>
+            <h3>Professional</h3>
+            <p class="pricing-desc">For growing companies</p>
+            <p class="price"><span class="currency">R</span>3,900<span class="period">/month</span></p>
+            <ul>
+              <li>24/7 helpdesk &amp; on-site support</li>
+              <li>Up to 50 endpoints monitored</li>
+              <li>Managed firewall &amp; antivirus</li>
+              <li>Quarterly cybersecurity audit</li>
+              <li>Discounted web development</li>
+            </ul>
+            <a href="#contact" class="btn btn-primary" data-plan="Professional">Choose Professional</a>
+          </article>
+          <article class="pricing-card reveal">
+            <h3>Enterprise</h3>
+            <p class="pricing-desc">For multi-site operations</p>
+            <p class="price"><span class="period price-custom">Custom quote</span></p>
+            <ul>
+              <li>Dedicated account engineer</li>
+              <li>Unlimited endpoints &amp; sites</li>
+              <li>Penetration testing &amp; compliance</li>
+              <li>Disaster recovery &amp; SLA 99.9%</li>
+            </ul>
+            <a href="#contact" class="btn btn-outline" data-plan="Enterprise">Request a Quote</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section contact" id="contact">
+      <div class="container contact-container">
+        <div class="contact-info reveal">
+          <p class="eyebrow">Get in touch</p>
+          <h2>Let's talk about your IT needs</h2>
+          <p>Tell us about your business and we'll arrange a free consultation - no obligation, no jargon.</p>
+          <ul class="contact-details">
+            <li><span aria-hidden="true">📞</span> <a href="tel:+27115550123">+27 11 555 0123</a></li>
+            <li><span aria-hidden="true">✉️</span> <a href="mailto:hello@techcore.co.za">hello@techcore.co.za</a></li>
+            <li><span aria-hidden="true">📍</span> <a href="https://maps.google.com/?q=Sandton,Johannesburg" target="_blank" rel="noopener">Sandton, Johannesburg, South Africa</a></li>
+          </ul>
+        </div>
+        <form class="contact-form reveal" id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Full name</label>
+              <input type="text" id="name" name="name" placeholder="Your name" required autocomplete="name" />
+              <span class="error-msg" id="nameError" role="alert"></span>
+            </div>
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input type="email" id="email" name="email" placeholder="you@company.co.za" required autocomplete="email" />
+              <span class="error-msg" id="emailError" role="alert"></span>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Phone <span class="optional">(optional)</span></label>
+              <input type="tel" id="phone" name="phone" placeholder="+27 ..." autocomplete="tel" />
+            </div>
+            <div class="form-group">
+              <label for="service">Service of interest</label>
+              <select id="service" name="service">
+                <option value="">Select a service</option>
+                <option>IT Support</option>
+                <option>Cybersecurity</option>
+                <option>Network Installations</option>
+                <option>Web Development</option>
+                <option>Plan: Essential</option>
+                <option>Plan: Professional</option>
+                <option>Plan: Enterprise</option>
+                <option>General enquiry</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Tell us about your business and how we can help..." required></textarea>
+            <span class="error-msg" id="messageError" role="alert"></span>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+          <p class="form-status" id="formStatus" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <a href="#hero" class="logo">
+          <span class="logo-mark">T</span>
+          <span class="logo-text">TechCore<span class="logo-accent">Solutions</span></span>
+        </a>
+        <p>Reliable, secure IT for South African businesses since 2010.</p>
+      </div>
+      <nav class="footer-col" aria-label="Services footer">
+        <h3>Services</h3>
+        <ul>
+          <li><a href="#services">IT Support</a></li>
+          <li><a href="#services">Cybersecurity</a></li>
+          <li><a href="#services">Network Installations</a></li>
+          <li><a href="#services">Web Development</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-col" aria-label="Company footer">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="footer-col">
+        <h3>Contact</h3>
+        <ul>
+          <li><a href="tel:+27115550123">+27 11 555 0123</a></li>
+          <li><a href="mailto:hello@techcore.co.za">hello@techcore.co.za</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© <span id="year"></span> TechCore Solutions (Pty) Ltd. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
+
+  <script src="script.js"></script>
+</body>
+</html>

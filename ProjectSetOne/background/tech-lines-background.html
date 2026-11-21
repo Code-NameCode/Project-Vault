@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tech lines background</title>
+<style>
+  /* ===== DROP-IN BACKGROUND: copy from here ===== */
+  :root {
+    --bg: #171717;
+    --accent: #10b981;
+    --line: rgba(16, 185, 129, 0.12);   /* #10b981 at low opacity for the static traces */
+    --glow: #10b981;
+    --pulse-opacity: 0.7;
+  }
+
+  .tech-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: var(--bg);
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .tech-bg svg { width: 100%; height: 100%; display: block; }
+
+  .tech-bg .trace {
+    fill: none;
+    stroke: var(--line);
+    stroke-width: 1.2;
+    stroke-linejoin: round;
+  }
+  .tech-bg .node { fill: var(--line); }
+
+  .tech-bg .pulse {
+    fill: none;
+    stroke: var(--glow);
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-dasharray: 70 930;          /* short bright segment on a 1000 unit path */
+    stroke-dashoffset: 1000;
+    opacity: var(--pulse-opacity);
+    filter: drop-shadow(0 0 4px var(--glow));
+    animation: travel 14s linear infinite;
+  }
+  .tech-bg .pulse:nth-of-type(2n)  { animation-duration: 18s; }
+  .tech-bg .pulse:nth-of-type(3n)  { animation-duration: 22s; }
+  .tech-bg .pulse:nth-of-type(4n)  { animation-duration: 26s; }
+
+  @keyframes travel { to { stroke-dashoffset: 0; } }
+
+  /* soft fade at the edges so lines never feel hard-cropped */
+  .tech-bg::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at center, transparent 45%, var(--bg) 100%);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .tech-bg .pulse { animation: none; opacity: 0; }
+  }
+  /* ===== to here ===== */
+
+  /* demo content only */
+  body { margin: 0; background: #171717; }
+</style>
+</head>
+<body>
+  <div class="tech-bg" aria-hidden="true">
+    <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <path id="p1" pathLength="1000" d="M0 140 H220 L260 180 H520 L560 220 H860 V120 H1200"/>
+        <path id="p2" pathLength="1000" d="M0 330 H140 V420 H380 L430 470 H700 V380 H980 L1020 340 H1200"/>
+        <path id="p3" pathLength="1000" d="M200 0 V90 L240 130 V300 H460 V520 L500 560 V800"/>
+        <path id="p4" pathLength="1000" d="M0 640 H300 L340 600 H640 V700 H900 L940 660 H1200"/>
+        <path id="p5" pathLength="1000" d="M820 0 V200 L780 240 V460 H1000 L1040 500 V800"/>
+        <path id="p6" pathLength="1000" d="M1200 520 H1080 L1040 560 H760 V620 H560 L520 660 H320 V800"/>
+        <path id="p7" pathLength="1000" d="M600 0 V60 H700 L740 100 H980 V0"/>
+      </defs>
+
+      <g>
+        <use href="#p1" class="trace"/><use href="#p2" class="trace"/>
+        <use href="#p3" class="trace"/><use href="#p4" class="trace"/>
+        <use href="#p5" class="trace"/><use href="#p6" class="trace"/>
+        <use href="#p7" class="trace"/>
+        <circle class="node" cx="220" cy="140" r="3"/><circle class="node" cx="560" cy="220" r="3"/>
+        <circle class="node" cx="860" cy="120" r="3"/><circle class="node" cx="380" cy="420" r="3"/>
+        <circle class="node" cx="700" cy="380" r="3"/><circle class="node" cx="240" cy="300" r="3"/>
+        <circle class="node" cx="500" cy="560" r="3"/><circle class="node" cx="640" cy="600" r="3"/>
+        <circle class="node" cx="900" cy="700" r="3"/><circle class="node" cx="1000" cy="460" r="3"/>
+      </g>
+
+      <use href="#p1" class="pulse" style="animation-delay:-2s"/>
+      <use href="#p2" class="pulse" style="animation-delay:-9s"/>
+      <use href="#p3" class="pulse" style="animation-delay:-5s"/>
+      <use href="#p4" class="pulse" style="animation-delay:-12s"/>
+      <use href="#p5" class="pulse" style="animation-delay:-7s"/>
+      <use href="#p6" class="pulse" style="animation-delay:-15s"/>
+      <use href="#p7" class="pulse" style="animation-delay:-3s"/>
+    </svg>
+  </div>
+
+</body>
+</html>

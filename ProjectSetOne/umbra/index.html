@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Umbra — a field guide to the darkest places on Earth</title>
+  <meta name="description" content="Some places still have real night. Umbra is a field guide to finding them, standing in them, and remembering what the sky used to be." />
+  <meta name="theme-color" content="#0A0D12" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Umbra — a field guide to the darkest places on Earth" />
+  <meta property="og:description" content="Some places still have real night. Go find one." />
+  <meta name="twitter:card" content="summary" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,500;1,300&family=Karla:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#places">Skip to the places</a>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="masthead" id="masthead">
+    <div class="container masthead-inner">
+      <a class="wordmark" href="#top">Umbra<span>.</span></a>
+      <nav aria-label="Sections">
+        <a href="#manifesto">Why dark</a>
+        <a href="#places">Places</a>
+        <a href="#practice">The practice</a>
+        <a href="#go">Go tonight</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- Hero: the red torch -->
+    <section class="hero" id="hero">
+      <div class="sky" id="sky" aria-hidden="true"></div>
+      <div class="torch" id="torch" aria-hidden="true"></div>
+      <div class="hero-inner">
+        <h1 class="hero-title">The night is <span class="mark">not empty</span>.</h1>
+        <p class="hero-lede">Umbra is a field guide to the last dark places on Earth — and to standing in one, once, with your head tilted all the way back.</p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="#places">Find a dark place</a>
+          <a class="btn" href="#go">Go tonight</a>
+        </div>
+      </div>
+      <p class="torch-note">Move your light across the sky.</p>
+      <p class="scroll-cue"><a href="#manifesto">Descend into the dark ↓</a></p>
+    </section>
+
+    <!-- Manifesto -->
+    <section class="section" id="manifesto">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 class="section-title">You have probably never seen <span class="mark">the night</span>.</h2>
+          <p class="section-lede">You have seen a grey-orange haze where the stars should be. Almost everyone has, now. The real thing still exists, and it is closer than you think.</p>
+        </div>
+        <p class="manifesto reveal">
+          Step out of the haze and the sky <span class="mark">doubles</span> — thousands of stars instead of a handful, the Milky Way thrown across the dark like a spilled ribbon of milk. No app, no ticket, no guide required. Only distance <span class="mark">from</span> the lights.
+        </p>
+      </div>
+    </section>
+
+    <!-- The places -->
+    <section class="section" id="places">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 class="section-title">Three places where <span class="mark">the sky still falls</span>.</h2>
+          <p class="section-lede">Each swatch below is the colour a sky actually wears there, far from any city's glow. These are not the only ones — they are the ones to start with.</p>
+        </div>
+        <div class="places">
+          <article class="place reveal">
+            <div class="place-sky atacama" role="img" aria-label="Swatch of the Atacama night sky — near-black with a cold blue cast"></div>
+            <h3>Atacama, Chile <span>The driest desert on Earth</span></h3>
+            <p>A sky so still and dry that major observatories moved here just to watch it. Lie back and the Milky Way is not a smear — it has texture, dust lanes, a spine.</p>
+          </article>
+          <article class="place reveal">
+            <div class="place-sky wales" role="img" aria-label="Swatch of the Bannau Brycheiniog night sky — deep blue-black"></div>
+            <h3>Bannau Brycheiniog, Wales <span>Europe's protected dark reserve</span></h3>
+            <p>Proof you do not need a desert. Rolling moorland, old stone, and on a clear night a sky dark enough that the Andromeda galaxy shows to the naked eye.</p>
+          </article>
+          <article class="place reveal">
+            <div class="place-sky namibia" role="img" aria-label="Swatch of the NamibRand night sky — black with a warm ember cast near the horizon"></div>
+            <h3>NamibRand, Namibia <span>Africa's dark reserve</span></h3>
+            <p>Sand the colour of rust under a sky the colour of ink. The southern constellations wheel overhead, unfamiliar and enormous, all night long.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- The practice -->
+    <section class="section" id="practice">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 class="section-title">Watching well is <span class="mark">a practice</span>.</h2>
+          <p class="section-lede">Anyone can look up. These are the small habits that turn a glance into the thing you'll remember for the rest of your life.</p>
+        </div>
+        <div class="practice">
+          <div class="practice-copy reveal">
+            <p><strong>Give your eyes half an hour.</strong> Night vision arrives slowly — it cannot be rushed, only waited for. Stay put, keep your phone in your pocket, and let the dark accumulate. Stars you couldn't see at all will simply fade in.</p>
+            <p><strong>Use your sideways gaze.</strong> Look slightly to the left of a faint object instead of straight at it. The eye is more sensitive to dim light off-centre — stargazers call it averted vision, and it feels like a cheat code.</p>
+            <p><strong>Learn three things, not thirty.</strong> Find Orion, the Plough and one planet. That is enough to make every clear night for the rest of your life feel like meeting old friends.</p>
+          </div>
+          <div class="moon-phase reveal">
+            <div class="phase-orb" id="phaseOrb"></div>
+            <h3>The moon sets your night</h3>
+            <p>The moon is a beautiful tyrant: bright enough to erase everything else. Plan around its phase.</p>
+            <div class="phase-controls" role="group" aria-label="Moon phase">
+              <button class="chip" type="button" data-phase="62%" aria-pressed="true">Full moon</button>
+              <button class="chip" type="button" data-phase="30%" aria-pressed="false">Half moon</button>
+              <button class="chip" type="button" data-phase="4%" aria-pressed="false">New moon</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Go tonight -->
+    <section class="section" id="go">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 class="section-title">Your <span class="mark">first</span> real night.</h2>
+          <p class="section-lede">Four things to settle before you leave the driveway. Check them off; the sky will do the rest.</p>
+        </div>
+        <div class="checklist reveal">
+          <div class="check-item">
+            <input type="checkbox" id="c1" />
+            <label for="c1">Find the darkest spot within reach
+              <span class="why">Drive away from the city's glow — the difference begins surprisingly close to the edge of town.</span>
+            </label>
+          </div>
+          <div class="check-item">
+            <input type="checkbox" id="c2" />
+            <label for="c2">Pick a moonless night
+              <span class="why">Around the new moon, the sky belongs to the stars alone.</span>
+            </label>
+          </div>
+          <div class="check-item">
+            <input type="checkbox" id="c3" />
+            <label for="c3">Bring more warmth than you think
+              <span class="why">Standing still at night is colder than any walk; dress for the end of the night, not the start.</span>
+            </label>
+          </div>
+          <div class="check-item">
+            <input type="checkbox" id="c4" />
+            <label for="c4">Take a red torch, not a white one
+              <span class="why">White light resets half an hour of night vision in a single glance; red barely touches it.</span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <a class="wordmark" href="#top">Umbra<span>.</span></a>
+        <nav class="footer-links" aria-label="Footer">
+          <a href="#manifesto">Why dark</a>
+          <a href="#places">Places</a>
+          <a href="#practice">The practice</a>
+          <a href="#go">Go tonight</a>
+        </nav>
+      </div>
+      <p class="footer-fine">Umbra is a love letter to real night. Places named are protected dark-sky reserves; visit gently, leave no light behind. © 2026 Umbra.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

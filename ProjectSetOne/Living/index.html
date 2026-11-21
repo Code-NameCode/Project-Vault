@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOMA — a living studio</title>
+<meta name="description" content="SOMA is a digital organism. A studio site that breathes, reacts, and evolves with your presence.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Archivo:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/living.css">
+</head>
+<body data-alive="0">
+
+<!-- ambient life: fixed canvas behind everything -->
+<canvas id="ambient" aria-hidden="true"></canvas>
+<div id="vignette" aria-hidden="true"></div>
+
+<!-- custom cursor (desktop only) -->
+<div id="cursor" aria-hidden="true"><span id="cursor-core"></span></div>
+
+<header id="mast">
+  <a class="wordmark" href="#hero" data-morph>SOMA</a>
+  <nav aria-label="organs">
+    <a href="#pulse" data-morph>01 · Pulse</a>
+    <a href="#gallery" data-morph>02 · Growth</a>
+    <a href="#organs" data-morph>03 · Organs</a>
+    <a href="#contact" data-morph>04 · Signal</a>
+  </nav>
+  <button id="soundToggle" aria-pressed="false" aria-label="Toggle ambient sound">
+    <span class="wave"><i></i><i></i><i></i><i></i></span>
+    <span class="label">sound</span>
+  </button>
+</header>
+
+<main>
+
+  <!-- ══ ORGAN 00 · HERO ══ -->
+  <section id="hero" class="organ">
+    <canvas id="heroCanvas" aria-hidden="true"></canvas>
+    <div class="hero-inner">
+      <p class="breath-line"><span class="dot"></span> alive · <span id="vitals">listening for you</span></p>
+      <h1 id="heroTitle" data-morph>
+        <span class="line">A website</span>
+        <span class="line italic">that breathes</span>
+        <span class="line">when you move.</span>
+      </h1>
+      <p class="hero-sub">Move. Hover. Scroll. This page is a soft organism —
+        every pixel you touch responds, and nothing you see will ever render
+        exactly the same way twice.</p>
+      <div class="hero-cta">
+        <a href="#pulse" class="pulse-btn" data-morph>touch the organism</a>
+      </div>
+    </div>
+    <div class="scroll-spine" aria-hidden="true"><span></span><em>descend</em></div>
+  </section>
+
+  <!-- ══ ORGAN 01 · PULSE ══ -->
+  <section id="pulse" class="organ">
+    <div class="organ-tag">01 · Pulse</div>
+    <div class="pulse-grid">
+      <div class="pulse-copy">
+        <h2 data-morph>It has a<br><em>heartbeat.</em></h2>
+        <p>The organism's pulse is yours. Move your cursor faster and its breathing
+           quickens. Rest, and it settles into a slow tidal rhythm. On touch devices,
+           drag anywhere to stir the blood.</p>
+        <p class="micro">— every gradient, particle and shape on this page is generated
+           live, right now, by code. No video. No loops. No stillness.</p>
+      </div>
+      <div class="pulse-visual">
+        <svg id="morphBlob" viewBox="0 0 400 400" aria-hidden="true">
+          <defs>
+            <radialGradient id="blobGrad" cx="35%" cy="30%" r="80%">
+              <stop offset="0%" stop-color="#ff6b4a"/>
+              <stop offset="45%" stop-color="#e0367c"/>
+              <stop offset="100%" stop-color="#3a1252"/>
+            </radialGradient>
+          </defs>
+          <path id="blobPath" fill="url(#blobGrad)"></path>
+        </svg>
+        <div class="pulse-readout">
+          <span>bpm <b id="bpm">62</b></span>
+          <span>agitation <b id="agitation">0.00</b></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ ORGAN 02 · GALLERY ══ -->
+  <section id="gallery" class="organ">
+    <div class="organ-tag">02 · Growth</div>
+    <header class="gallery-head">
+      <h2 data-morph>Grown, not<br><em>designed.</em></h2>
+      <p>Each specimen below is a living seed — a procedural artwork that grows
+         differently every time it germinates. Tap any cell to re-grow it.
+         Drag to disturb its growth.</p>
+      <button id="regrowAll" class="ghost-btn" data-morph>↻ re-grow all specimens</button>
+    </header>
+    <div id="specimens" class="specimen-grid"></div>
+  </section>
+
+  <!-- ══ ORGAN 03 · SERVICES ══ -->
+  <section id="organs" class="organ">
+    <div class="organ-tag">03 · Organs</div>
+    <h2 data-morph>Organs of<br><em>the studio.</em></h2>
+    <p class="organ-lede">What we do, shown rather than said. Each organ is a live
+       interactive demonstration — play with it.</p>
+
+    <article class="organ-row" data-side="left">
+      <div class="organ-demo"><canvas id="demoFluid" aria-label="Interactive fluid ripple demo"></canvas>
+        <span class="demo-hint">touch / hover to stir</span></div>
+      <div class="organ-copy">
+        <h3><span class="num">i.</span> Fluid Identity</h3>
+        <p>Brands that move. Logo systems, gradients and liquid marks built as
+           living code — not frozen PDFs. This ripple is our identity work,
+           literally responding to your hand.</p>
+        <span class="organ-meta">webgl · shaders · motion systems</span>
+      </div>
+    </article>
+
+    <article class="organ-row" data-side="right">
+      <div class="organ-demo"><canvas id="demoSwarm" aria-label="Interactive particle swarm demo"></canvas>
+        <span class="demo-hint">your cursor is the predator</span></div>
+      <div class="organ-copy">
+        <h3><span class="num">ii.</span> Generative Systems</h3>
+        <p>Artworks that never repeat. We build procedural engines for campaigns,
+           installations and interfaces — a thousand posters from one seed.
+           This swarm flees you. It cannot help it.</p>
+        <span class="organ-meta">canvas · algorithms · creative code</span>
+      </div>
+    </article>
+
+    <article class="organ-row" data-side="left">
+      <div class="organ-demo"><canvas id="demoType" aria-label="Interactive reactive typography demo"></canvas>
+        <span class="demo-hint">hover the letters</span></div>
+      <div class="organ-copy">
+        <h3><span class="num">iii.</span> Kinetic Typography</h3>
+        <p>Words with reflexes. Editorial sites, titles and campaigns where the
+           type itself is an interface. Hover the specimen — the letters flinch,
+           stretch, and remember you.</p>
+        <span class="organ-meta">variable fonts · interaction · rhythm</span>
+      </div>
+    </article>
+  </section>
+
+  <!-- ══ ORGAN 04 · CONTACT ══ -->
+  <section id="contact" class="organ">
+    <div class="organ-tag">04 · Signal</div>
+    <div class="contact-grid">
+      <div class="contact-copy">
+        <h2 data-morph>Send a<br><em>signal.</em></h2>
+        <p>The organism listens on this frequency. As you type, the form warms to
+           you — colour, motion and the field behind respond to your attention.</p>
+        <p class="micro">hello@soma.studio · @soma.organism</p>
+      </div>
+      <form id="signalForm" novalidate>
+        <label>
+          <span>your name</span>
+          <input type="text" name="name" autocomplete="name" placeholder="who is reaching out?">
+        </label>
+        <label>
+          <span>your signal</span>
+          <textarea name="message" rows="4" placeholder="what should the organism know?"></textarea>
+        </label>
+        <button type="submit" class="pulse-btn" data-morph>
+          <span class="btn-text">transmit</span>
+          <span class="btn-life" aria-hidden="true"></span>
+        </button>
+        <p id="formEcho" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer id="feet">
+  <span>SOMA — grown in the browser, never twice the same.</span>
+  <span id="footVitals">·</span>
+</footer>
+
+<script src="js/living.js"></script>
+</body>
+</html>
