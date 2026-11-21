@@ -10,6 +10,9 @@
 body{margin:0;background:var(--bg);color:var(--text-primary);font:400 15px/1.65 var(--font-sans);-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}:focus-visible{outline:2px solid var(--accent-emerald);outline-offset:2px}
 .skip{position:absolute;left:-999px;top:8px;background:var(--accent-emerald);color:#fff;padding:8px 14px;border-radius:9px;z-index:20}.skip:focus{left:8px}
+.masthead{position:fixed;inset:0 0 auto;height:56px;z-index:10;background:#000000b3;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:.25s}
+.masthead.scrolled{border-color:var(--border);background:#000000e6}
+.masthead-inner{display:flex;align-items:center;justify-content:space-between;height:56px;gap:24px;width:min(100% - 48px,1120px);margin:0 auto}
 .wordmark{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:700;letter-spacing:-.02em}.wordmark img{width:22px;height:22px;flex:0 0 auto}.wordmark em{font-style:normal;color:var(--accent-emerald)}
 .mastnav{display:flex;gap:26px}
 .mastnav a{font-size:13px;font-weight:500;color:var(--text-secondary);padding:4px 0;position:relative;transition:color .15s}
