@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Project Vault</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Crect x='1' y='1' width='26' height='26' rx='7' fill='%230a0a0a' stroke='%2310b981' stroke-width='1.5'/%3E%3C/svg%3E">
+<style>
+:root{color-scheme:dark;--bg:#000;--surface:#0a0a0a;--carbon-2:#111;--border:#1a1a1a;--border-hover:#52525b;--text-primary:#fff;--text-secondary:#a1a1aa;--text-tertiary:#52525b;--accent-emerald:#10b981;--accent-emerald-light:#6ee7b7;--signal:#60a5fa;--amber:#f59e0b;--danger:#f87171;--font-sans:'Inter',system-ui,sans-serif;--font-mono:'JetBrains Mono',monospace}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text-primary);font:400 15px/1.65 var(--font-sans);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}:focus-visible{outline:2px solid var(--accent-emerald);outline-offset:2px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--accent-emerald);color:#fff;padding:8px 14px;border-radius:9px;z-index:20}.skip:focus{left:8px}
+header{position:fixed;inset:0 0 auto;height:56px;z-index:10;display:flex;align-items:center;gap:24px;padding:0 max(24px,calc((100% - 1120px)/2));background:#000000b3;backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:.25s}
+header.gs-scrolled{border-color:var(--border);background:#000000e6}
+.brand{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:-.02em}.brand small{color:var(--text-tertiary);font:500 10px var(--font-mono);letter-spacing:.09em;text-transform:uppercase}
+nav{margin-left:auto}.nav-links{display:flex;gap:4px}.nav-links a{position:relative;padding:8px 12px;color:var(--text-secondary);font-size:14px}.nav-links a:hover,.nav-links a[aria-current]{color:var(--text-primary)}.nav-links a[aria-current]::after{content:"";position:absolute;left:12px;right:12px;bottom:2px;height:2px;background:var(--accent-emerald)}
+.nav-toggle{display:none;margin-left:auto;background:none;border:1px solid var(--border);color:var(--text-primary);border-radius:9px;min-height:40px;padding:0 12px;font-size:18px;cursor:pointer}
+@media(max-width:900px){.nav-toggle{display:block}nav{position:absolute;top:56px;left:0;right:0;margin:0}.nav-links{display:none;flex-direction:column;background:#000;border-bottom:1px solid var(--border);padding:8px 24px 16px}.nav-links.open{display:flex}.nav-links a{padding:12px 0}.nav-links a[aria-current]::after{left:0;right:auto;width:24px}}
+main{width:min(100% - 48px,1120px);margin:0 auto;padding:112px 0 84px;outline:0}
+h1{font-size:clamp(38px,5.6vw,68px);font-weight:800;letter-spacing:-.04em;line-height:1.05;margin:14px 0 12px;background:linear-gradient(180deg,#fff,#a1a1aa);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.sub{color:var(--text-secondary);margin:0 0 32px;max-width:640px}.hero h1{font-size:clamp(30px,4vw,44px)}
+.pill-badge{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border);border-radius:999px;padding:4px 12px;font:500 11px var(--font-mono);color:var(--text-secondary);background:var(--surface)}
+.live{width:7px;height:7px;border-radius:50%;background:var(--accent-emerald);animation:pulse 2s infinite}@keyframes pulse{50%{box-shadow:0 0 0 6px #10b98122}}
+input,select,textarea{background:var(--surface);border:1px solid var(--border);color:var(--text-primary);border-radius:9px;padding:10px 12px;font:inherit;min-width:0}
+input:hover,select:hover,textarea:hover{border-color:var(--border-hover)}input:focus,select:focus,textarea:focus{outline:0;border-color:var(--accent-emerald)}input::placeholder,textarea::placeholder{color:var(--text-tertiary)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:9px 16px;border-radius:9px;border:1px solid var(--border);background:transparent;color:var(--text-primary);font:600 12px var(--font-sans);letter-spacing:.06em;cursor:pointer;transition:.2s}
+.btn:hover{border-color:var(--border-hover)}.btn.pri{background:var(--accent-emerald);border-color:var(--accent-emerald);color:#fff}.btn.pri:hover{background:#0ea371}.btn.dan{color:var(--danger)}.btn.sm{padding:6px 12px}
+.bar{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px}.bar input{flex:1 1 220px}
+.seg{display:flex;border:1px solid var(--border);border-radius:9px;overflow:hidden}.seg button{background:var(--surface);color:var(--text-tertiary);border:0;padding:0 14px;cursor:pointer;font-size:16px}.seg button.on{background:var(--carbon-2);color:var(--accent-emerald-light)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}.grid.list{grid-template-columns:1fr}
+.card{display:flex;flex-direction:column;background:#080808;border:1px solid var(--border);border-radius:14px;overflow:hidden}
+.reveal{opacity:0;transform:translateY(24px)}.card.reveal{transition:opacity .65s ease var(--gs-delay,0ms),transform .65s ease var(--gs-delay,0ms),border-color .3s}
+.reveal.in{opacity:1;transform:none}.card.in{transition:transform .3s,border-color .3s}.card.in:hover{transform:translateY(-4px);border-color:var(--border-hover)}
+.list .card{flex-direction:row}.list .thw{width:280px;flex:none}.list .th{height:100%;min-height:190px}
+.th{position:relative;height:172px;overflow:hidden;background:#050505}.th img{width:100%;height:100%;object-fit:cover;display:block}
+.term{border-bottom:1px solid var(--border)}.chrome{display:flex;align-items:center;gap:6px;padding:9px 12px;border-bottom:1px solid var(--border)}.chrome i{width:8px;height:8px;border-radius:50%;background:#27272a}
+.chrome span{flex:1;margin-left:8px;padding:2px 10px;border-radius:6px;background:var(--surface);color:var(--text-tertiary);font:10px var(--font-mono);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tl{padding:12px 14px;font:12px/1.75 var(--font-mono);color:var(--text-secondary)}.tl em{font-style:normal;color:var(--text-tertiary);display:inline-block;min-width:60px}.tl b{font-weight:500;color:var(--accent-emerald-light)}.tl .cur{color:var(--accent-emerald);animation:blink 1.2s steps(2) infinite}@keyframes blink{50%{opacity:0}}
+.cb{padding:18px;display:flex;flex-direction:column;gap:8px;flex:1}.cb h3{margin:0;font-size:18px;font-weight:700;letter-spacing:-.02em}.cb h3 a:hover{color:var(--accent-emerald-light)}
+.cb p{margin:0;font-size:14px;color:var(--text-secondary);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.own,.nodemo{font-size:12px;color:var(--text-tertiary)}.row{display:flex;align-items:center;gap:8px}.sp{flex:1}
+.chip{font:500 10px var(--font-mono);letter-spacing:.09em;text-transform:uppercase;color:var(--accent-emerald-light);background:#10b9811a;border-radius:999px;padding:3px 10px}
+.star{color:var(--amber)}.ic{background:none;border:0;color:var(--text-tertiary);font-size:18px;cursor:pointer}.ic.on{color:#f472b6}
+.tags{display:flex;flex-wrap:wrap;gap:6px}.tag{font:500 10px var(--font-mono);letter-spacing:.05em;color:var(--text-secondary);border:1px solid var(--border);border-radius:6px;padding:2px 8px}
+.meta{display:flex;flex-wrap:wrap;gap:14px;font:12px var(--font-mono);color:var(--text-tertiary);margin-top:auto;padding-top:6px}.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px}
+.acts{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:8px}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:16px}
+.frow{display:flex;gap:10px;flex-wrap:wrap}.frow input{flex:1 1 300px}
+.msg{margin-top:14px;padding:12px 14px;border-radius:9px;border:1px solid}.msg.er{color:var(--danger);border-color:#f8717155;background:#f8717112}
+.sk{height:180px;border-radius:14px;margin-top:18px;background:linear-gradient(90deg,var(--surface),var(--carbon-2),var(--surface));background-size:200% 100%;animation:sh 1.2s infinite}@keyframes sh{to{background-position:-200% 0}}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);padding:12px 20px;border-radius:12px;background:var(--carbon-2);border:1px solid var(--border);z-index:30}.toast.ok{border-color:var(--accent-emerald)}.toast.er{border-color:var(--danger)}
+.prev{display:grid;grid-template-columns:minmax(280px,360px) 1fr;gap:24px;margin-top:20px}
+label{display:block;font:500 10px var(--font-mono);color:var(--text-tertiary);margin:14px 0 6px;letter-spacing:.09em;text-transform:uppercase}label input,label select,label textarea,.f input,.f select,.f textarea{width:100%}
+details.mg{background:var(--surface);border:1px solid var(--border);border-radius:14px;margin-bottom:12px}details.mg summary{display:flex;align-items:center;gap:12px;padding:14px 18px;cursor:pointer}details.mg>.f{padding:0 18px 18px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;margin:24px 0}.stat{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:14px}.stat b{display:block;font:600 22px var(--font-mono);letter-spacing:-.02em}.stat small{color:var(--text-tertiary)}
+.hero{display:grid;grid-template-columns:minmax(260px,440px) 1fr;gap:32px;margin-bottom:8px}.hero .th{height:auto;min-height:210px;border:1px solid var(--border);border-radius:14px}
+.empty{text-align:center;color:var(--text-secondary);padding:60px 0}.back{color:var(--text-secondary);display:inline-block;margin-bottom:16px}.back:hover{color:var(--text-primary)}
+code{font-family:var(--font-mono);font-size:.9em}
+.readme{color:var(--text-secondary);line-height:1.7;overflow-wrap:anywhere}.readme>:first-child{margin-top:0}.readme [id]{scroll-margin-top:80px}
+.readme h1,.readme h2{color:var(--text-primary);letter-spacing:-.03em;border-bottom:1px solid var(--border);padding-bottom:.3em;margin:1.6em 0 .6em;font-weight:700;font-size:22px;background:none;-webkit-text-fill-color:currentColor;line-height:1.3}.readme h1{font-size:28px}
+.readme h3,.readme h4,.readme h5,.readme h6{color:var(--text-primary);margin:1.4em 0 .5em;font-size:17px}.readme a{color:var(--accent-emerald-light);text-decoration:underline;text-underline-offset:3px}
+.readme img{max-width:100%;height:auto}.readme pre{background:#050505;border:1px solid var(--border);border-radius:10px;padding:14px;overflow:auto;font:13px/1.6 var(--font-mono);color:#e4e4e7}
+.readme code{background:var(--carbon-2);border:1px solid var(--border);border-radius:5px;padding:1px 5px}.readme pre code{background:none;border:0;padding:0}
+.readme blockquote{margin:1em 0;padding:2px 16px;border-left:3px solid var(--accent-emerald);background:#ffffff05}
+.readme table{border-collapse:collapse;display:block;overflow:auto;max-width:100%}.readme th,.readme td{border:1px solid var(--border);padding:8px 12px}.readme th{background:var(--carbon-2);color:var(--text-primary)}
+.readme hr{border:0;border-top:1px solid var(--border);margin:24px 0}.readme ul,.readme ol{padding-left:24px}.readme [align=center]{text-align:center}.readme details{border:1px solid var(--border);border-radius:10px;padding:8px 14px;margin:10px 0}
+.readme .pl-k,.readme .pl-c1{color:var(--signal)}.readme .pl-s,.readme .pl-pds{color:var(--accent-emerald-light)}.readme .pl-c{color:var(--text-tertiary)}.readme .pl-en{color:var(--amber)}
+footer{border-top:1px solid var(--border);padding:56px max(24px,calc((100% - 1120px)/2)) 24px;color:var(--text-secondary);font-size:14px}
+.fw{display:grid;grid-template-columns:1.2fr 1.6fr 1fr;gap:32px}.fw h5{margin:0 0 10px;font:500 10px var(--font-mono);letter-spacing:.09em;text-transform:uppercase;color:var(--text-tertiary)}.fw a{display:block;padding:3px 0}.fw a:hover{color:var(--text-primary)}.fx{display:grid;grid-template-columns:1fr 1fr}
+.fbar{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;margin-top:40px;padding-top:20px;border-top:1px solid var(--border);font-size:12px;color:var(--text-tertiary)}
+@media(max-width:960px){.prev,.hero,.fw{grid-template-columns:1fr}}
+@media(max-width:760px){.list .card{flex-direction:column}.list .thw{width:auto}.btn,input,select,.ic,.nav-toggle{min-height:44px}main{padding-top:92px}}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
+</style></head><body>
+<a class="skip" href="#" onclick="event.preventDefault();document.getElementById('app').focus()">Skip to content</a>
+<header><a class="brand" href="#/"><svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect x="1" y="1" width="26" height="26" rx="7" fill="#0a0a0a" stroke="#10b981" stroke-width="1.5"/><path d="M18 10.5a5.5 5.5 0 1 0 1 4.5h-5" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round"/></svg><span>Goodstuff Designs</span><small>Showcase</small></a><button class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nl">☰</button>
+<nav><div class="nav-links" id="nl"><a href="#/">Gallery</a><a href="#/add">Add Project</a><a href="#/manage">Manage</a><a href="index.html">Project Archive</a><a href="https://github.com/Code-NameCode" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div></nav></header>
+<main id="app" tabindex="-1"></main>
+<footer><div class="fw"><div><div class="brand"><svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect x="1" y="1" width="26" height="26" rx="7" fill="#0a0a0a" stroke="#10b981" stroke-width="1.5"/><path d="M18 10.5a5.5 5.5 0 1 0 1 4.5h-5" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round"/></svg><span>Goodstuff Designs</span></div><p>Technology that works, support that stays.</p></div><div><h5>Explore</h5><div class="fx"><a href="https://goodstuffdesigns.co.za/">Home</a><a href="https://goodstuffdesigns.co.za/services.html">Services</a><a href="https://goodstuffdesigns.co.za/websites-and-hosting.html">Websites &amp; Hosting</a><a href="https://goodstuffdesigns.co.za/ai.html">AI</a><a href="https://goodstuffdesigns.co.za/it-and-networks.html">IT &amp; Networks</a><a href="https://goodstuffdesigns.co.za/digital-marketing.html">Digital Marketing</a><a href="https://goodstuffdesigns.co.za/design-styles.html">Design Styles</a><a href="https://goodstuffdesigns.co.za/portfolio.html">Portfolio</a><a href="https://goodstuffdesigns.co.za/studio.html">Studio</a><a href="https://goodstuffdesigns.co.za/contact.html">Contact</a></div></div><div><h5>Project Vault</h5><a href="index.html">Project Archive</a><a href="#/">Gallery</a><a href="#/add">Add Project</a><a href="#/manage">Manage</a></div></div>
+<div class="fbar"><span>© Goodstuff Designs · goodstuffdesigns.co.za</span><span>Projects stay on GitHub. Only public metadata is stored in this browser.</span></div></footer>
+<script>
+const $=s=>document.querySelector(s),app=$('#app');
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const LS=(k,d)=>{try{return JSON.parse(localStorage.getItem(k))??d}catch{return d}},SV=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch{}};
+// Manual data (P) is stored separately from data fetched from GitHub (C) so refreshes never overwrite custom edits.
+let P=LS('pv.projects',[]),C=LS('pv.cache',{}),UI={layout:'grid',sort:'stars',cat:'',tech:'',q:'',show:'',...LS('pv.ui',{})},draft=null;
+const CATS=['AI & Machine Learning','AI Agents','Web Development','Website Templates','SaaS Applications','Developer Tools','Automation','Desktop Applications','APIs & Backend','Open Source','Experiments','Other'];
+const KW={'AI Agents':/\b(agents?|agentic|autogpt|langchain|mcp)\b/,'AI & Machine Learning':/\b(machine.?learning|deep.?learning|neural|llm|gpt|pytorch|tensorflow|nlp|ai|ml)\b/,'Website Templates':/\b(templates?|themes?|landing.?page|portfolio|starter)\b/,'SaaS Applications':/\b(saas|dashboard|subscriptions?|stripe|multi.?tenant)\b/,'Developer Tools':/\b(cli|tools?|tooling|sdk|library|linter|plugin|extension|devtools?|framework)\b/,'Automation':/\b(automation|automate|bots?|workflows?|scraper|scraping|cron)\b/,'Desktop Applications':/\b(desktop|electron|tauri|qt|gtk|wpf)\b/,'APIs & Backend':/\b(api|rest|graphql|backend|server|microservices?|database)\b/,'Experiments':/\b(experiments?|playground|demo|fun|creative|sandbox)\b/,'Web Development':/\b(website|web|frontend|react|vue|svelte|css|html|nextjs|angular)\b/};
+const key=p=>(p.owner+'/'+p.repo).toLowerCase();
+const safe=u=>/^(https?:\/\/|data:image\/)/i.test(u||'')?u:'';
+const num=n=>n==null?'–':n>=1e3?(n/1e3).toFixed(1).replace('.0','')+'k':n;
+const ago=d=>{if(!d)return'–';const s=(Date.now()-new Date(d))/1e3;for(const[n,l]of[[31536e3,'y'],[2592e3,'mo'],[86400,'d'],[3600,'h'],[60,'m']])if(s>=n)return Math.floor(s/n)+l+' ago';return'just now'};
+const fdate=d=>d?new Date(d).toLocaleDateString(undefined,{year:'numeric',month:'short',day:'numeric'}):'–';
+const lc=l=>`hsl(${[...l].reduce((a,c)=>a*31+c.charCodeAt(0),7)%360} 60% 60%)`;
+function toast(m,t='ok'){document.querySelectorAll('.toast').forEach(e=>e.remove());const e=document.createElement('div');e.className='toast '+t;e.setAttribute('role','status');e.textContent=m;document.body.append(e);setTimeout(()=>e.remove(),3500)}
+function parse(u){const m=String(u).trim().match(/^(?:https?:\/\/)?(?:www\.)?github\.com\/([A-Za-z0-9-]+)\/([A-Za-z0-9._-]+?)(?:\.git)?(?:[\/?#].*)?$/i);return m&&!['topics','orgs','settings','sponsors','marketplace'].includes(m[1].toLowerCase())?{owner:m[1],repo:m[2]}:null}
+// GitHub REST API (public, unauthenticated: no tokens in frontend code)
+async function gh(path,raw){const r=await fetch('https://api.github.com'+path,{headers:{Accept:raw==='html'?'application/vnd.github.html+json':raw?'application/vnd.github.raw+json':'application/vnd.github+json'}});
+if(r.status===404)throw new Error('Repository not found. It may be private, deleted or misspelt.');
+if(r.status===403||r.status===429){const t=r.headers.get('x-ratelimit-reset');throw new Error('GitHub rate limit reached (60 requests/hour without login).'+(t?' Try again after '+new Date(t*1e3).toLocaleTimeString()+'.':''))}
+if(r.status===451)throw new Error('This repository is unavailable for legal reasons.');
+if(!r.ok)throw new Error('GitHub returned an error ('+r.status+').');return raw?r.text():r.json()}
+async function load(o,r,force){const k=(o+'/'+r).toLowerCase(),c=C[k];if(c&&!force&&Date.now()-c.t<36e5)return c;
+const R=await gh(`/repos/${o}/${r}`),[langs,topics,readme]=await Promise.all([gh(`/repos/${o}/${r}/languages`).catch(()=>({})),gh(`/repos/${o}/${r}/topics`).then(x=>x.names).catch(()=>R.topics||[]),gh(`/repos/${o}/${r}/readme`,'html').catch(()=>'')]);
+const rm=cleanReadme(readme,o,r,R.default_branch),repo={name:R.name,owner:R.owner.login,html_url:R.html_url,description:R.description,homepage:R.homepage,stargazers_count:R.stargazers_count,forks_count:R.forks_count,subscribers_count:R.subscribers_count,default_branch:R.default_branch,pushed_at:R.pushed_at,updated_at:R.updated_at,created_at:R.created_at,language:R.language,open_issues_count:R.open_issues_count,license:R.license&&R.license.spdx_id,archived:R.archived,fork:R.fork};
+return C[k]={t:Date.now(),repo,langs,topics,readme:rm.text,readmeHtml:rm.html},SV('pv.cache',C),C[k]}
+// Sanitise GitHub's rendered README: whitelist tags/attributes, resolve relative links and images to the original repo.
+function cleanReadme(html,o,r,br){if(!html)return{text:'',html:''};
+const doc=new DOMParser().parseFromString(html,'text/html'),raw=`https://raw.githubusercontent.com/${o}/${r}/${br||'HEAD'}/`,blob=`https://github.com/${o}/${r}/blob/${br||'HEAD'}/`;
+const OK=new Set('a b blockquote br code dd del details div dl dt em h1 h2 h3 h4 h5 h6 hr i img input kbd li ol p pre s small span strong sub summary sup table tbody td tfoot th thead tr ul'.split(' '));
+const url=(u,base,img)=>{try{const x=new URL(u,base);return/^https?:$/.test(x.protocol)||(!img&&x.protocol==='mailto:')?x.href:''}catch{return''}};
+doc.querySelectorAll('picture').forEach(pc=>{const d=pc.querySelector('source[media*="dark"]'),im=pc.querySelector('img'),ss=d&&d.getAttribute('srcset');if(im&&ss)im.setAttribute('src',ss.trim().split(/[ ,]/)[0]);im?pc.replaceWith(im):pc.remove()});
+doc.querySelectorAll('a.anchor').forEach(a=>{const e=doc.createElement('span');if(a.id)e.id=a.id;a.replaceWith(e)});
+doc.querySelectorAll('svg,script,style,iframe,object,embed,form,button,textarea,select,link,meta,video,audio').forEach(e=>e.remove());
+(function walk(n){[...n.children].forEach(c=>{walk(c);const t=c.tagName.toLowerCase();if(!OK.has(t)){c.replaceWith(...c.childNodes);return}
+[...c.attributes].forEach(a=>{const k=a.name,v=a.value;
+if(t==='a'&&k==='href'){if(!v.startsWith('#')){const u=url(v,blob);u?c.setAttribute('href',u):c.removeAttribute('href')}}
+else if(t==='img'&&k==='src'){const u=url(v,raw,1);u?c.setAttribute('src',u):c.removeAttribute('src')}
+else if(t==='input'&&['type','checked','disabled'].includes(k)){}
+else if(['alt','title','width','height','align','colspan','rowspan','open'].includes(k)){}
+else if(k==='id'&&/^user-content-/.test(v)){}
+else if(k==='class'&&t==='span'&&/^pl-[\w-]+$/.test(v)){}
+else c.removeAttribute(k)});
+if(t==='img'){c.setAttribute('loading','lazy');if(!c.getAttribute('src'))c.remove()}
+if(t==='input'&&c.getAttribute('type')!=='checkbox')c.remove()})})(doc.body);
+doc.querySelectorAll('a[href]:not([href^="#"])').forEach(a=>{a.target='_blank';a.rel='noopener noreferrer'});
+let n=0,cut=0;[...doc.body.children].forEach(c=>{n+=c.outerHTML.length;if(n>90000){c.remove();cut=1}});
+return{text:doc.body.textContent.replace(/\s+/g,' ').slice(0,3000),html:doc.body.innerHTML+(cut?'<p><i>README truncated. Read the full file on GitHub.</i></p>':'')}}
+function classify(d){const t=[d.repo.description,...d.topics,d.repo.name,(d.readme||'').slice(0,1500)].join(' ').toLowerCase();let best='',bs=0;
+for(const[c,re]of Object.entries(KW)){const g=new RegExp(re.source,'g'),s=(t.match(g)||[]).length+(d.topics.some(x=>re.test(x))?3:0);if(s>bs){bs=s;best=c}}
+return best||(d.repo.license?'Open Source':'Other')}
+function vm(p){const d=C[key(p)]||{},r=d.repo||{};let h=p.demo||r.homepage||'';if(h&&!/^https?:/i.test(h))h='https://'+h;
+return{...p,d,r,desc:p.desc||r.description||'No description provided.',cat:p.cat||(d.repo?classify(d):'Other'),demo:/^https?:\/\//i.test(h)?h:'',lang:r.language||'',techs:[...new Set([...Object.keys(d.langs||{}),...(d.topics||[]),...(p.tags||[])])]}}
+const thumb=x=>{const s=safe(x.thumb);if(s)return`<div class="th"><img src="${esc(s)}" alt="" loading="lazy" onerror="this.remove()"></div>`;const R=x.r||{};
+return`<div class="th term" aria-hidden="true"><div class="chrome"><i></i><i></i><i></i><span>github.com/${esc(x.owner)}/${esc(x.repo)}</span></div><div class="tl">${[['repo',x.repo],['owner',x.owner],['lang',x.lang||'n/a'],['stars',num(R.stargazers_count)],['branch',R.default_branch||'main']].map(a=>`<div><em>${a[0]}</em> <b>${esc(a[1])}</b></div>`).join('')}<div class="cur">$ ▍</div></div></div>`};
+const ext=(h,t,c='btn')=>`<a class="${c}" target="_blank" rel="noopener noreferrer" href="${esc(h)}">${t}</a>`;
+const card=(x,pv)=>`<article class="card reveal"><a class="thw" href="#/p/${x.owner}/${x.repo}">${thumb(x)}</a><div class="cb"><div class="row"><span class="chip">${esc(x.cat)}</span><span class="sp"></span>${x.feat?'<span class="star" title="Featured">★</span>':''}${pv?'':`<button class="ic ${x.fav?'on':''}" data-a="fav" data-k="${key(x)}" title="Favourite">♥</button>`}</div>
+<h3><a href="#/p/${x.owner}/${x.repo}">${esc(x.repo)}</a></h3><div class="own">by ${esc(x.owner)}</div><p>${esc(x.desc)}</p><div class="tags">${x.techs.slice(0,5).map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div>
+<div class="meta">${x.lang?`<span><i class="dot" style="background:${lc(x.lang)}"></i>${esc(x.lang)}</span>`:''}<span>★ ${num(x.r.stargazers_count)}</span><span>⑂ ${num(x.r.forks_count)}</span><span title="${fdate(x.r.pushed_at)}">Updated ${ago(x.r.pushed_at||x.r.updated_at)}</span></div>
+<div class="acts">${ext(x.url,'VIEW PROJECT','btn pri')}${x.demo?ext(x.demo,'LIVE DEMO'):'<span class="nodemo">No live demo</span>'}</div></div></article>`;
+const opt=(v,cur,l)=>`<option value="${esc(v)}"${v===cur?' selected':''}>${esc(l||v)}</option>`;
+// ---- Gallery
+function gallery(){const techs=[...new Set(P.map(vm).flatMap(x=>x.techs))].sort();
+if(!P.length){app.innerHTML=`<h1>Project Vault</h1><div class="empty"><p>Your vault is empty. Paste a GitHub URL to showcase your first project.</p><a class="btn pri" href="#/add">ADD PROJECT</a></div>`;return}
+app.innerHTML=`<span class="pill-badge"><i class="live"></i>Live from GitHub</span><h1>Project Vault</h1><p class="sub">${P.length} project${P.length>1?'s':''} showcased from GitHub. Every one still lives in its original repository.</p>
+<div class="bar"><input id="q" type="search" placeholder="Search projects…" value="${esc(UI.q)}"><select id="fc"><option value="">All categories</option>${CATS.map(c=>opt(c,UI.cat)).join('')}</select><select id="ft"><option value="">All technologies</option>${techs.map(c=>opt(c,UI.tech)).join('')}</select>
+<select id="fs">${[['stars','Most stars'],['new','Newest added'],['upd','Recently updated'],['manual','My order']].map(a=>opt(a[0],UI.sort,a[1])).join('')}</select><select id="fv">${[['','All projects'],['feat','Featured'],['fav','Favourites']].map(a=>opt(a[0],UI.show,a[1])).join('')}</select>
+<div class="seg"><button data-a="lay" data-v="grid" title="Grid">▦</button><button data-a="lay" data-v="list" title="List">☰</button></div></div><div id="res"></div>`;
+app.querySelectorAll('#q,#fc,#ft,#fs,#fv').forEach(e=>e.oninput=()=>{Object.assign(UI,{q:$('#q').value,cat:$('#fc').value,tech:$('#ft').value,sort:$('#fs').value,show:$('#fv').value});SV('pv.ui',UI);results()});results()}
+function results(){const q=UI.q.toLowerCase();let L=P.map(vm).filter(x=>(!q||[x.repo,x.owner,x.desc,x.cat,...x.techs].join(' ').toLowerCase().includes(q))&&(!UI.cat||x.cat===UI.cat)&&(!UI.tech||x.techs.includes(UI.tech))&&(UI.show!=='feat'||x.feat)&&(UI.show!=='fav'||x.fav));
+const S={stars:(a,b)=>(b.r.stargazers_count||0)-(a.r.stargazers_count||0),new:(a,b)=>b.added-a.added,upd:(a,b)=>new Date(b.r.pushed_at||0)-new Date(a.r.pushed_at||0)};
+if(UI.sort!=='manual')L.sort((a,b)=>(!!b.feat-!!a.feat)||S[UI.sort](a,b));
+$('#res').className='grid'+(UI.layout==='list'?' list':'');$('#res').innerHTML=L.length?L.map(x=>card(x)).join(''):'<div class="empty">No projects match your filters.</div>';
+app.querySelectorAll('[data-a=lay]').forEach(b=>{b.classList.toggle('on',b.dataset.v===UI.layout);b.setAttribute('aria-pressed',b.dataset.v===UI.layout)});reveal()}
+// ---- Add
+function addView(){draft=null;app.innerHTML=`<h1>Add Project</h1><p class="sub">Paste a public GitHub repository URL. Nothing is downloaded or copied, only public metadata is read.</p><div class="panel"><div class="frow"><input id="u" type="text" inputmode="url" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="https://github.com/Code-NameCode/goodstuff-fun-site"><button class="btn" id="ps" type="button">PASTE</button><button class="btn pri" id="go" type="button">FETCH REPOSITORY</button></div><div id="pv"></div></div>`;
+$('#go').onclick=fetchDraft;$('#u').onkeydown=e=>{if(e.key==='Enter')fetchDraft()};
+$('#ps').onclick=async()=>{try{$('#u').value=await navigator.clipboard.readText();fetchDraft()}catch{toast('Clipboard blocked by your browser. Click the box and press Ctrl+V.','er')}}}
+const err=(el,m)=>el.innerHTML=`<div class="msg er">${esc(m)}</div>`;
+async function fetchDraft(){const el=$('#pv'),p=parse($('#u').value);
+if(!p)return err(el,'That is not a valid GitHub repository URL. Use the form https://github.com/owner/repository');
+if(P.some(x=>key(x)===key(p)))return err(el,'This repository is already in your showcase.');
+el.innerHTML='<div class="sk"></div>';
+try{const d=await load(p.owner,p.repo,true),R=d.repo;if(P.some(x=>key(x)===key({owner:R.owner,repo:R.name})))return err(el,'This repository is already in your showcase.');
+draft={url:R.html_url,owner:R.owner,repo:R.name,desc:'',cat:'',tags:[],thumb:'',demo:'',feat:false,fav:false,added:Date.now()};const x=vm(draft);
+el.innerHTML=`<div class="prev"><div>${card(x,1)}</div><div class="f"><b>Review before saving</b><label>Category (detected: ${esc(x.cat)})</label><select id="dc"><option value="">Auto-detect</option>${CATS.map(c=>opt(c,'')).join('')}</select>
+<label><input type="checkbox" id="df" style="width:auto"> Mark as featured</label><label>README preview</label><div class="readme" style="max-height:280px;overflow:auto">${d.readmeHtml||'No README found.'}</div>
+<div class="acts" style="margin-top:16px"><button class="btn pri" id="sv">SAVE TO VAULT</button><button class="btn" id="cx">CANCEL</button></div></div></div>`;
+$('#cx').onclick=addView;$('#sv').onclick=()=>{if(P.some(q=>key(q)===key(draft)))return toast('Already in your showcase','er');draft.cat=$('#dc').value;draft.feat=$('#df').checked;P.push(draft);SV('pv.projects',P);toast('Added '+draft.repo);location.hash='#/'}}
+catch(e){err(el,e.message)}}
+// ---- Detail
+function detail(o,r){const p=P.find(x=>key(x)===(o+'/'+r).toLowerCase());if(!p){app.innerHTML='<div class="empty">Project not found. <a class="back" href="#/">Back to gallery</a></div>';return}
+const x=vm(p),R=x.r;app.innerHTML=`<a class="back" href="#/">← Back to gallery</a><div class="hero">${thumb(x)}<div><span class="chip">${esc(x.cat)}</span> ${x.feat?'<span class="star">★ Featured</span>':''}<h1 style="margin-top:10px">${esc(x.repo)}</h1><div class="own">by ${esc(x.owner)}${R.fork?' · fork':''}${R.archived?' · archived':''}</div><p>${esc(x.desc)}</p>
+<div class="acts">${ext(x.url,'VIEW PROJECT','btn pri')}${x.demo?ext(x.demo,'LIVE DEMO'):'<span class="nodemo">No live demo available</span>'}<button class="btn" data-a="refresh" data-k="${key(x)}">REFRESH</button></div></div></div>
+<div class="stats"><div class="stat"><b>★ ${num(R.stargazers_count)}</b><small>Stars</small></div><div class="stat"><b>⑂ ${num(R.forks_count)}</b><small>Forks</small></div><div class="stat"><b>${num(R.subscribers_count)}</b><small>Watchers</small></div><div class="stat"><b>${num(R.open_issues_count)}</b><small>Open issues</small></div></div>
+<div class="panel"><b>Technology stack</b><div class="tags" style="margin-top:10px">${x.techs.map(t=>`<span class="tag">${esc(t)}</span>`).join('')||'–'}</div></div>
+<div class="panel"><b>GitHub activity</b><p class="own" style="margin:8px 0 0">Last pushed ${fdate(R.pushed_at)} (${ago(R.pushed_at)}) · Created ${fdate(R.created_at)} · Default branch <code>${esc(R.default_branch||'–')}</code> · License ${esc(R.license||'none')} · Added to vault ${fdate(x.added)}</p></div>
+<div class="panel"><b>Links</b><p class="own" style="margin:8px 0 0">Source: ${ext(x.url,esc(x.url),'star')}${x.demo?' · Homepage: '+ext(x.demo,esc(x.demo),'star'):''}</p></div>
+<div class="panel"><div class="row"><b>README</b><span class="sp"></span>${ext(x.url+'#readme','VIEW ON GITHUB','btn sm')}</div><div class="readme" style="margin-top:16px">${x.d.readmeHtml||(x.d.readme?'<p>Press Refresh to load this project\'s formatted README.</p>':'No README available.')}</div></div>`}
+// ---- Manage
+function manage(){app.innerHTML=`<h1>Manage Collection</h1><p class="sub">Removing a project only removes it from this showcase. Nothing on GitHub is touched. <a class="star" href="#/add">+ Add a repository</a></p>
+<div class="acts" style="margin:0 0 18px"><button class="btn" data-a="export">EXPORT INDEX (JSON)</button><label class="btn" style="margin:0">IMPORT INDEX<input type="file" accept=".json" id="imp" hidden></label></div>
+${P.map((p,i)=>{const x=vm(p);return`<details class="mg" data-k="${key(p)}"><summary><b>${esc(x.repo)}</b><span class="chip">${esc(x.cat)}</span>${x.feat?'<span class="star">★</span>':''}<span class="sp"></span><button class="ic" data-a="up" data-k="${key(p)}">↑</button><button class="ic" data-a="down" data-k="${key(p)}">↓</button></summary>
+<div class="f"><label>Description override</label><textarea data-f="desc" rows="3" placeholder="${esc(x.r.description||'')}">${esc(p.desc)}</textarea>
+<label>Category</label><select data-f="cat"><option value="">Auto (${esc(x.d.repo?classify(x.d):'Other')})</option>${CATS.map(c=>opt(c,p.cat)).join('')}</select>
+<label>Custom tags (comma separated)</label><input data-f="tags" value="${esc((p.tags||[]).join(', '))}"><label>Custom thumbnail URL</label><input data-f="thumb" value="${esc(p.thumb)}" placeholder="https://…">
+<label>Live demo URL (overrides GitHub homepage)</label><input data-f="demo" value="${esc(p.demo)}" placeholder="${esc(x.r.homepage||'https://…')}"><label><input type="checkbox" data-f="feat" ${p.feat?'checked':''} style="width:auto"> Featured</label>
+<div class="acts" style="margin-top:14px"><button class="btn pri" data-a="save" data-k="${key(p)}">SAVE CHANGES</button><button class="btn" data-a="refresh" data-k="${key(p)}">REFRESH FROM GITHUB</button><button class="btn dan" data-a="remove" data-k="${key(p)}">REMOVE FROM SHOWCASE</button></div></div></details>`}).join('')||'<div class="empty">Nothing here yet.</div>'}`;
+const f=$('#imp');if(f)f.onchange=async()=>{try{const a=JSON.parse(await f.files[0].text());let n=0;for(const q of a){const s=parse(q.url||'');if(s&&!P.some(z=>key(z)===key(s))){P.push({url:`https://github.com/${s.owner}/${s.repo}`,owner:s.owner,repo:s.repo,desc:q.desc||'',cat:q.cat||'',tags:q.tags||[],thumb:q.thumb||'',demo:q.demo||'',feat:!!q.feat,fav:!!q.fav,added:q.added||Date.now()});n++}}SV('pv.projects',P);toast(n+' project(s) imported. Use Refresh to load their GitHub data.');manage()}catch{toast('Invalid JSON index','er')}}}
+document.addEventListener('click',async e=>{const b=e.target.closest('[data-a]');if(!b)return;const a=b.dataset.a,k=b.dataset.k,i=P.findIndex(p=>key(p)===k),p=P[i];
+if(a==='lay'){UI.layout=b.dataset.v;SV('pv.ui',UI);results()}
+else if(a==='fav'){p.fav=!p.fav;SV('pv.projects',P);b.classList.toggle('on',p.fav)}
+else if(a==='save'){const d=b.closest('details'),g=n=>d.querySelector(`[data-f=${n}]`),dm=g('demo').value.trim(),th=g('thumb').value.trim();
+if((dm&&!/^https?:\/\//i.test(dm))||(th&&!safe(th)))return toast('Demo and thumbnail must be valid http(s) URLs','er');
+Object.assign(p,{desc:g('desc').value.trim(),cat:g('cat').value,tags:g('tags').value.split(',').map(s=>s.trim()).filter(Boolean),thumb:th,demo:dm,feat:g('feat').checked});SV('pv.projects',P);toast('Saved');manage()}
+else if(a==='refresh'){b.disabled=true;b.textContent='REFRESHING…';try{await load(p.owner,p.repo,true);toast('Refreshed from GitHub. Your custom edits were kept.')}catch(x){toast(x.message,'er')}route()}
+else if(a==='remove'){if(confirm(`Remove ${p.repo} from your showcase? Nothing on GitHub will be changed.`)){P.splice(i,1);SV('pv.projects',P);delete C[k];SV('pv.cache',C);toast('Removed from showcase');manage()}}
+else if(a==='up'||a==='down'){e.preventDefault();const j=i+(a==='up'?-1:1);if(j>=0&&j<P.length){[P[i],P[j]]=[P[j],P[i]];SV('pv.projects',P);manage()}}
+else if(a==='export'){const l=document.createElement('a');l.href=URL.createObjectURL(new Blob([JSON.stringify(P,null,2)],{type:'application/json'}));l.download='project-vault-index.json';l.click()}});
+function route(){const h=location.hash.slice(1)||'/',m=h.match(/^\/p\/([^/]+)\/([^/]+)$/);document.querySelectorAll('nav a').forEach(a=>a.getAttribute('href')==='#'+(m?'/':h)?a.setAttribute('aria-current','page'):a.removeAttribute('aria-current'));
+m?detail(m[1],m[2]):h==='/add'?addView():h==='/manage'?manage():gallery();reveal()}
+const nt=$('.nav-toggle'),nl=$('#nl');nt.onclick=()=>nt.setAttribute('aria-expanded',nl.classList.toggle('open'));nl.onclick=e=>{if(e.target.closest('a'))nl.classList.remove('open')};
+addEventListener('scroll',()=>$('header').classList.toggle('gs-scrolled',scrollY>12),{passive:true});
+const io='IntersectionObserver'in window?new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.08}):null;
+function reveal(){document.querySelectorAll('.reveal:not(.in)').forEach((e,i)=>{e.style.setProperty('--gs-delay',Math.min(i%12,7)*60+'ms');io?io.observe(e):e.classList.add('in')});setTimeout(()=>document.querySelectorAll('.reveal:not(.in)').forEach(e=>e.classList.add('in')),2500)}
+document.addEventListener('click',e=>{const a=e.target.closest('.readme a[href^="#"]');if(!a)return;e.preventDefault();const h=decodeURIComponent(a.getAttribute('href').slice(1)),t=document.getElementById(h)||document.getElementById('user-content-'+h.replace(/^user-content-/,''));t&&t.scrollIntoView({behavior:'smooth',block:'start'})});
+addEventListener('hashchange',()=>{scrollTo(0,0);route()});route();
+</script></body></html>
