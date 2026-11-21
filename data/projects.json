@@ -2,7 +2,7 @@
   "config": {
     "siteName": "The Project Vault",
     "githubUsername": "Code-NameCode",
-    "githubRepos": ["Code-NameCode/goodstuff-fun-site"],
+    "githubRepos": ["Code-NameCode/goodstuff-fun-site", "Code-NameCode/Project-Vault"],
     "previewBaseUrl": ""
   },
   "projects": [

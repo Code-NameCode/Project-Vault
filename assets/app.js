@@ -290,7 +290,7 @@ function closeModal() {
 }
 
 /* ---------- github ---------- */
-const GH_CACHE_KEY = "vault_github_cache_v2";
+const GH_CACHE_KEY = "vault_github_cache_v3";
 const GH_TTL = 30 * 60 * 1000;
 
 async function fetchRepos() {
