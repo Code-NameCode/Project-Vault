@@ -10,19 +10,24 @@
 body{margin:0;background:var(--bg);color:var(--text-primary);font:400 15px/1.65 var(--font-sans);-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}:focus-visible{outline:2px solid var(--accent-emerald);outline-offset:2px}
 .skip{position:absolute;left:-999px;top:8px;background:var(--accent-emerald);color:#fff;padding:8px 14px;border-radius:9px;z-index:20}.skip:focus{left:8px}
-header{position:fixed;inset:0 0 auto;height:56px;z-index:10;display:flex;align-items:center;gap:24px;padding:0 max(24px,calc((100% - 1120px)/2));background:#000000b3;backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:.25s}
-header.gs-scrolled{border-color:var(--border);background:#000000e6}
-.brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:-.02em;font-size:15px}.brand img{width:22px;height:22px;flex:0 0 auto}.brand em{font-style:normal;color:var(--accent-emerald)}
-.mode-toggle{display:inline-flex;align-items:center;gap:2px;border:1px solid var(--border);border-radius:999px;padding:3px;margin-left:18px}
+.wordmark{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:700;letter-spacing:-.02em}.wordmark img{width:22px;height:22px;flex:0 0 auto}.wordmark em{font-style:normal;color:var(--accent-emerald)}
+.mastnav{display:flex;gap:26px}
+.mastnav a{font-size:13px;font-weight:500;color:var(--text-secondary);padding:4px 0;position:relative;transition:color .15s}
+.mastnav a:hover,.mastnav a[aria-current]{color:var(--text-primary)}
+.mastnav a[aria-current]::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:2px;background:var(--accent-emerald);border-radius:2px}
+.mode-toggle{display:inline-flex;align-items:center;gap:2px;border:1px solid var(--border);border-radius:999px;padding:3px;margin:0 6px;align-self:center}
 .mode-toggle a{font:500 10px var(--font-mono);letter-spacing:.09em;text-transform:uppercase;padding:6px 14px;border-radius:999px;color:var(--text-secondary);transition:.15s}
+.mode-toggle a::after{display:none}
 .mode-toggle a:hover{color:var(--text-primary)}.mode-toggle a.on{background:var(--accent-emerald);color:#000}
+.menu-btn{display:none;font-size:13px;font-weight:500;border:1px solid var(--border);border-radius:9px;padding:9px 16px;min-height:44px;color:var(--text-primary);background:none;cursor:pointer}
+.menu-btn:hover{border-color:var(--border-hover)}
+.mobile-nav{display:none;position:fixed;top:56px;left:0;right:0;z-index:9;background:var(--surface);border-bottom:1px solid var(--border)}
+.mobile-nav a{display:block;padding:15px 24px;font-size:14px;font-weight:500;color:var(--text-secondary);border-top:1px solid var(--border);min-height:44px}
+.mobile-nav a.active{color:var(--accent-emerald)}
 .colophon{border-top:1px solid var(--border);padding:44px 24px;font-size:13px;color:var(--text-secondary)}
 .cw{width:min(1120px,100%);margin:0 auto;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .cw a{color:var(--accent-emerald-light)}.cw a:hover{text-decoration:underline;text-underline-offset:3px}
-@media(max-width:900px){.mode-toggle{display:none}}
-nav{margin-left:auto}.nav-links{display:flex;gap:4px}.nav-links a{position:relative;padding:8px 12px;color:var(--text-secondary);font-size:14px}.nav-links a:hover,.nav-links a[aria-current]{color:var(--text-primary)}.nav-links a[aria-current]::after{content:"";position:absolute;left:12px;right:12px;bottom:2px;height:2px;background:var(--accent-emerald)}
-.nav-toggle{display:none;margin-left:auto;background:none;border:1px solid var(--border);color:var(--text-primary);border-radius:9px;min-height:40px;padding:0 12px;font-size:18px;cursor:pointer}
-@media(max-width:900px){.nav-toggle{display:block}nav{position:absolute;top:56px;left:0;right:0;margin:0}.nav-links{display:none;flex-direction:column;background:#000;border-bottom:1px solid var(--border);padding:8px 24px 16px}.nav-links.open{display:flex}.nav-links a{padding:12px 0}.nav-links a[aria-current]::after{left:0;right:auto;width:24px}}
+@media(max-width:900px){.menu-btn{display:block}.mastnav{display:none}.mobile-nav.open{display:block}.mode-toggle{display:none}}
 main{width:min(100% - 48px,1120px);margin:0 auto;padding:112px 0 84px;outline:0}
 h1{font-size:clamp(38px,5.6vw,68px);font-weight:800;letter-spacing:-.04em;line-height:1.05;margin:14px 0 12px;background:linear-gradient(180deg,#fff,#a1a1aa);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .sub{color:var(--text-secondary);margin:0 0 32px;max-width:640px}.hero h1{font-size:clamp(30px,4vw,44px)}
@@ -76,14 +81,16 @@ footer{border-top:1px solid var(--border);padding:56px max(24px,calc((100% - 112
 .fw{display:grid;grid-template-columns:1.2fr 1.6fr 1fr;gap:32px}.fw h5{margin:0 0 10px;font:500 10px var(--font-mono);letter-spacing:.09em;text-transform:uppercase;color:var(--text-tertiary)}.fw a{display:block;padding:3px 0}.fw a:hover{color:var(--text-primary)}.fx{display:grid;grid-template-columns:1fr 1fr}
 .fbar{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;margin-top:40px;padding-top:20px;border-top:1px solid var(--border);font-size:12px;color:var(--text-tertiary)}
 @media(max-width:960px){.prev,.hero,.fw{grid-template-columns:1fr}}
-@media(max-width:760px){.list .card{flex-direction:column}.list .thw{width:auto}.btn,input,select,.ic,.nav-toggle{min-height:44px}main{padding-top:92px}}
+@media(max-width:760px){.list .card{flex-direction:column}.list .thw{width:auto}.btn,input,select,.ic,.menu-btn{min-height:44px}main{padding-top:92px}}
 @media(max-width:640px){.fx{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
 </style></head><body>
 <a class="skip" href="#" onclick="event.preventDefault();document.getElementById('app').focus()">Skip to content</a>
-<header><a class="brand" href="index.html"><img src="assets/img/logo.svg" alt="" aria-hidden="true">The Project&nbsp;<em>Showcase</em></a><span class="mode-toggle" aria-label="Switch section"><a href="index.html">Archive</a><a class="on" aria-current="page" href="#/">Showcase</a></span><button class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nl">☰</button>
-<nav><div class="nav-links" id="nl"><a href="#/">Gallery</a><a href="#/add">Add Project</a><a href="#/manage">Manage</a><a href="index.html">Project Archive</a><a href="https://github.com/Code-NameCode" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div></nav></header>
-<main id="app" tabindex="-1"></main>
+<header class="masthead"><div class="masthead-inner">
+<a class="wordmark" href="#/"><img src="assets/img/logo.svg" alt="" aria-hidden="true">The Project <em>Showcase</em></a>
+<nav class="mastnav" aria-label="Primary"><a href="#/" aria-current="page">Gallery</a><a href="#/add">Add Project</a><a href="#/manage">Manage</a><span class="mode-toggle" aria-label="Switch section"><a href="index.html">Archive</a><a class="on" aria-current="page" href="#/">Showcase</a></span><a href="https://github.com/Code-NameCode" target="_blank" rel="noopener">GitHub &#8599;</a></nav>
+<button class="menu-btn" id="navToggle" aria-label="Menu" aria-expanded="false">Menu</button></div></header>
+<nav class="mobile-nav" id="navLinks" aria-label="Mobile"><a href="#/">Gallery</a><a href="#/add">Add Project</a><a href="#/manage">Manage</a><a href="index.html">Project Archive</a><a href="https://github.com/Code-NameCode" target="_blank" rel="noopener">GitHub &#8599;</a></nav><main id="app" tabindex="-1"></main>
 <footer class="colophon"><div class="cw"><p>The Project Showcase - live from GitHub &middot; part of <a href="index.html">The Project Archive</a>.</p><p><a href="https://github.com/Code-NameCode" target="_blank" rel="noopener">github.com/Code-NameCode &#8599;</a> &middot; &copy; Goodstuff Designs</p></div></footer>
 <script>
 const $=s=>document.querySelector(s),app=$('#app');
@@ -206,8 +213,8 @@ else if(a==='up'||a==='down'){e.preventDefault();const j=i+(a==='up'?-1:1);if(j>
 else if(a==='export'){const l=document.createElement('a');l.href=URL.createObjectURL(new Blob([JSON.stringify(P,null,2)],{type:'application/json'}));l.download='project-vault-index.json';l.click()}});
 function route(){const h=location.hash.slice(1)||'/',m=h.match(/^\/p\/([^/]+)\/([^/]+)$/);document.querySelectorAll('nav a').forEach(a=>a.getAttribute('href')==='#'+(m?'/':h)?a.setAttribute('aria-current','page'):a.removeAttribute('aria-current'));
 m?detail(m[1],m[2]):h==='/add'?addView():h==='/manage'?manage():gallery();reveal()}
-const nt=$('.nav-toggle'),nl=$('#nl');nt.onclick=()=>nt.setAttribute('aria-expanded',nl.classList.toggle('open'));nl.onclick=e=>{if(e.target.closest('a'))nl.classList.remove('open')};
-addEventListener('scroll',()=>$('header').classList.toggle('gs-scrolled',scrollY>12),{passive:true});
+const nt=document.querySelector('#navToggle'),nl=document.querySelector('#navLinks');nt.onclick=()=>nt.setAttribute('aria-expanded',nl.classList.toggle('open'));nl.addEventListener('click',e=>{if(e.target.closest('a')){nl.classList.remove('open');nt.setAttribute('aria-expanded','false')}});
+addEventListener('scroll',()=>document.querySelector('.masthead').classList.toggle('scrolled',scrollY>12),{passive:true});
 const io='IntersectionObserver'in window?new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.08}):null;
 function reveal(){document.querySelectorAll('.reveal:not(.in)').forEach((e,i)=>{e.style.setProperty('--gs-delay',Math.min(i%12,7)*60+'ms');io?io.observe(e):e.classList.add('in')});setTimeout(()=>document.querySelectorAll('.reveal:not(.in)').forEach(e=>e.classList.add('in')),2500)}
 document.addEventListener('click',e=>{const a=e.target.closest('.readme a[href^="#"]');if(!a)return;e.preventDefault();const h=decodeURIComponent(a.getAttribute('href').slice(1)),t=document.getElementById(h)||document.getElementById('user-content-'+h.replace(/^user-content-/,''));t&&t.scrollIntoView({behavior:'smooth',block:'start'})});
