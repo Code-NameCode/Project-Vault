@@ -6,7 +6,7 @@
 
 **An archive of built work — nineteen real websites, indexed, documented and previewable from a single static page.**
 
-[![Live site](https://img.shields.io/website?label=live&url=https%3A%2F%2Fcode-namecode.github.io)](https://code-namecode.github.io)
+[![Live site](https://img.shields.io/website?label=live&url=https%3A%2F%2Fcode-namecode.github.io/Project-Vault/)](https://code-namecode.github.io/Project-Vault/)
 [![GitHub](https://img.shields.io/badge/github-Code--NameCode-10b981?logo=github)](https://github.com/Code-NameCode)
 [![HTML](https://img.shields.io/badge/HTML5-static_site-E34F26?logo=html5&logoColor=white)](#technology-stack)
 [![JavaScript](https://img.shields.io/badge/JavaScript-vanilla%20ES2020+-F7DF1E?logo=javascript&logoColor=black)](#technology-stack)
