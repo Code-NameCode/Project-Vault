@@ -108,7 +108,8 @@ const DEFAULT_PROJECTS=[
 {url:"https://github.com/sindresorhus/awesome",owner:"sindresorhus",repo:"awesome",desc:"",cat:"",tags:[],thumb:"",demo:"",feat:false,fav:false,added:1795300613433},
 {url:"https://github.com/ripienaar/free-for-dev",owner:"ripienaar",repo:"free-for-dev",desc:"",cat:"",tags:[],thumb:"",demo:"",feat:false,fav:false,added:1795300680276}
 ];
-let P=LS('pv.projects',null);if(!P){P=DEFAULT_PROJECTS.slice();SV('pv.projects',P)},C=LS('pv.cache',{}),UI={layout:'grid',sort:'stars',cat:'',tech:'',q:'',show:'',...LS('pv.ui',{})},draft=null;
+let P=LS('pv.projects',null);if(!P){P=DEFAULT_PROJECTS.slice();SV('pv.projects',P)}
+let C=LS('pv.cache',{}),UI={layout:'grid',sort:'stars',cat:'',tech:'',q:'',show:'',...LS('pv.ui',{})},draft=null;
 const CATS=['AI & Machine Learning','AI Agents','Web Development','Website Templates','SaaS Applications','Developer Tools','Automation','Desktop Applications','APIs & Backend','Open Source','Experiments','Other'];
 const KW={'AI Agents':/\b(agents?|agentic|autogpt|langchain|mcp)\b/,'AI & Machine Learning':/\b(machine.?learning|deep.?learning|neural|llm|gpt|pytorch|tensorflow|nlp|ai|ml)\b/,'Website Templates':/\b(templates?|themes?|landing.?page|portfolio|starter)\b/,'SaaS Applications':/\b(saas|dashboard|subscriptions?|stripe|multi.?tenant)\b/,'Developer Tools':/\b(cli|tools?|tooling|sdk|library|linter|plugin|extension|devtools?|framework)\b/,'Automation':/\b(automation|automate|bots?|workflows?|scraper|scraping|cron)\b/,'Desktop Applications':/\b(desktop|electron|tauri|qt|gtk|wpf)\b/,'APIs & Backend':/\b(api|rest|graphql|backend|server|microservices?|database)\b/,'Experiments':/\b(experiments?|playground|demo|fun|creative|sandbox)\b/,'Web Development':/\b(website|web|frontend|react|vue|svelte|css|html|nextjs|angular)\b/};
 const key=p=>(p.owner+'/'+p.repo).toLowerCase();
