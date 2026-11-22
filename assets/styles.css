@@ -90,30 +90,30 @@ img { display: block; max-width: 100%; }
 
 /* ---------- archive / showcase mode toggle ---------- */
 .mode-toggle {
-  display: inline-flex; align-items: center; gap: 2px;
-  border: 1px solid var(--border); border-radius: 999px; padding: 3px;
-  margin: 0 6px; vertical-align: middle;
+  position: relative; display: inline-flex; align-items: center;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 999px; padding: 3px; margin-left: 8px;
 }
+.mode-toggle::before {
+  content: ""; position: absolute; top: 3px; bottom: 3px; left: 3px;
+  width: calc(50% - 3px); border-radius: 999px;
+  background: var(--accent); transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.mode-toggle.showcase::before { transform: translateX(100%); }
 .mode-toggle a {
+  position: relative; z-index: 1;
   font-family: var(--font-mono); font-size: 10px; font-weight: 500;
   letter-spacing: 0.09em; text-transform: uppercase;
-  padding: 6px 14px; border-radius: 999px;
-  color: var(--text-secondary); transition: color 0.15s, background 0.15s;
-  position: static;
+  padding: 6px 16px; border-radius: 999px;
+  color: var(--text-tertiary); transition: color 0.2s;
+  min-width: 74px; text-align: center;
 }
 .mode-toggle a::after { display: none; }
-.mode-toggle a:hover { color: var(--text-primary); }
-.mode-toggle a.on { background: var(--accent); color: #000; }
+.mode-toggle a.on { color: #000; }
 @media (max-width: 900px) { .mastnav .mode-toggle { display: none; } }
 
 /* mobile menu toggle row */
-.mobile-nav .mnav-sep {
-  padding: 14px 24px 8px;
-  font-family: var(--font-mono); font-size: 10px; font-weight: 500;
-  letter-spacing: 0.09em; text-transform: uppercase;
-  color: var(--text-tertiary);
-}
-.mobile-nav .mnav-toggle { margin: 0 24px 14px; align-self: flex-start; }
+.mobile-nav .mnav-toggle { margin: 16px 24px 14px; align-self: flex-start; }
 .menu-btn {
   display: none; font-size: 13px; font-weight: 500;
   border: 1px solid var(--border); border-radius: 9px; padding: 9px 16px;

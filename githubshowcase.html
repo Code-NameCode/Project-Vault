@@ -31,8 +31,7 @@ a{color:inherit;text-decoration:none}:focus-visible{outline:2px solid var(--acce
 .cw{width:min(1120px,100%);margin:0 auto;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .cw a{color:var(--accent-emerald-light)}.cw a:hover{text-decoration:underline;text-underline-offset:3px}
 @media(max-width:900px){.menu-btn{display:block}.mastnav{display:none}.mobile-nav.open{display:block}.mastnav .mode-toggle{display:none}}
-.mnav-sep{padding:14px 24px 8px;font:500 10px var(--font-mono);letter-spacing:.09em;text-transform:uppercase;color:var(--text-tertiary)}
-.mnav-toggle{margin:0 24px 14px;align-self:flex-start}
+.mnav-toggle{margin:16px 24px 14px;align-self:flex-start}
 .mobile-nav .mnav-toggle{display:inline-flex}
 main{width:min(100% - 48px,1120px);margin:0 auto;padding:112px 0 84px;outline:0}
 h1{font-size:clamp(38px,5.6vw,68px);font-weight:800;letter-spacing:-.04em;line-height:1.05;margin:14px 0 12px;background:linear-gradient(180deg,#fff,#a1a1aa);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
@@ -94,7 +93,7 @@ footer{border-top:1px solid var(--border);padding:56px max(24px,calc((100% - 112
 <a class="skip" href="#" onclick="event.preventDefault();document.getElementById('app').focus()">Skip to content</a>
 <header class="masthead"><div class="masthead-inner">
 <a class="wordmark" href="#/"><img src="assets/img/logo.svg" alt="" aria-hidden="true">The Project <em>Showcase</em></a>
-<nav class="mastnav" aria-label="Primary"><a href="#/" aria-current="page">Gallery</a><a href="#/add">Add Project</a><a href="#/manage">Manage</a><span class="mode-toggle" aria-label="Switch section"><a href="index.html">Archive</a><a class="on" aria-current="page" href="#/">Showcase</a></span><a href="https://github.com/Code-NameCode" target="_blank" rel="noopener">GitHub &#8599;</a></nav>
+<nav class="mastnav" aria-label="Primary"><a href="#/" aria-current="page">Gallery</a><a href="#/add">Add Project</a><a href="#/manage">Manage</a><span class="mode-toggle showcase" aria-label="Switch section"><a href="index.html">Archive</a><a class="on" aria-current="page" href="#/">Showcase</a></span><a href="https://github.com/Code-NameCode" target="_blank" rel="noopener">GitHub &#8599;</a></nav>
 <button class="menu-btn" id="navToggle" aria-label="Menu" aria-expanded="false">Menu</button></div></header>
 <nav class="mobile-nav" id="navLinks" aria-label="Mobile"><a href="#/">Gallery</a><a href="#/add">Add Project</a><a href="#/manage">Manage</a><div class="mnav-sep">Switch section</div><div class="mode-toggle mnav-toggle" aria-label="Switch section"><a href="index.html">Archive</a><a class="on" aria-current="page" href="#/">Showcase</a></div><a href="https://github.com/Code-NameCode" target="_blank" rel="noopener">GitHub &#8599;</a></nav><main id="app" tabindex="-1"></main>
 <footer class="colophon"><div class="cw"><p>The Project Showcase - live from GitHub &middot; part of <a href="index.html">The Project Archive</a>.</p><p><a href="https://github.com/Code-NameCode" target="_blank" rel="noopener">github.com/Code-NameCode &#8599;</a> &middot; &copy; Goodstuff Designs</p></div></footer>
