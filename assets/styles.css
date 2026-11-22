@@ -114,6 +114,7 @@ img { display: block; max-width: 100%; }
 
 /* mobile menu toggle row */
 .mobile-nav .mnav-toggle { margin: 16px 24px 14px; align-self: flex-start; }
+.mobile-nav .mnav-toggle a { display: inline-block; padding: 6px 16px; min-height: 0; border-top: 0; }
 .menu-btn {
   display: none; font-size: 13px; font-weight: 500;
   border: 1px solid var(--border); border-radius: 9px; padding: 9px 16px;
@@ -121,8 +122,8 @@ img { display: block; max-width: 100%; }
 }
 .menu-btn:hover { border-color: var(--border-hover); }
 .mobile-nav { display: none; position: fixed; top: 56px; left: 0; right: 0; z-index: 99; background: var(--surface); border-bottom: 1px solid var(--border); }
-.mobile-nav a { display: block; padding: 15px 24px; font-size: 14px; font-weight: 500; color: var(--text-secondary); border-top: 1px solid var(--border); min-height: 44px; }
-.mobile-nav a.active { color: var(--accent); }
+.mobile-nav > a { display: block; padding: 15px 24px; font-size: 14px; font-weight: 500; color: var(--text-secondary); border-top: 1px solid var(--border); min-height: 44px; }
+.mobile-nav > a.active { color: var(--accent); }
 
 /* ---------- typography ---------- */
 h1 {
