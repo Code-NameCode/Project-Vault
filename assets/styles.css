@@ -105,6 +105,15 @@ img { display: block; max-width: 100%; }
 .mode-toggle a:hover { color: var(--text-primary); }
 .mode-toggle a.on { background: var(--accent); color: #000; }
 @media (max-width: 900px) { .mastnav .mode-toggle { display: none; } }
+
+/* mobile menu toggle row */
+.mobile-nav .mnav-sep {
+  padding: 14px 24px 8px;
+  font-family: var(--font-mono); font-size: 10px; font-weight: 500;
+  letter-spacing: 0.09em; text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+.mobile-nav .mnav-toggle { margin: 0 24px 14px; align-self: flex-start; }
 .menu-btn {
   display: none; font-size: 13px; font-weight: 500;
   border: 1px solid var(--border); border-radius: 9px; padding: 9px 16px;
