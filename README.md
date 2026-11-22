@@ -23,6 +23,7 @@
 
 - [Why this exists](#why-this-exists)
 - [Screenshots](#screenshots)
+- [The Showcase](#the-showcase)
 - [Features](#features)
 - [Technology Stack](#technology-stack)
 - [Installation and Setup](#installation-and-setup)
@@ -75,6 +76,16 @@ What makes it different: there is no CMS, no framework, no build step, and no ba
 
 Every project card in the archive itself *is* a real screenshot — each entry in `data/projects.json` points at a full-page capture stored alongside the project's source in `ProjectSetOne/` and `ProjectSetTwo/`.
 
+
+---
+
+## The Showcase
+
+Alongside the archive lives a second page - **`githubshowcase.html`** - a self-contained GitHub project showcase sharing the vault's design system, navbar and `VAULT | SHOWCASE` toggle. Where the archive documents *built* websites, the showcase presents *GitHub repositories*: fetched live from the GitHub REST API with rendered READMEs, star/fork stats, language dots, auto-categorisation, favourites and grid/list layouts.
+
+- **Cross-linked:** the pill toggle in the masthead of either page jumps between them; the same toggle appears in both mobile menus.
+- **Zero backend:** repository data is fetched from `api.github.com` in the browser (unauthenticated, cached in `localStorage` for 1 hour). Nothing is copied or stored server-side.
+- **Default gallery:** the showcase ships with five seeded repositories - `Code-NameCode/Project-Vault` (favourite), `Code-NameCode/goodstuff-fun-site`, `GoogleChrome/lighthouse`, `sindresorhus/awesome` and `ripienaar/free-for-dev`. On first visit these load automatically. Visitors can add any public repo via **Add Project** (paste a GitHub URL) and manage the collection (descriptions, categories, tags, thumbnails, reorder, export/import JSON) under **Manage**. Removals affect only the local showcase - nothing on GitHub is touched.
 ---
 
 ## Features
