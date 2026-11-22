@@ -30,6 +30,30 @@ a{color:inherit;text-decoration:none}:focus-visible{outline:2px solid var(--acce
 .cw{width:min(1120px,100%);margin:0 auto;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .cw a{color:var(--accent-emerald-light)}.cw a:hover{text-decoration:underline;text-underline-offset:3px}
 @media(max-width:900px){.menu-btn{display:block}.mastnav{display:none}.mobile-nav.open{display:block}.mastnav .mode-toggle{display:none}}
+@media(max-width:760px){
+h1{font-size:clamp(28px,8vw,38px)}
+.sub{font-size:14px}
+.bar{gap:8px;margin-bottom:20px}
+.bar input{flex:1 1 100%}
+.bar select{flex:1 1 calc(50% - 4px);min-width:0}
+.grid{grid-template-columns:1fr;gap:12px}
+.hero{grid-template-columns:1fr;gap:18px}
+.hero .th{min-height:160px}
+.prev{grid-template-columns:1fr;gap:18px}
+.stats{grid-template-columns:repeat(2,1fr);gap:10px}
+.stat{padding:12px}
+.stat b{font-size:18px}
+.panel{padding:16px}
+.readme pre{padding:10px;font-size:12px}
+.fw{grid-template-columns:1fr;gap:24px}
+.fbar{flex-direction:column}
+.mnav-toggle{margin:16px 24px 14px;align-self:flex-start}
+}
+@media(max-width:400px){
+.stats{grid-template-columns:1fr 1fr}
+.bar select{flex:1 1 100%}
+.acts .btn{flex:1 1 auto}
+}
 .mnav-toggle{margin:16px 24px 14px;align-self:flex-start}
 .mobile-nav .mnav-toggle{display:inline-flex}
 main{width:min(100% - 48px,1120px);margin:0 auto;padding:112px 0 84px;outline:0}
