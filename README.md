@@ -86,6 +86,13 @@ Alongside the archive lives a second page - **`githubshowcase.html`** - a self-c
 - **Cross-linked:** the pill toggle in the masthead of either page jumps between them; the same toggle appears in both mobile menus.
 - **Zero backend:** repository data is fetched from `api.github.com` in the browser (unauthenticated, cached in `localStorage` for 1 hour). Nothing is copied or stored server-side.
 - **Default gallery:** the showcase ships with five seeded repositories - `Code-NameCode/Project-Vault` (favourite), `Code-NameCode/goodstuff-fun-site`, `GoogleChrome/lighthouse`, `sindresorhus/awesome` and `ripienaar/free-for-dev`. On first visit these load automatically. Visitors can add any public repo via **Add Project** (paste a GitHub URL) and manage the collection (descriptions, categories, tags, thumbnails, reorder, export/import JSON) under **Manage**. Removals affect only the local showcase - nothing on GitHub is touched.
+**Showcase gallery** â€” the seeded default collection with live GitHub data: terminal-style cards, categories, favourites, search and filters.
+
+![Showcase gallery view with default projects](docs/screenshots/showcase-view.png)
+
+**Saved project view** â€” a repository record with rendered README, stats, technology stack and activity.
+
+![Saved project detail with rendered README](docs/screenshots/showcase-project-view.png)
 ---
 
 ## Features

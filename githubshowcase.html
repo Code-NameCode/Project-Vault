@@ -191,8 +191,8 @@ const card=(x,pv)=>`<article class="card reveal"><a class="thw" href="#/p/${x.ow
 const opt=(v,cur,l)=>`<option value="${esc(v)}"${v===cur?' selected':''}>${esc(l||v)}</option>`;
 // ---- Gallery
 function gallery(){const techs=[...new Set(P.map(vm).flatMap(x=>x.techs))].sort();
-if(!P.length){app.innerHTML=`<h1>Project Vault</h1><div class="empty"><p>Your vault is empty. Paste a GitHub URL to showcase your first project.</p><a class="btn pri" href="#/add">ADD PROJECT</a></div>`;return}
-app.innerHTML=`<span class="pill-badge"><i class="live"></i>Live from GitHub</span><h1>Project Vault</h1><p class="sub">${P.length} project${P.length>1?'s':''} showcased from GitHub. Every one still lives in its original repository.</p>
+if(!P.length){app.innerHTML=`<h1>GitHub Vault</h1><div class="empty"><p>Your vault is empty. Paste a GitHub URL to showcase your first project.</p><a class="btn pri" href="#/add">ADD PROJECT</a></div>`;return}
+app.innerHTML=`<span class="pill-badge"><i class="live"></i>Live from GitHub</span><h1>GitHub Vault</h1><p class="sub">${P.length} project${P.length>1?'s':''} showcased from GitHub. Every one still lives in its original repository.</p>
 <div class="bar"><input id="q" type="search" placeholder="Search projects…" value="${esc(UI.q)}"><select id="fc"><option value="">All categories</option>${CATS.map(c=>opt(c,UI.cat)).join('')}</select><select id="ft"><option value="">All technologies</option>${techs.map(c=>opt(c,UI.tech)).join('')}</select>
 <select id="fs">${[['stars','Most stars'],['new','Newest added'],['upd','Recently updated'],['manual','My order']].map(a=>opt(a[0],UI.sort,a[1])).join('')}</select><select id="fv">${[['','All projects'],['feat','Featured'],['fav','Favourites']].map(a=>opt(a[0],UI.show,a[1])).join('')}</select>
 <div class="seg"><button data-a="lay" data-v="grid" title="Grid">▦</button><button data-a="lay" data-v="list" title="List">☰</button></div></div><div id="res"></div>`;
